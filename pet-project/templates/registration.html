@@ -1,0 +1,17 @@
+{{ define "registration" }}
+ 
+{{ template "header_for_demo" }}
+
+<main role="main" class="inner cover">
+  <h1>Регистрация на Publish Place</h1><br>
+  <form action="/save_user" method="post">
+    <input type="email" name="login" id="login" placeholder="Введите электорнную почту" class="form-control"><br>
+    <input type="password" name="password" id="password" placeholder="Введите пароль" class="form-control"><br>
+
+    <button class="btn btn-warning">Создать</button>
+  </form>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

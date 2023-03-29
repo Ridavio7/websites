@@ -1,0 +1,26 @@
+{{ define "demo_web" }} 
+{{ template "header_for_demo" }}
+
+<main class="px-3">
+  <h1>Главная страница Publish Place</h1>
+  <p class="lead">Интересные статьи на любой вкус: расширяем кругозор вместе</p>
+
+  {{ range . }}
+  <div class="alert alert-light" role="alert">
+    <h2>{{ .Title }}</h2>
+    <p>{{ .Anons }}</p>
+    <a href="/post/{{ .Id }}"></a></div>
+  {{ else }}
+  <p class="lead">Статей нет</p>
+  {{ end }}
+
+  <p class="lead">Для прочтения оригинального контента на Publish Place, 
+    Вам необходимо авторизоваться</p>
+  <p class="lead">
+    <a href="/authorization" class="btn btn-primary btn-lg active">Авторизация</a>
+    <a href="/registration" class="btn btn-primary btn-lg active">Регистрация</a>
+  </p>
+</main>
+
+{{ template "footer" }} 
+{{ end }}
