@@ -7,7 +7,7 @@
 - full preview of published articles;
 - publication of articles.
 #### Software part of the website:
-- Beakend: golang;
+- Baсkend: golang;
 - Frontend: HTML, CSS;
 - Db: MySQL.
 
