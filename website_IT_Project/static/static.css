@@ -4,24 +4,24 @@
 }
 
 @font-face {
-    font-family: Inter-Regular;
+    font-family: Inter-Regular, sans-serif;
     src: url("../fonts/Inter-Regular.ttf") format("ttf");
     font-weight: 400;
 }
 
 @font-face {
-    font-family: Inter-Medium;
+    font-family: Inter-Medium, sans-serif;
     src: url("../fonts/Inter-Medium.ttf") format("ttf");
     font-weight: 500;
 }
 
 @font-face {
-    font-family: Inter-Bold;
+    font-family: Inter-Bold, sans-serif;
     src: url("../fonts/Inter-Bold.ttf") format("ttf");
     font-weight: 700;
 }
 
-* {
+*{
     margin: 0;
     padding: 0;
 }
@@ -32,6 +32,8 @@ html{
 
 body {
     background: black;
+    min-width: 1864px;
+
 }
 
 .header {
@@ -54,11 +56,14 @@ body {
     display: flex;
     align-items: center;
     list-style-type: none;
+    padding-right: 70px;
 }
 
 .logotype {
     box-sizing: content-box;
     border: 1px solid #F24E1E;
+
+    display: flex;
     padding-right: 20px;
     padding-left: 20px;
     padding-top: 10px;
@@ -67,17 +72,20 @@ body {
 }
 
 .title_logo{
+    padding-left: 5px;
     font-family: 'Ledger', serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
     color: #ffffff;
+
+    text-decoration: none;
 }
 
 .link {
     color: #fff;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -116,6 +124,7 @@ body {
 .img1_block-1{
     position: relative;
     padding-top: 100px;
+
 }
 
 .tagline {
@@ -125,13 +134,15 @@ body {
     text-align: left;
     color: #ffffff;
     font-family: 'Inter', sans-serif;
+
     padding-top: 200px;
     padding-left: 135px;
+    width: 800px;
 }
 
 .button_zl{
     position: absolute;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
@@ -162,29 +173,46 @@ body {
 }
 
 .header_block-2{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
     line-height: 65px;
     color: #FFFFFF;
+
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
+    padding-left: 300px;
+    padding-right: 300px;
 }
 
 .icons{
     display: flex;
     justify-content: space-around;
+    flex-wrap: nowrap;
+
     padding-top: 71px;
     padding-bottom: 50px;
-    flex-wrap: nowrap;
     padding-left: 300px;
     padding-right: 300px;
+}
+
+.icon{
+    padding: 10px;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    color: #FFFFFF;
 }
 
 .description_block-2{
     display: flex;
     justify-content: space-around;
+
     padding-left: 340px;
     padding-right: 300px;
     flex-wrap: nowrap;
@@ -192,10 +220,11 @@ body {
 }
 
 .description_development{
-    position: relative;
     width: 200px;
     height: 150px;
-    font-family: 'Inter';
+    padding: 10px;
+
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -204,12 +233,14 @@ body {
 }
 
 .title{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
     line-height: 65px;
     color: #FFFFFF;
+
+    width: 525px;
     padding-left: 135px;
     position: relative;
     display: flex;
@@ -227,7 +258,7 @@ body {
     width: 876px;
     height: 1406.7px;
     left: -88.78px;
-    top: 1850px;
+    top: 2000px;
 }
 
 .img2_block-3{
@@ -235,7 +266,7 @@ body {
     width: 522px;
     height: 558px;
     left: -300px;
-    top: 1800px;
+    top: 1900px;
 
     background: #2A82CA;
     filter: blur(250px);
@@ -250,14 +281,17 @@ body {
 
 .about_company{
     display: flex;
-    justify-content:space-between;
     position: relative;
-    box-sizing: content-box;
+    flex-wrap: nowrap;
+
+    box-sizing: border-box;
     border: 1px solid #F24E1E;
     margin-top: 70px;
     margin-right: 300px;
     margin-left: 300px;
     margin-bottom: 150px;
+    width: 1250px;
+    height: 369px;
 }
 
 .img4_block-3{
@@ -266,11 +300,13 @@ body {
 }
 
 .text_company{
+    position: absolute;
     width: 867.49px;
     height: 203px;
     padding-top: 83px;
+    padding-left: 370px;
     
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -279,20 +315,25 @@ body {
 }
 
 .advantages_block-3{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding-top: 40px;
     list-style-image: url(../images/triangle_paragraph_svg.svg);
     padding-left: 170px;
 }
 
 .description_company{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
-    position: relative;
     color: #FFFFFF;
+
+    position: relative;
     padding: 30px;
+    width: 1400px;
 }
 
 .slogan{
@@ -315,7 +356,7 @@ body {
     top: -500px;
     left: 850px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -332,7 +373,7 @@ body {
 }
 
 .button_zl2{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
@@ -360,7 +401,7 @@ body {
 }
 
 .button_bzl{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
@@ -390,7 +431,7 @@ body {
 .block-4{
     display: flex;
     flex-wrap: nowrap;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
@@ -441,7 +482,7 @@ body {
     padding-top: 50px;
     padding-left: 60px;
     
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -451,7 +492,7 @@ body {
 }
 
 .button_zl3{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
@@ -478,7 +519,7 @@ body {
 }
 
 .button_link{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;
@@ -521,7 +562,7 @@ body {
     width: 199px;
     margin-left: 200px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -534,11 +575,11 @@ body {
     position: relative;
     display: block;
     width: 457px;
-    height: 296px;
+    height: 310px;
     padding-top: 50px;
     padding-left: 60px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -576,7 +617,7 @@ body {
     margin-left: 135px;
     margin-top: 100px;
     
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -588,17 +629,17 @@ body {
     position: absolute;
     display: flex;
     align-items: center;
-    width: 975px;
-    height: 265px;
+    width: 1032.09px;
+    height: 389px;
 
     margin-left: 355px;
-    margin-top: 245px;
+    margin-top: 220px;
     padding-top: 52px;
     padding-bottom: 52px;
     padding-left: 69px;
     padding-right: 69px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -613,9 +654,10 @@ body {
     position: absolute;
     display: flex;
     margin-left: 135px;
-    margin-top: 710px;
+    margin-top: 920px;
+    width: 715px;
     
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -623,12 +665,12 @@ body {
     color: #FFFFFF;
 }
 
-.description_avantguard_about_effect{
-    padding-top: 777px;
+ol{
+    padding-top: 900px;
     counter-reset: myCounter;
     margin-left: 135px;
-    margin-top: 70px;
-    margin-bottom: 40px;
+    margin-top: 150px;
+    list-style-type: decimal-leading-zero;
 }
 
 .text_avantguard_about_effect{
@@ -637,7 +679,7 @@ body {
     width: 1450px;
     padding: 30px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -652,7 +694,7 @@ body {
 
 .text_avantguard_about_effect::before{
     counter-increment: myCounter;
-    content:counter(myCounter);
+    content:counter(myCounter, decimal-leading-zero) " ";
     display: inline-block;
 
     margin-right: 103px;
@@ -675,10 +717,13 @@ body {
     transform: rotate(0deg);
 }
 
+.logos_discrete_technologies{
+    display: flex;
+}
+
 .logo_discrete_technologies1{
     margin-left: 800px;
-    margin-top: 10px;
-    padding-top: 180px;
+    padding-top: 220px;
     float: left;
     position: relative;
 }
@@ -686,14 +731,14 @@ body {
 .title_discrete_technologies_description{
     display: flex;
     width: 199px;
-    margin-left: 900px;
+    margin-left: 10px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
     line-height: 36px;
-    padding-top: 180px;
+    padding-top: 210px;
 
     color: #FFFFFF;
     position: relative;
@@ -709,6 +754,8 @@ body {
     margin-right: 385px;
     margin-left: 355px;
     margin-bottom: 100px;
+    width: 1130px;
+    height: 396px;
 }
 
 .img1_block-6{
@@ -718,13 +765,14 @@ body {
 }
 
 .text_about_discrete_technologies{
-    position: relative;
+    position: absolute;
+    width: 510px;
+    height: 265px;
 
     padding-top: 40px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 605px;
     
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -733,16 +781,15 @@ body {
 }
 
 .cards_discrete_technologies{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-bottom: 1150px;
 }
 
 .card1_discrete_technologies{
-    position: relative;
+    position: absolute;
     width: 370px;
     height: 418px;
     margin: 0 50px;
+    margin-left: 300px;
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -763,7 +810,7 @@ body {
     height: 90.05px;
     top: 30px;
     
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -772,10 +819,11 @@ body {
 }
 
 .card2_discrete_technologies{
-    position: relative;
+    position: absolute;
     width: 370px;
     height: 418px;
     margin: 0 50px;
+    margin-left: 735px;
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -796,7 +844,7 @@ body {
     height: 104.84px;
     top: 50px;
     left: 40px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -805,10 +853,11 @@ body {
 }
 
 .card3_discrete_technologies{
-    position: relative;
+    position: absolute;
     width: 370px;
     height: 418px;
     margin: 0 50px;
+    margin-left: 1170px;
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -829,7 +878,7 @@ body {
     height: 104.84px;
     top: 30px;
     left: 40px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -838,24 +887,22 @@ body {
 }
 
 .card4_discrete_technologies{
-    position: relative;
+    position: absolute;
     width: 370px;
     height: 418px;
     margin: 0 50px;
-    margin-top: 50px;
+    margin-left: 300px;
+    margin-top: 480px;
 
     background: #FFFFFF;
     border-radius: 10px;
 }
 
 .img5_block-6{
-    display: flex;
-    justify-content: center;
     position: relative;
-    width: 252.5px;
-    height: 259.4px;
+    width: 370px;
+    height: 255.37px;
     border-radius: 10px;
-    left: 60px;
 }
 
 .card4_description_discrete_technologies{
@@ -866,7 +913,7 @@ body {
     height: 104.84px;
     top: 30px;
     left: 40px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -875,15 +922,15 @@ body {
 }
 
 .card5_discrete_technologies{
-    position: relative;
+    position: absolute;
     width: 370px;
     height: 418px;
     margin: 0 50px;
-    margin-top: 50px;
+    margin-left: 735px;
+    margin-top: 480px;
 
     background: #FFFFFF;
     border-radius: 10px;
-    margin-top: 50px;
 }
 
 .img6_block-6{
@@ -901,7 +948,7 @@ body {
     height: 104.84px;
     top: 30px;
     left: 40px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -910,11 +957,13 @@ body {
 }
 
 .card6_discrete_technologies{
-    position: relative;
+    position: absolute;
     width: 370px;
     height: 418px;
     margin: 0 50px;
-    margin-top: 50px;
+    margin-left: 1170px;
+    margin-top: 480px;
+
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -937,7 +986,7 @@ body {
     top: 90px;
     left: 100px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -946,18 +995,16 @@ body {
 }
 
 .block-7{
-    margin-bottom: 1200px;
-    margin-top: 200px;
+    padding-top: 150px;
+    margin-bottom: 1100px;
 }
 
 .title_contacts{
     position: relative;
-    width: 237px;
-    height: 36px;
+    display: flex;
     margin-left: 135px;
-    padding-bottom: 70px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
@@ -1005,7 +1052,7 @@ body {
     padding-top: 25px;
     padding-left: 20px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -1028,7 +1075,7 @@ body {
     padding-top: 69px;
     padding-left: 128px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1043,7 +1090,7 @@ body {
     padding-top: 25px;
     padding-left: 20px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -1066,7 +1113,7 @@ body {
     padding-top: 85px;
     padding-left: 128px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1081,7 +1128,7 @@ body {
     padding-top: 120px;
     padding-left: 128px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1096,7 +1143,7 @@ body {
     padding-top: 25px;
     padding-left: 20px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -1119,7 +1166,7 @@ body {
     padding-top: 105px;
     padding-left: 128px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1133,7 +1180,6 @@ body {
     height: 721px;
     margin-left: 900px;
     margin-top: 100px;
-
 
     background: #17181F;
     border-radius: 10px;
@@ -1173,8 +1219,10 @@ body {
     position: absolute;
     box-sizing: border-box;
     border: 1px solid #F24E1E;
+    border-radius: 10px;
+
     background: #17181F;
-    color: #676464;
+    color: #ffffff;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -1183,7 +1231,6 @@ body {
 
     padding: 10px;
     padding-right: 200px;
-
     margin-top: 210px;
     margin-left: 100px;
 }
@@ -1192,9 +1239,10 @@ body {
     position: absolute;
     box-sizing: border-box;
     border: 1px solid #F24E1E;
-    background: #17181F;
-    color: #676464;
+    border-radius: 10px;
 
+    background: #17181F;
+    color: #ffffff;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -1212,9 +1260,10 @@ body {
     position: absolute;
     box-sizing: border-box;
     border: 1px solid #F24E1E;
-    background: #17181F;
-    color: #676464;
+    border-radius: 10px;
 
+    background: #17181F;
+    color: #ffffff;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -1232,9 +1281,11 @@ body {
     position: absolute;
     box-sizing: border-box;
     border: 1px solid #F24E1E;
+    border-radius: 10px;
+    resize: none;
+
     background: #17181F;
-    color: #676464;
-    
+    color: #ffffff;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -1242,8 +1293,8 @@ body {
     line-height: 26px;
 
     padding-top: 10px;
-    padding-bottom: 110px;
-    padding-right: 210px;
+    padding-bottom: 20px;
+    padding-right: 240px;
     padding-left: 10px;
 
     margin-top: 450px;
@@ -1278,6 +1329,7 @@ body {
                   0 0 11px #F24E1E;
 }
 
+
 .block-8{
     width: 1864px;
     height: 450px;
@@ -1291,7 +1343,7 @@ body {
 
 .link_footer{
     color: #fff;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -1318,7 +1370,7 @@ body {
     padding-left: 1200px;
     padding-top: 80px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -1333,7 +1385,7 @@ body {
     padding-left: 1200px;
     padding-top: 130px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1343,7 +1395,7 @@ body {
 
 .number1{
     position: absolute;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1352,11 +1404,12 @@ body {
 
     padding-left: 1200px;
     padding-top: 180px;
+    width: 200px;
 }
 
 .number2{
     position: absolute;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1365,11 +1418,12 @@ body {
 
     padding-left: 1200px;
     padding-top: 230px;
+    width: 200px;
 }
 
 .mail{
     position: absolute;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1378,11 +1432,12 @@ body {
 
     padding-left: 1200px;
     padding-top: 280px;
+    width: 200px;
 }
 
 .address{
     position: absolute;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1391,6 +1446,7 @@ body {
 
     padding-left: 1200px;
     padding-top: 330px;
+    width: 300px;
 }
 
 .logotype_footer{
@@ -1398,6 +1454,7 @@ body {
     box-sizing:border-box;
     border: 1px solid #F24E1E;
 
+    display: flex;
     padding-right: 20px;
     padding-left: 20px;
     padding-top: 10px;
@@ -1407,6 +1464,8 @@ body {
 }
 
 .title_logo{
+    padding-left: 5px;
+
     font-family: 'Ledger', serif;
     font-style: normal;
     font-weight: 400;
