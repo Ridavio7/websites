@@ -1,0 +1,44 @@
+{
+	"wifi": {
+		"mode": "ap",
+		"wifi_auth": {
+			"ssid": "PING_v1",
+			"pass": "mypassword",
+			"ssid_mac": 1
+		},
+		"ip": {
+			"mode": "static",
+			"ip" : "192.168.4.1",
+			"mask" : "255.255.255.0",
+			"gateway": "192.168.4.254"
+		},
+		"dns": [
+			"192.168.4.2",
+			"192.168.4.3"
+		],
+		"hidden": 0,
+		"channel":	2,
+		"maxconnection": 4,
+		"dhcps":{
+			"enable": 1,
+			"startip" : "192.168.4.30",
+			"endip" : "192.168.4.50"
+		}
+	},
+	"ethernet": {
+		"ip": {
+			"mode": "static",
+			"ip" : "192.168.100.30",
+			"mask" : "255.255.255.0",
+			"gateway": "192.168.100.254"
+		},
+		"dns": [
+			"192.168.100.254"
+		],
+		"dhcps":{
+			"enable": 0,
+			"startip" : "192.168.100.40",
+			"endip" : "192.168.100.50"
+		}
+	}
+}

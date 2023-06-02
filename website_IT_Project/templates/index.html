@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1864">
+    <meta name="viewport" content="width=device-width">
     <title>ИТ Проект</title>
+    <script defer src="https://www.google.com/recaptcha/api.js?render=6LcRbVImAAAAAAZUBfTdnatVxr1r1TkNrf4Q70Q8"></script>
+    <script defer src="../assets/captcha.js"></script>
+    <script defer src="../assets/app.js"></script>
     <link href="../static/static.css" rel="stylesheet" />
     <link rel="icon" href="../images/ITlogo.svg" type="image/x-icon">
 </head>
@@ -24,6 +27,7 @@
             </ul>
         </nav>
     </header>
+    <div class="wrapper">
     <div class="block-1" id="Главная">
         <div>
             <p class="tagline">ИТ Проект: инновации и качество в мире программного обеспечения</p>
@@ -194,9 +198,11 @@
                 <input type="text" id="phone" name="phone" class="number" placeholder="Ваш телефон" data-reg="^((\+7|7|8)+([0-9]){10})$">
                 <input type="text" id="email" name="email" class="e-mail_address" placeholder="Ваш e-mail" data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"> 
                 <textarea name="message" class="comment" placeholder="Ваше сообщение:"></textarea>
-                <button type="submit" id="button" class="button_zl4">Отправить</button>
+                <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                <button class="button_zl4" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>Отправить</button>
             </form>
         </div>
+    </div>
     </div>
     <div class="block-8" id="block-8">
         <div class="logotype_footer">
@@ -208,7 +214,7 @@
             <a class="time">Время работы: Пн-Птн 9:00-18:00</a>
             <a class="number1">+7 (4822) 33-11-23</a>
             <a class="number2">+7 (4822) 33-13-23</a>
-            <a class="mail">help@bastion.tver.ru</a>
+            <a class="mail">info@proektit.ru</a>
             <a class="address">170100, г. Тверь, ул. Андрея Дементьева, д. 37</a>
         <div class="menu_footer">
             <a href="#Главная" class="link_footer">Главная</a>
@@ -219,6 +225,5 @@
         </div>
     </div>
     </div>
-    <script src="app.js"></script>
 </body>
 </html>

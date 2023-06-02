@@ -32,8 +32,7 @@ html{
 
 body {
     background: black;
-    min-width: 1864px;
-
+    max-width: 18999px;
 }
 
 .header {
@@ -1192,7 +1191,7 @@ ol{
     padding-top: 50px;
     padding-left: 100px;
     
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -1207,7 +1206,7 @@ ol{
     padding-top: 120px;
     padding-left: 100px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -1223,7 +1222,7 @@ ol{
 
     background: #17181F;
     color: #ffffff;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1243,7 +1242,7 @@ ol{
 
     background: #17181F;
     color: #ffffff;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1264,7 +1263,7 @@ ol{
 
     background: #17181F;
     color: #ffffff;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1286,7 +1285,7 @@ ol{
 
     background: #17181F;
     color: #ffffff;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1302,7 +1301,7 @@ ol{
 }
 
 .button_zl4{
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 31px;

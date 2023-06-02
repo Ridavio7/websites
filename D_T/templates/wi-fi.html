@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <title>Router</title>
+    <link href="../static/static.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+                <div class="container">
+                    <div class="header_body">
+                        <div class="header_logo">
+                        <img src="../images/logo.png" alt="">
+                        <a class="header_title" href="../templates/index.html">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>
+                        </div>
+                        <div class="header_burger">
+                            <span></span>
+                        </div>
+                        <nav class="header_menu">
+                            <ul class="header_list">
+                                <li><a class="header_link" href="../templates/index.html">Home</a></li>
+                                <li><a class="header_link" href="../templates/wi-fi.html">Wi-Fi</a></li>
+                                <li><a class="header_link" href="../templates/ethernet.html">Ethernet</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+        </header>
+        <div class="container">
+            <div class="content_wifi">
+                    <form action="" name="form" method="POST">
+                    <div class="input-box">
+                        <label for="mode">Mode type:</label>
+                        <input type="text" placeholder="ap" name="mode" id="mode"/>
+                    </div>
+                    <div class="wi-fi_auth">
+                        <div class="input-box">
+                            <label for="ssid">WI-FI SSID:</label>
+                            <input type="text" placeholder="PING_v1" name="ssid" id="ssid"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="password">WI-FI Password:</label>
+                            <input type="password" placeholder="mypassword" name="password" id="password"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="ssid_mac">WI-FI SSID MAC:</label>
+                            <input type="text" placeholder="1" name="ssid_mac" id="ssid_mac"/>
+                        </div>
+                    </div>
+                    <div class="ip">
+                        <div class="input-box">
+                            <label for="mode">IP mode type:</label>
+                            <input type="text" placeholder="static" name="mode" id="mode"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="ip">IP address:</label>
+                            <input type="text" placeholder="192.168.4.1" name="ip" id="ip"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="mask"> IP mask:</label>
+                            <input type="text" placeholder="255.255.255.0" name="mask" id="mask"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="gateway">IP gateway:</label>
+                            <input type="text" placeholder="192.168.4.254" name="gateway" id="gateway"/>
+                        </div>
+                    </div>
+                    <div class="dns">
+                        <div class="input-box">
+                            <label for="dns_prefer">DNS prefer:</label>
+                            <input type="text" placeholder="192.168.4.2" name="dns_prefer" id="dns_prefer"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="dns_alternative">DNS alternative:</label>
+                            <input type="text" placeholder="192.168.4.3" name="dns_alternative" id="dns_alternative"/>
+                        </div>
+                    </div>
+                    <div class="enother_settings">
+                        <div class="input-box">
+                            <label for="hidden">Hidden:</label>
+                            <input type="text" placeholder="0" name="hidden" id="hidden"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="channel">Channel:</label>
+                            <input type="text" placeholder="2" name="channel" id="channel"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="maxconnection">Max connection:</label>
+                            <input type="text" placeholder="4" name="maxconnection" id="maxconnection"/>
+                        </div>
+                    </div>
+                    <div class="dhcp">
+                        <div class="input-box">
+                            <label for="enable">DHCP enable:</label>
+                            <input type="text" placeholder="1" name="enable" id="enable"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="startip">DHCP startip:</label>
+                            <input type="text" placeholder="192.168.4.30" name="startip" id="startip"/>
+                        </div>
+                        <div class="input-box">
+                            <label for="endip">DHCP endip:</label>
+                            <input type="text" placeholder="192.168.4.50" name="endip" id="endip"/>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" id="button" value="Submit" />
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
