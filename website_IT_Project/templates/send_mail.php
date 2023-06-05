@@ -44,7 +44,7 @@
 
     // Создаем POST запрос
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = '***';
+    $recaptcha_secret = '6LcRbVImAAAAAJEt15upQkq24dqobjWap49OWI6D';
     $recaptcha_response = $_POST['recaptcha_response'];
 
     // Отправляем POST запрос и декодируем результаты ответа

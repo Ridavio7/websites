@@ -35,80 +35,98 @@
         <div class="container">
             <div class="content_wifi">
                     <form action="" name="form" method="POST">
-                    <div class="input-box">
-                        <label for="mode">Mode type:</label>
-                        <input type="text" placeholder="ap" name="mode" id="mode"/>
-                    </div>
-                    <div class="wi-fi_auth">
-                        <div class="input-box">
-                            <label for="ssid">WI-FI SSID:</label>
-                            <input type="text" placeholder="PING_v1" name="ssid" id="ssid"/>
+                    <div class="block one">
+                        <div class="block_item">
+                            <div class="block_title">WI-FI</div>
+                            <div class="block_settings">
+                                <div class="input-box">
+                                    <label for="mode">Mode type:</label>
+                                    <input type="text" placeholder="ap" name="mode" id="mode"/>
+                                </div>
+                                <div class="input-box">
+                                    <label for="ssid">WI-FI SSID:</label>
+                                    <input type="text" placeholder="PING_v1" name="ssid" id="ssid"/>
+                                </div>
+                                <div class="input-box">
+                                    <label for="password">WI-FI Password:</label>
+                                    <input type="password" placeholder="mypassword" name="password" id="password"/>
+                                </div>
+                                <div class="input-box">
+                                    <label for="ssid_mac">WI-FI SSID MAC:</label>
+                                    <input type="text" placeholder="1" name="ssid_mac" id="ssid_mac"/>
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-box">
-                            <label for="password">WI-FI Password:</label>
-                            <input type="password" placeholder="mypassword" name="password" id="password"/>
+                        <div class="block_item">
+                            <div class="block_title">DNS</div>
+                            <div class="block_settings">
+                                <div class="input-box">
+                                    <label for="dns_prefer">DNS prefer:</label>
+                                    <input type="text" placeholder="192.168.4.2" name="dns_prefer" id="dns_prefer"/>
+                                </div>
+                                <div class="input-box">
+                                    <label for="dns_alternative">DNS alternative:</label>
+                                    <input type="text" placeholder="192.168.4.3" name="dns_alternative" id="dns_alternative"/>
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-box">
-                            <label for="ssid_mac">WI-FI SSID MAC:</label>
-                            <input type="text" placeholder="1" name="ssid_mac" id="ssid_mac"/>
+                        <div class="block_item">
+                            <div class="block_title">Another</div>
+                            <div class="block_settings">
+                                <div class="input-box">
+                                    <label for="hidden">Hidden:</label>
+                                    <input type="text" placeholder="0" name="hidden" id="hidden"/>
+                                </div>
+                                <div class="input-box">
+                                    <label for="channel">Channel:</label>
+                                    <input type="text" placeholder="2" name="channel" id="channel"/>
+                                </div>
+                                <div class="input-box">
+                                    <label for="maxconnection">Max connection:</label>
+                                    <input type="text" placeholder="4" name="maxconnection" id="maxconnection"/>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="ip">
-                        <div class="input-box">
-                            <label for="mode">IP mode type:</label>
-                            <input type="text" placeholder="static" name="mode" id="mode"/>
+                        <div class="block_item">
+                            <div class="form_radio_btn">
+                                <input id="hide" type="radio" name="example" value="hide" checked>
+                                <label for="hide">Static</label>
+                            </div>
+                            <div class="form_radio_btn">
+                                <input id="show" type="radio" name="example" value="show">
+                                <label for="show">Dynamic</label>
+                            </div>
                         </div>
-                        <div class="input-box">
-                            <label for="ip">IP address:</label>
-                            <input type="text" placeholder="192.168.4.1" name="ip" id="ip"/>
+                        <div class="block_item" id="ip">
+                            <div class="block_title">IP</div>
+                            <div class="block_settings">
+                                    <div class="input-box">
+                                        <label for="ip">IP address:</label>
+                                        <input type="text" placeholder="192.168.100.30" name="ip" id="ip"/>
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="mask"> IP mask:</label>
+                                        <input type="text" placeholder="255.255.255.0" name="mask" id="mask"/>
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="gateway">IP gateway:</label>
+                                        <input type="text" placeholder="192.168.100.254" name="gateway" id="gateway"/>
+                                    </div>
+                            </div>
                         </div>
-                        <div class="input-box">
-                            <label for="mask"> IP mask:</label>
-                            <input type="text" placeholder="255.255.255.0" name="mask" id="mask"/>
+                        <div class="block_item" id="dhcp">
+                            <div class="block_title">DHCP</div>
+                            <div class="block_settings">
+                                <div class="input-box">
+                                    <label for="startip">DHCP startip:</label>
+                                    <input type="text" placeholder="192.168.100.40" name="startip" id="startip"/>
+                                </div>
+                                <div class="input-box">
+                                    <label for="endip">DHCP endip:</label>
+                                    <input type="text" placeholder="192.168.100.50" name="endip" id="endip"/>
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-box">
-                            <label for="gateway">IP gateway:</label>
-                            <input type="text" placeholder="192.168.4.254" name="gateway" id="gateway"/>
-                        </div>
-                    </div>
-                    <div class="dns">
-                        <div class="input-box">
-                            <label for="dns_prefer">DNS prefer:</label>
-                            <input type="text" placeholder="192.168.4.2" name="dns_prefer" id="dns_prefer"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="dns_alternative">DNS alternative:</label>
-                            <input type="text" placeholder="192.168.4.3" name="dns_alternative" id="dns_alternative"/>
-                        </div>
-                    </div>
-                    <div class="enother_settings">
-                        <div class="input-box">
-                            <label for="hidden">Hidden:</label>
-                            <input type="text" placeholder="0" name="hidden" id="hidden"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="channel">Channel:</label>
-                            <input type="text" placeholder="2" name="channel" id="channel"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="maxconnection">Max connection:</label>
-                            <input type="text" placeholder="4" name="maxconnection" id="maxconnection"/>
-                        </div>
-                    </div>
-                    <div class="dhcp">
-                        <div class="input-box">
-                            <label for="enable">DHCP enable:</label>
-                            <input type="text" placeholder="1" name="enable" id="enable"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="startip">DHCP startip:</label>
-                            <input type="text" placeholder="192.168.4.30" name="startip" id="startip"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="endip">DHCP endip:</label>
-                            <input type="text" placeholder="192.168.4.50" name="endip" id="endip"/>
-                        </div>
-                    </div>
                     <div class="button">
                         <input type="submit" id="button" value="Submit" />
                     </div>

@@ -35,47 +35,64 @@
         <div class="container">
             <div class="content_wifi">
                     <form action="" name="form" method="POST">
-                    <div class="ip">
-                        <div class="input-box">
-                            <label for="mode">IP mode type:</label>
-                            <input type="text" placeholder="static" name="mode" id="mode"/>
+                        <div class="block one">
+                            <div class="block_item">
+                                <div class="block_title">DNS</div>
+                                <div class="block_settings">
+                                    <div class="input-box">
+                                        <label for="dns_prefer">DNS prefer:</label>
+                                        <input type="text" placeholder="192.168.100.254" name="dns_prefer" id="dns_prefer"/>
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="dns_alternative">DNS alternative:</label>
+                                        <input type="text" placeholder="192.168.100.255" name="dns_alternative" id="dns_alternative"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_item">
+                                <div class="form_radio_btn">
+                                    <input id="hide" type="radio" name="example" value="hide" checked>
+                                    <label for="hide">Static</label>
+                                </div>
+                                <div class="form_radio_btn">
+                                    <input id="show" type="radio" name="example" value="show">
+                                    <label for="show">Dynamic</label>
+                                </div>
+                            </div>
+                            <div class="block_item" id="ip">
+                                <div class="block_title">IP</div>
+                                <div class="block_settings">
+                                        <div class="input-box">
+                                            <label for="ip">IP address:</label>
+                                            <input type="text" placeholder="192.168.100.30" name="ip" id="ip"/>
+                                        </div>
+                                        <div class="input-box">
+                                            <label for="mask"> IP mask:</label>
+                                            <input type="text" placeholder="255.255.255.0" name="mask" id="mask"/>
+                                        </div>
+                                        <div class="input-box">
+                                            <label for="gateway">IP gateway:</label>
+                                            <input type="text" placeholder="192.168.100.254" name="gateway" id="gateway"/>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="block_item" id="dhcp">
+                                <div class="block_title">DHCP</div>
+                                <div class="block_settings">
+                                    <div class="input-box">
+                                        <label for="startip">DHCP startip:</label>
+                                        <input type="text" placeholder="192.168.100.40" name="startip" id="startip"/>
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="endip">DHCP endip:</label>
+                                        <input type="text" placeholder="192.168.100.50" name="endip" id="endip"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <input type="submit" id="button" value="Submit" />
+                            </div>
                         </div>
-                        <div class="input-box">
-                            <label for="ip">IP address:</label>
-                            <input type="text" placeholder="192.168.100.30" name="ip" id="ip"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="mask"> IP mask:</label>
-                            <input type="text" placeholder="255.255.255.0" name="mask" id="mask"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="gateway">IP gateway:</label>
-                            <input type="text" placeholder="192.168.100.254" name="gateway" id="gateway"/>
-                        </div>
-                    </div>
-                    <div class="dns">
-                        <div class="input-box">
-                            <label for="dns_prefer">DNS:</label>
-                            <input type="text" placeholder="192.168.100.254" name="dns_prefer" id="dns_prefer"/>
-                        </div>
-                    </div>
-                    <div class="dhcp">
-                        <div class="input-box">
-                            <label for="enable">DHCP enable:</label>
-                            <input type="text" placeholder="0" name="enable" id="enable"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="startip">DHCP startip:</label>
-                            <input type="text" placeholder="192.168.100.40" name="startip" id="startip"/>
-                        </div>
-                        <div class="input-box">
-                            <label for="endip">DHCP endip:</label>
-                            <input type="text" placeholder="192.168.100.50" name="endip" id="endip"/>
-                        </div>
-                    </div>
-                    <div class="button">
-                        <input type="submit" id="button" value="Submit" />
-                    </div>
                     </form>
             </div>
         </div>
