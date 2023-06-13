@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script defer src="script.js"></script>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Router</title>
+    <link href="static.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header_body">
+                <div class="header_logo">
+                <img class="logo" src="logo.png" alt="">
+                <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>
+                </div>
+            </div>
+        </div>
+    </header>
+        <div class="container">
+            <div class="content">
+                <form id="test" action="#" name="form" method="post">
+                    <div class="input-box">
+                        <label for="host">Host name:</label>
+                        <input type="text" placeholder="ya.ru" name="host" id="host"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="timeout">Timeout:</label>
+                        <input type="text" placeholder="100 ms" name="timeout" id="timeout"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="period">Period:</label>
+                        <input type="text" placeholder="1000 ms" name="period" id="period"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="host">Host First IP:</label>
+                        <input type="text" placeholder="192.168.100.254" name="host" id="host"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="timeout">Timeout:</label>
+                        <input type="text" placeholder="200 ms" name="timeout" id="timeout"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="period">Period:</label>
+                        <input type="text" placeholder="2000 ms" name="period" id="period"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="host">Host Second IP:</label>
+                        <input type="text" placeholder="192.168.100.80" name="host" id="host"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="timeout">Timeout:</label>
+                        <input type="text" placeholder="200 ms" name="timeout" id="timeout"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="period">Period:</label>
+                        <input type="text" placeholder="2000 ms" name="period" id="period"/>
+                    </div>
+                    <p class="button">
+                        <input type="submit" id="button" value="Send" />
+                    </p>
+                </form>
+            </div>
+            <pre id="output"></pre>
+        </div>
+</body>
+</html>

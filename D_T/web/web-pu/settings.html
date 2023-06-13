@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Document</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/ppk1.css" />
+		<link rel="stylesheet" href="css/settings.css" />
+	</head>
+	<body>
+		<h1>Настройки</h1>
+		<main>
+			<div>
+				<h2 style="width: 400px">Номер поезда</h2>
+				<input type="number" id="trainNumber" />
+				<h2>Номер секции</h2>
+				<input type="number" id="sectionNumber" />
+				<h2>Тип поезда</h2>
+				<select id="trainType">
+					<option value="0">Тип 1</option>
+					<option value="1">Тип 2</option>
+					<option value="2">Тип 3</option>
+					<option value="3">Тип 4</option>
+				</select>
+				<h2>Количество секций</h2>
+				<input type="number" id="sectionsCount" />
+				<h2>Дата/время</h2>
+				<input type="datetime-local" id="time" />
+				<h2>Количество табло</h2>
+				<input type="number" id="displayCount" />
+				<h2>Время до активации ГОА</h2>
+				<input type="number" id="timeToGoaActivation" />
+				<h2>Количество БРС</h2>
+				<input type="number" id="brsCount" />
+			</div>
+		</main>
+		<script src="js/settings.js"></script>
+	</body>
+</html>
