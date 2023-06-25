@@ -2,69 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <script defer src="script.js"></script>
-    <link rel="icon" href="logo.png" type="image/x-icon">
-    <title>Router</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="js/script.js"></script>
+    <script defer type="text/javascript" src="js/upload.js"></script>
+    <script defer type="text/javascript" src="js/constants.js"></script>
+    <script defer type="text/javascript" src="js/update.js"></script>
     <link href="static.css" rel="stylesheet" />
+    <title>Ping</title>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header_body">
-                <div class="header_logo">
-                <img class="logo" src="logo.png" alt="">
-                <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>
-                </div>
+    <div class="container">
+        <form id="pings-box">
+          <div class="ping-box">        
+            <h4>Host name:</h4>
+            <div class="host-box">
+              <input type="text" value="192.168.0.1" class="host-text">
             </div>
-        </div>
-    </header>
-        <div class="container">
-            <div class="content">
-                <form id="test" action="#" name="form" method="post">
-                    <div class="input-box">
-                        <label for="host">Host name:</label>
-                        <input type="text" placeholder="ya.ru" name="host" id="host"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="timeout">Timeout:</label>
-                        <input type="text" placeholder="100 ms" name="timeout" id="timeout"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="period">Period:</label>
-                        <input type="text" placeholder="1000 ms" name="period" id="period"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="host">Host First IP:</label>
-                        <input type="text" placeholder="192.168.100.254" name="host" id="host"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="timeout">Timeout:</label>
-                        <input type="text" placeholder="200 ms" name="timeout" id="timeout"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="period">Period:</label>
-                        <input type="text" placeholder="2000 ms" name="period" id="period"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="host">Host Second IP:</label>
-                        <input type="text" placeholder="192.168.100.80" name="host" id="host"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="timeout">Timeout:</label>
-                        <input type="text" placeholder="200 ms" name="timeout" id="timeout"/>
-                    </div>
-                    <div class="input-box">
-                        <label for="period">Period:</label>
-                        <input type="text" placeholder="2000 ms" name="period" id="period"/>
-                    </div>
-                    <p class="button">
-                        <input type="submit" id="button" value="Send" />
-                    </p>
-                </form>
+            <hr>            
+            <h4>Timeout:</h4>
+            <div class="timeout-box">
+              <input type="text" value="100" class="timeout-text">
             </div>
-            <pre id="output"></pre>
+            <hr>            
+            <h4>Period:</h4>
+            <div class="period-box">
+              <input type="text" value="1000" class="period-text">
+            </div>
+          </div>
+          <button class="btn" id="add-ping-btn">Add</button>
+        </form>
+        <div class="btn-success">
+          <button class="btn" id="create-json-btn">Create file</button><br>
         </div>
+    </div>
+    <div class="upload"">
+      <table class="maintbl">
+        <tr>
+          <td>
+            <p>
+              <label class="input-file">
+                <input type="file" id="selectJSON" name="json">
+                <span class="input-file-btn">Выберите файл</span>           
+                <span class="input-file-text" id="JSONLabel">Макс. 200KB</span>
+              </label>
+            </p>
+            <span style="text-align:left;">
+              <button class="btn" id="UploadToDevice" onclick="showModal(confirmUploadMsg)">На устройство</button>
+            </span>
+            <span style="text-align:left;">
+              <button class="btn" id="LoadFromDevice">С устройства</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+      <br>	
+      <p>Название файла<br><input type="text" id="FileNameField" value="data.json"></p>
+        <textarea id="result" name="result"></textarea>
+      <div id="msgBox" style="display:none">
+        <div id="msgBoxBody">
+        </div>
+      </div>
+    </div>
+    <div class="update">
+      <table class=maintbl>
+          <tr>
+              <td>
+                  <form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>
+                      <input type='file' name='update' id='file' onchange='sub(this)' style=display:none>
+                      <label id='file-input' for='file'>	 Выберите файл...</label><br>
+                      <input type="radio" id="fw" name="filetype" value="fw" checked>
+                      <label for="fw">Firmware</label><br>
+                      <input type="radio" id="fs" name="filetype" value="fs">
+                      <label for="fs">File system</label><br>
+                      <div class="btn" onclick='mysub()'>Обновить</div>
+                  </form>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <div id='prg'></div>
+                  <div id='prgbar'>
+                      <div id='bar'></div>
+                  </div> 
+              </td>
+          </tr> 
+      </table>
+  </div>
 </body>
 </html>

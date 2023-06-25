@@ -262,6 +262,18 @@ select{
     padding-left: 20px;
 }
 
+pre{
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 29px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
 @media (max-width: 767px){
     body.lock{
         overflow: hidden;

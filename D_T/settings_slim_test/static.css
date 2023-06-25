@@ -6,25 +6,52 @@
 html {
     height: 100%;
 }
+
 body{
     display: flex; 
     justify-content: center;
 }
 
+.wi-fi_settings{
+    display:none;
+}
+
+.wi-fi_settings.show{
+    display: block;
+}
+
+.routing{
+    display:none;
+}
+
+.routing.show{
+    display: block;
+}
+
+.routing_eth{
+    display:none;
+}
+
+.routing_eth.show{
+    display: block;
+}
+
 .container{
-    margin-top: 30px;
+    margin: 0px auto;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
 }
 
 .ping-box {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
 }
 
-.wi-fi_settings, .ethernet, .upload, .update{
+.block_wi-fi_settings{
+    margin-top: 30px;
+}
+
+.ethernet, .upload, .update{
     margin-left: 100px;
     margin-top: 30px;
 }
@@ -71,18 +98,11 @@ tr td:first-child { border-left-style: solid; }
     transition: .5s;
     outline: none;
     border: none;
+    margin: 5px;
 }
 
 .btn:hover {
     background: #5cbeff;
-}
-
-.btn-success{
-    margin-left: 50px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
 }
 
 .btnred {
@@ -109,6 +129,15 @@ tr td:first-child { border-left-style: solid; }
 }
 
 /*ROMAN'S CSS*/
+
+select{
+    background: #ffffff;
+    border: 1px solid #a3a3a3;
+    padding: 5px;
+    border-radius: 7px;
+    margin: 10px auto;
+}
+
 #file-input,
 input {
 	border-radius: 7px;

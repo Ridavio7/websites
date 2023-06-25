@@ -28,3 +28,17 @@ window.addEventListener('DOMContentLoaded', function() {
         select.addEventListener('change', change);
         change()
     });
+
+    window.addEventListener('DOMContentLoaded', function() {
+        var select = document.querySelector('#routing'),
+            hide = document.querySelectorAll('.routing');
+            function change()
+            {
+                [].forEach.call(hide, function(el) {
+                    var add = el.classList.contains(select.value) ? "add" : "remove"
+                    el.classList[add]('show');
+                });
+            }
+            select.addEventListener('change', change);
+            change()
+        });

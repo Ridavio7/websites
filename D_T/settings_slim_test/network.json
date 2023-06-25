@@ -2,7 +2,7 @@
 	"wifi": {
 		"mode": "ap",
 		"wifi_auth": {
-			"ssid": "PING_v1",
+			"ssid": "ATS_v1",
 			"pass": "mypassword",
 			"ssid_mac": 1
 		},
@@ -27,18 +27,14 @@
 	},
 	"ethernet": {
 		"ip": {
-			"mode": "static",
-			"ip" : "192.168.100.30",
-			"mask" : "255.255.255.0",
-			"gateway": "192.168.100.254"
+			"mode": "dynamic",
+			"ip" : "192.168.10.30",
+			"mask" : "255.255.240.0"
 		},
-		"dns": [
-			"192.168.100.254"
-		],
 		"dhcps":{
-			"enable": 0,
-			"startip" : "192.168.100.40",
-			"endip" : "192.168.100.50"
+			"enable": 1,
+			"startip" : "192.168.10.40",
+			"endip" : "192.168.10.50"
 		}
 	}
 }
