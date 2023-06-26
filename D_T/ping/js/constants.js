@@ -1,7 +1,7 @@
 var JSON_ON_DEVICE = "device.json";
 var PATH_FOR_UPLOAD = "/api/upload.api/"
 
-var UPLOAD_JSON_FILENAME = "upload.json";
+var UPLOAD_JSON_FILENAME = "network.json";
 
 
 var confirmUploadMsg	=   "<p>";

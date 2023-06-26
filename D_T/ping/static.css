@@ -6,34 +6,112 @@
 html {
     height: 100%;
 }
+
 body{
+    background: #17181F;
     display: flex; 
-    justify-content: center;
+    justify-content: space-evenly;
+    max-width: 1180px;
+    margin: 0px auto;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.header_body{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100px;
+    align-items: center;
+}
+
+.header:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 2;
+}
+
+.header_logo{
+    display: flex;
+    position: relative;
+    z-index: 3;
+}
+
+.logo{
+    max-width: 100%;
+    padding-top: 5px;
+}
+
+.header_title{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .container{
-    margin-top: 30px;
+    margin-top: 120px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
 }
 
 .ping-box {
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.wi-fi_settings, .ethernet, .upload, .update{
-    margin-left: 100px;
-    margin-top: 30px;
+.upload, .update{
+    margin-top: 120px;
+}
+
+.btn-success{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-top: 130px;
+}
+
+h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+h4{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-top: 10px;
 }
 
 .maintbl{
-    color: #878787;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+    color: #ffffff;
+    margin-top: 30px;
 }
 
 h1{
@@ -63,7 +141,7 @@ tr td:first-child { border-left-style: solid; }
 
 .btn {
     display: inline-block;
-    padding: 10px;
+    padding: 13px;
 	background: #0099ff;
 	color: #fff;
 	cursor: pointer;
@@ -71,18 +149,24 @@ tr td:first-child { border-left-style: solid; }
     transition: .5s;
     outline: none;
     border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
 }
 
 .btn:hover {
     background: #5cbeff;
 }
 
-.btn-success{
-    margin-left: 50px;
+.btn_settings{
+    margin-top: 15px;
+}
+
+.row{
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btnred {
@@ -108,30 +192,49 @@ tr td:first-child { border-left-style: solid; }
     font-size: 8pt;
 }
 
-/*ROMAN'S CSS*/
+label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.prg{
+    margin: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
 #file-input,
 input {
 	border-radius: 7px;
-	margin: 10px auto;
+	margin: 13px auto;
 }
 
 input[type=submit]{
-border: none;
+    border: none;
 }
 
 input {
     background: #ffffff;
     border: 1px solid #a3a3a3;
-	padding: 5px
+	padding: 7px
 }
 
 
 #file-input {
-	padding: 10px;
+	padding: 13px;
 	border: 1px solid #ddd;
-	text-align: left;
 	display: block;
-	cursor: pointer
+	cursor: pointer;
 }
 
 #bar,

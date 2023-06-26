@@ -100,7 +100,7 @@
             
           //TODO: GLEBOV:START
           var filePath = PATH_FOR_UPLOAD + "network.json";
-          var file = new File([JSON.stringify(obj)], "network.json", {
+          var file = new File([JSON.stringify(obj, null, 4)], "network.json", {
             type: "text/plain",
           });
 

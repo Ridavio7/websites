@@ -197,18 +197,33 @@ window.addEventListener('DOMContentLoaded', function() {
               obj = objsta;
             };
 
-          // проверяем
-          console.table(obj);
+          //TODO: GLEBOV:START
+          var filePath = PATH_FOR_UPLOAD + "network.json";
+          var file = new File([JSON.stringify(obj)], "network.json", {
+            type: "text/plain",
+          });
+
+
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4) {
+              if (xhttp.status == 200) {
+                //console.log(xhttp.responseText);
+              } else if (xhttp.status == 0) {
+                showModalRedBorder(ServerDiconn);					
+              } else {
+                showModalRedBorder("<p>xhttp.status: "+xhttp.status+"</p>"+"<p><b>ERROR: </b>" + xhttp.responseText + "<br></p><br>" + CloseBtn);
+              }
+              
+            };
+          }
+          xhttp.open("POST", filePath, true);
+          xhttp.send(file);
+
           // создаем файл
           const data = new Blob([JSON.stringify(obj, null, 4)], {
             type: "application/json"
           });
-
-          const link = document.createElement("a");
-          link.setAttribute("href", URL.createObjectURL(data));
-          link.setAttribute("download", "data.json");
-          link.className = "btn-success";
-          link.textContent = "Download json file";
-          C.append(link);
-          URL.revokeObjectURL(data);
+          //TODO: GLEBOV:END
         };
