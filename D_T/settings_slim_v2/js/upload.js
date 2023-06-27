@@ -56,9 +56,54 @@ function CallBackFunction(err, data){
 		//Error!
 	}else{
 		var formatted = JSON.stringify(data, null, 2);
-		document.getElementById('result').value = formatted; 
-	}
+		form_obj = JSON.parse(formatted);
+		console.log(form_obj);
 
+		const ssid = form_obj.wifi.wifi_auth.ssid;
+		const pass = form_obj.wifi.wifi_auth.pass;
+		const ssidmac = form_obj.wifi.wifi_auth.ssid_mac;
+		const ip = form_obj.wifi.ip.ip;
+		const mask = form_obj.wifi.ip.mask;
+		const gateway = form_obj.wifi.ip.gateway;
+		const dns_prefer = form_obj.wifi.dns[0];
+		const dns_alternative = form_obj.wifi.dns[1];
+		const hidden = form_obj.wifi.hidden;
+		const channel = form_obj.wifi.channel;
+		const maxconnection = form_obj.wifi.maxconnection;
+		const enable = form_obj.wifi.dhcps.enable;
+		const startip = form_obj.wifi.dhcps.startip;
+		const endip = form_obj.wifi.dhcps.endip;
+		const ip_eth = form_obj.ethernet.ip.ip;
+		const mask_eth = form_obj.ethernet.ip.mask;
+		const gateway_eth = form_obj.ethernet.ip.gateway;
+		const dns_eth = form_obj.ethernet.dns;
+		const enable_eth = form_obj.ethernet.dhcps.enable;
+		const startip_eth = form_obj.ethernet.dhcps.startip;
+		const endip_eth = form_obj.ethernet.dhcps.endip;
+
+		document.getElementById("ssid_ap").setAttribute('value', ssid);
+		document.getElementById("ssid_sta").setAttribute('value', ssid);
+		document.getElementById("pass").setAttribute('value', pass);
+		document.getElementById("ssid_mac").setAttribute('value', ssidmac);
+		document.getElementById("ip").setAttribute('value', ip);
+		document.getElementById("mask").setAttribute('value', mask);
+		document.getElementById("gateway").setAttribute('value', gateway);
+		document.getElementById("dns_prefer").setAttribute('value', dns_prefer);
+		document.getElementById("dns_alternative").setAttribute('value', dns_alternative);
+		document.getElementById("hidden").setAttribute('value', hidden);
+		document.getElementById("channel").setAttribute('value', channel);
+		document.getElementById("maxconnection").setAttribute('value', maxconnection);
+		document.getElementById("enable").setAttribute('value', enable);
+		document.getElementById("startip").setAttribute('value', startip);
+		document.getElementById("endip").setAttribute('value', endip);
+		document.getElementById("ip_eth").setAttribute('value', ip_eth);
+		document.getElementById("mask_eth").setAttribute('value', mask_eth);
+		document.getElementById("gateway_eth").setAttribute('value', gateway_eth);
+		document.getElementById("dns_eth").setAttribute('value', dns_eth);
+		document.getElementById("enable_eth").setAttribute('value', enable_eth);
+		document.getElementById("startip_eth").setAttribute('value', startip_eth);
+		document.getElementById("endip_eth").setAttribute('value', endip_eth);
+	}
 };
 
 function getJSONFromPC() {
@@ -128,7 +173,6 @@ function CreateFile(){
 };
 
 function SendFile () {
-
 	var filePath = PATH_FOR_UPLOAD + UPLOAD_JSON_FILENAME;
 	var fileInput = CreateFile();
 

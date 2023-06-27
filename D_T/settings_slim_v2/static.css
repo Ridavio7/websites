@@ -8,8 +8,58 @@ html {
 }
 
 body{
+    background: #17181F;
     display: flex; 
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 0px auto;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.header_body{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100px;
+    align-items: center;
+}
+
+.header:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 2;
+}
+
+.header_logo{
+    display: flex;
+    position: relative;
+    z-index: 3;
+}
+
+.logo{
+    max-width: 100%;
+    padding-top: 5px;
+}
+
+.header_title{
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .wi-fi_settings{
@@ -37,8 +87,9 @@ body{
 }
 
 .container{
-    margin: 0px auto;
+    margin-top: 120px;
     display: flex;
+    flex-direction: row;
     flex-direction: column;
 }
 
@@ -47,11 +98,7 @@ body{
     flex-wrap: wrap;
 }
 
-.block_wi-fi_settings{
-    margin-top: 30px;
-}
-
-.ethernet, .upload, .update{
+.block_wi-fi_settings,.ethernet, .upload, .update{
     margin-left: 100px;
     margin-top: 30px;
 }
@@ -61,11 +108,33 @@ body{
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    margin-top: 15px;
 }
 
 h1{
     font-size: 16px;
     margin:0 0 5px 0;
+}
+
+h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+h4{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-top: 10px;
 }
 
 table {
@@ -90,7 +159,7 @@ tr td:first-child { border-left-style: solid; }
 
 .btn {
     display: inline-block;
-    padding: 10px;
+    padding: 13px;
 	background: #0099ff;
 	color: #fff;
 	cursor: pointer;
@@ -98,7 +167,12 @@ tr td:first-child { border-left-style: solid; }
     transition: .5s;
     outline: none;
     border: none;
-    margin: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    margin: 10px;
 }
 
 .btn:hover {
@@ -119,6 +193,24 @@ tr td:first-child { border-left-style: solid; }
     background: #ff5c5c;
 }
 
+.btn_update{
+    margin-left: 28px;
+    margin-right: 28px;
+}
+
+.btn_send{
+    margin-top: 10px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 30px;
+}
+
+.btn_save{
+    margin-left: 140px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
 #getTemp{
     padding: 4px;
     margin-left: 8px;
@@ -133,9 +225,20 @@ tr td:first-child { border-left-style: solid; }
 select{
     background: #ffffff;
     border: 1px solid #a3a3a3;
-    padding: 5px;
+    padding: 7px;
     border-radius: 7px;
-    margin: 10px auto;
+    width: 100%;
+    margin: 10px 0;
+}
+
+label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 #file-input,
@@ -145,22 +248,24 @@ input {
 }
 
 input[type=submit]{
-border: none;
+    border: none;
 }
 
 input {
     background: #ffffff;
     border: 1px solid #a3a3a3;
-	padding: 5px
+	padding: 7px
 }
 
+input[type=text]{
+    width: 93%;
+}
 
 #file-input {
-	padding: 10px;
+	padding: 13px;
 	border: 1px solid #ddd;
-	text-align: left;
 	display: block;
-	cursor: pointer
+	cursor: pointer;
 }
 
 #bar,
@@ -176,8 +281,8 @@ input {
 }
 
 #result {
-width: 300px;
-height: 270px;
+    width: 300px;
+    height: 270px;
 }
 
 /* Modal Windows Evgeny G. */
@@ -224,7 +329,6 @@ height: 270px;
     background-color: rgba(0,0,0,0.4); 
 }
 
-
 #msgBoxBody {
     background-color: #fefefe;
     margin: auto;
@@ -232,6 +336,17 @@ height: 270px;
     border: 6px solid #0099ff;
     width: 70%;
     border-radius: 10px;
+}
+
+.prg{
+    margin: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 /* The Close Button fo modal window */
@@ -264,22 +379,12 @@ display:none;
 }
 
 .input-file-btn {
-	position: relative;
 	display: inline-block;
 	cursor: pointer;
-	outline: none;
-	text-decoration: none;
-	font-size: 14px;
-	vertical-align: middle;
-	color: rgb(255 255 255);
-	text-align: center;
-	border-radius: 4px;
+	border-radius: 5px;
 	background-color: #0099ff;
 	line-height: 22px;
-	height: 40px;
 	padding: 10px 20px;
-	box-sizing: border-box;
-	border: none;
 	margin: 10px;
 	transition: background-color 0.2s;
 }
