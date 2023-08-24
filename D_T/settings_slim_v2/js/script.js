@@ -38,7 +38,7 @@
           }
           select.addEventListener('change', change);
           change()
-      });
+    });
         
   // функция нахождения одного элемента с указанным селектором
   const findOne = (element, selector) => element.querySelector(selector)

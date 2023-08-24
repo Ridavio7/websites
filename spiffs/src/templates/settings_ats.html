@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<link rel="icon" href="../images/favicon.ico" />-->
+    <link href="../static/static.css" rel="stylesheet" />
+    <script defer type="text/javascript" src="../assets/upload_ats.js"></script>
+    <!--<script defer type="text/javascript" src="../assets/upload.js"></script>-->
+    <title>Network settings</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_body">
+                <div class="header_logo">
+                    <img class="logo" src="../images/logo_w.svg" alt="">
+                    <!--<img class="logo" src="../images/logo.png" alt="">
+                    <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>-->
+                </div>
+                <div class="block_status_main">
+                    <div class="block_icon_status">
+                        <a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="block_go_back_button">
+                <div class="body_go_back_button">
+                    <a href="javascript: history.go(-1)">
+                        <img class="icon_settings" src="../images/go_back.svg" alt="">
+                        <a class="go_back_button" href="javascript: history.go(-1)">Назад</a>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <div class="block_status">
+                    <div class="block_icon_status">
+                        <a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+                <li><img class="icon_settings" src="../images/home.svg" alt=""><a href="../index.html" class="title_menu">Главная</a></li>
+                <li><img class="icon_settings" src="../images/settings.svg" alt=""><a href="settings.html" class="title_menu">Настройки</a></li>
+            </ul>
+        </div>
+        <div class="container_menu">
+            <div class="block_menu">
+                <div class="point_menu">
+                    <a href="../index.html"><img class="icon_settings" src="../images/home.svg" alt=""></a>
+                    <a href="../index.html" class="title_menu_main">Главная</a>
+                </div>
+                <div class="point_menu">
+                    <a href="settings.html"><img class="icon_settings" src="../images/settings.svg" alt=""></a>
+                    <a href="settings.html" class="title_menu_main">Настройки</a>
+                </div>
+            </div>
+        </div>
+        <div class="container_settings">
+                    <div class="container">
+                        <div class="block_settings_title">
+                            <div class="line_settings">
+                                <a class="main_title_text">Настройка АВР</a>
+                            </div>
+                        </div>
+                        <div class="seporator_full top_sep"></div>
+                        <div class="block_settings top_sep">
+                            <div class="line_settings">
+                                <label class="checkbox">Общие настройки устройства</label>
+                            </div>
+                        </div>
+                        <div class="block_settings_form">
+                        <form id="settings_form">
+                        <div class="block_settings_input">
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="type_scheme">Тип схемы</label>
+                                    <div class="crypto_ui_3-select">
+                                        <select name="type_scheme" id="type_scheme" onchange="onCheckboxChangedIPv4()">
+                                            <option id="scheme_2_1">Схема 2 - 1</option>
+                                        </select>
+                                        <div class="crypto_ui_3-select_arrow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="ATS_timeOK">Время перевода из аварийного режима, мс</label>
+                                    <input type="text" id="ATS_timeOK" class="ATS_timeOK" placeholder="100 мс" name="ATS_timeOK">
+                                </div>
+                            </div>
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="ATS_timeERR">Время перевода в аварийный режим, мс</label>
+                                    <input type="text" id="ATS_timeERR" class="ATS_timeERR" placeholder="100 мс" name="ATS_timeERR">
+                                </div>
+                            </div>
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="timeSwitchPriority">Время перехода на основной канал, мс</label>
+                                    <span id="raz">
+                                        <input type="number" id="timeSwitchPriority" class="timeSwitchPriority" placeholder="10 мс" name="timeSwitchPriority" min="0" step="10">
+                                        <span onclick="this.previousElementSibling.stepUp()"></span>
+                                        <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seporator_full top_sep"></div>
+                        <div class="block_settings top_sep">
+                            <div class="line_settings">
+                                <label class="checkbox">Параметры вводов</label>
+                            </div>
+                        </div>
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <label class="checkbox">Ввод №1</label>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l1_min">Напряжение Ф1, В</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <label class="label_mm" style="width: 50px;">Мин.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l1_min" class="n0_l1_min" placeholder="220 B" name="n0_l1_min" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <label  class="label_mm" style="width: 50px;">Макс.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l1_max" class="n0_l1_max" placeholder="220 B" name="n0_l1_max" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l2_min">Напряжение Ф2, В</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l2_min" class="n0_l2_min" placeholder="220 B" name="n0_l2_min" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l2_max" class="n0_l2_max" placeholder="220 B" name="n0_l2_max" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l3_min">Напряжение Ф3, В</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l3_min" class="n0_l3_min" placeholder="220 B" name="n0_l3_min" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l3_max" class="n0_l3_max" placeholder="220 B" name="n0_l3_max" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeERR_HighVoltage">Время перехода в ошибку при <br>повышении напряжения, мс</label>
+                                        <input type="text" id="n0_timeERR_HighVoltage" class="n0_timeERR_HighVoltage" placeholder="100 мс" name="n0_timeERR_HighVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeERR_LowVoltage">Время перехода в ошибку при <br>понижении напряжения, мс</label>
+                                        <input type="text" id="n0_timeERR_LowVoltage" class="n0_timeERR_LowVoltage" placeholder="100 мс" name="n0_timeERR_LowVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l4_min">Частота, Гц</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <label class="label_mm" style="width: 50px;">Мин.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l4_min" class="n0_l4_min" placeholder="50 Гц" name="n0_l4_min" min="40" max="60">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <label  class="label_mm" style="width: 50px;">Макс.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n0_l4_max" class="n0_l4_max" placeholder="50 Гц" name="n0_l4_max" min="40" max="60">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeERR_Frequency">Время перехода в ошибку при <br>изменении частоты, мс</label>
+                                        <input type="text" id="n0_timeERR_Frequency" class="n0_timeERR_Frequency" placeholder="100 мс" name="n0_timeERR_Frequency">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeOK">Время восстановления из аварии, мс</label>
+                                        <input type="text" id="n0_timeOK" class="n0_timeOK" placeholder="100 мс" name="n0_timeOK">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings">
+                                        <input type="checkbox" id="n0_enPhaseOrder" name="n0_enPhaseOrder" class="checkbox_right"/>
+                                        <label class="checkbox" for="n0_enPhaseOrder">Контроль порядка фаз</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <label class="checkbox">Ввод №2</label>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l1_min">Напряжение Ф1, В</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <label  class="label_mm" style="width: 50px;">Мин.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l1_min" class="n1_l1_min" placeholder="220 B" name="n1_l1_min" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <label  class="label_mm" style="width: 50px;">Макс.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l1_max" class="n1_l1_max" placeholder="220 B" name="n1_l1_max" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l2_min">Напряжение Ф2, В</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l2_min" class="n1_l2_min" placeholder="220 B" name="n1_l2_min" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l2_max" class="n1_l2_max" placeholder="220 B" name="n1_l2_max" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l3_min">Напряжение Ф3, В</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l3_min" class="n1_l3_min" placeholder="220 B" name="n1_l3_min" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l3_max" class="n1_l3_max" placeholder="220 B" name="n1_l3_max" min="200" max="300">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeERR_HighVoltage">Время перехода в ошибку при <br>повышении напряжения, мс</label>
+                                        <input type="text" id="n1_timeERR_HighVoltage" class="n1_timeERR_HighVoltage" placeholder="100 мс" name="n1_timeERR_HighVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeERR_LowVoltage">Время перехода в ошибку при <br>понижении напряжения, мс</label>
+                                        <input type="text" id="n1_timeERR_LowVoltage" class="n1_timeERR_LowVoltage" placeholder="100 мс" name="n1_timeERR_LowVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l4_min">Частота, Гц</label>
+                                <div class="block_input_wrapper">
+                                    <div class="block_input_little">
+                                        <label  class="label_mm" style="width: 50px;">Мин.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l4_min" class="n1_l4_min" placeholder="50 Гц" name="n1_l4_min" min="40" max="60">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                    <div class="block_input_little">
+                                        <label  class="label_mm" style="width: 50px;">Макс.</label>
+                                        <span id="raz_s">
+                                            <input type="number" id="n1_l4_max" class="n1_l4_max" placeholder="50 Гц" name="n1_l4_max" min="40" max="60">
+                                            <span onclick="this.previousElementSibling.stepUp()"></span>
+                                            <span onclick="this.previousElementSibling.previousElementSibling.stepDown()"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeERR_Frequency">Время перехода в ошибку при <br>изменении частоты, мс</label>
+                                        <input type="text" id="n1_timeERR_Frequency" class="n1_timeERR_Frequency" placeholder="100 мс" name="n1_timeERR_Frequency">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeOK">Время восстановления из аварии, мс</label>
+                                        <input type="text" id="n1_timeOK" class="n1_timeOK" placeholder="100 мс" name="n0_timeOK">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings_second">
+                                    <div class="block_settings">
+                                        <div class="line_settings">
+                                            <input type="checkbox" id="n1_enPhaseOrder" name="n1_enPhaseOrder" class="checkbox_right"/>
+                                            <label class="checkbox" for="n1_enPhaseOrder">Контроль порядка фаз</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seporator_full top_sep"></div>
+                        <div class="block_settings top_sep">
+                            <div class="line_settings">
+                                <label class="checkbox">Параметры входов</label>
+                            </div>
+                        </div>
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <label class="checkbox">Вход №1</label>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings">
+                                        <input type="checkbox" id="с0_en" name="с0_en" class="checkbox_right"/>
+                                        <label class="checkbox" for="с0_en">Включить обратную связь</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="с0_time">Задержка обратной связи, мс</label>
+                                        <input type="text" id="с0_time" class="с0_time" placeholder="100 мс" name="с0_time">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <label class="checkbox">Вход №2</label>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings">
+                                        <input type="checkbox" id="с1_en" name="с1_en" class="checkbox_right"/>
+                                        <label class="checkbox" for="с1_en">Включить обратную связь</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="с1_time">Задержка обратной связи, мс</label>
+                                        <input type="text" id="с1_time" class="с1_time" placeholder="100 мс" name="с1_time">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button_sub" id="create-json-btn">Сохранить</button><br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

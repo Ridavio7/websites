@@ -55,8 +55,7 @@ function CallBackFunction(err, data){
 	if(err){
 		//Error!
 	}else{
-		var formatted = JSON.stringify(data, null, 2);
-		form_obj = JSON.parse(formatted);
+		form_obj = data;
 		console.log(form_obj);
 
 		const ssid = form_obj.wifi.wifi_auth.ssid;

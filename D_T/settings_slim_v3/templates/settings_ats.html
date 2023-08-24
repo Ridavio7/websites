@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<link rel="icon" href="../images/favicon.ico" />-->
+    <link href="../static/static.css" rel="stylesheet" />
+    <script defer type="text/javascript" src="../assets/upload_ats.js"></script>
+    <!--<script defer type="text/javascript" src="../assets/upload.js"></script>-->
+    <title>Network settings</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="block_go_back_button">
+            <div class="body_go_back_button">
+                <a href="javascript: history.go(-1)">
+                    <img class="icon_settings" src="../images/go_back.svg" alt="">
+                    <a class="go_back_button" href="javascript: history.go(-1)">Назад</a>
+                </a>
+            </div>
+        </div>
+        <div class="container_menu">
+            <div class="block_menu">
+                <div class="point_menu">
+                    <img class="icon_settings" src="../images/home.svg" alt="">
+                    <a href="../main.html" class="title-settings">Главная</a>
+                </div>
+                <div class="point_menu">
+                    <img class="icon_settings" src="../images/settings.svg" alt="">
+                    <a href="settings.html" class="title-settings">Настройки</a>
+                </div>
+            </div>
+        </div>
+        <div class="container_settings">
+            <header class="header">
+                <div class="header_body">
+                    <div class="header_logo">
+                        <img class="logo" src="../images/logo_w.png" alt="">
+                        <!--<img class="logo" src="../images/logo.png" alt="">
+                        <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>-->
+                    </div>
+                    <div class="block_status">
+                        <div class="icon_status">
+                            <a href="access-point.html"><img class="icon_settings" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                        </div>
+                        <div class="icon_status">
+                            <a href="wi-fi.html"><img class="icon_settings" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                        </div>
+                        <div class="icon_status">
+                            <a href="ethernet.html"><img class="icon_settings" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="container" style="margin-bottom: 0px;">
+                <div class="block_settings_title">
+                    <div class="line_settings">
+                        <a class="main_title_text">Настройка АВР</a>
+                        <button class="btn" id="LoadFromDevice" style="margin-left: 400px; display: none;">С устройства</button>
+                    </div>
+                </div>
+                <div class="block_settings">
+                    <div class="line_settings">
+                        <a class="title_text">Общие настройки устройства</a>
+                    </div>
+                </div>
+            </div>
+            <div class="block_settings_form">
+                <form id="settings_form">
+                    <div class="container">
+                        <div class="block_settings_input">
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="type_scheme">Тип схемы</label>
+                                    <input type="number" id="type_scheme" class="type_scheme" placeholder="0" name="type_scheme" min="0" max="3">
+                                </div>
+                            </div>
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="timeSwitchPriority">Время перехода на основн. канал, мс</label>
+                                    <input type="number" id="timeSwitchPriority" class="timeSwitchPriority" placeholder="10 мс" name="timeSwitchPriority" min="0" step="10">
+                                </div>
+                            </div>
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="ATS_timeOK">Время перевода из аварийного, мс</label>
+                                    <input type="text" id="ATS_timeOK" class="ATS_timeOK" placeholder="100 мс" name="ATS_timeOK">
+                                </div>
+                            </div>
+                            <div class="block_settings">
+                                <div class="line_settings_input_mm">
+                                    <label class="fat" for="ATS_timeERR">Время перевода в аварийный, мс</label>
+                                    <input type="text" id="ATS_timeERR" class="ATS_timeERR" placeholder="100 мс" name="ATS_timeERR">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block_settings">
+                            <div class="line_settings">
+                                <a class="main_title_text">Параметры вводов</a>
+                            </div>
+                        </div>
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <a class="title_text">Ввод №1</a>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="margin-left: 505px;">Мин.</label>
+                            <label style="margin-left: 130px;">Макс.</label>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l1_min">Напряжение Ф1, В</label>
+                                <input type="number" id="n0_l1_min" class="n0_l1_min" placeholder="220 B" name="n0_l1_min" min="200" max="300">
+                                <input type="number" id="n0_l1_max" class="n0_l1_max" placeholder="220 B" name="n0_l1_max" min="200" max="300" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l2_min">Напряжение Ф2, В</label>
+                                <input type="number" id="n0_l2_min" class="n0_l2_min" placeholder="220 B" name="n0_l2_min" min="200" max="300">
+                                <input type="number" id="n0_l2_max" class="n0_l2_max" placeholder="220 B" name="n0_l2_max" min="200" max="300" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l3_min">Напряжение Ф3, В</label>
+                                <input type="number" id="n0_l3_min" class="n0_l3_min" placeholder="220 B" name="n0_l3_min" min="200" max="300">
+                                <input type="number" id="n0_l3_max" class="n0_l3_max" placeholder="220 B" name="n0_l3_max" min="200" max="300" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeERR_HighVoltage">Время перехода в ошибку при <br>повышении напряжения, мс</label>
+                                        <input type="text" id="n0_timeERR_HighVoltage" class="n0_timeERR_HighVoltage" placeholder="100 мс" name="n0_timeERR_HighVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeERR_LowVoltage">Время перехода в ошибку при <br>понижении напряжения, мс</label>
+                                        <input type="text" id="n0_timeERR_LowVoltage" class="n0_timeERR_LowVoltage" placeholder="100 мс" name="n0_timeERR_LowVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="margin-left: 505px;">Мин.</label>
+                            <label style="margin-left: 130px;">Макс.</label>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n0_l4_min">Частота, Гц</label>
+                                <input type="number" id="n0_l4_min" class="n0_l4_min" placeholder="50 Гц" name="n0_l4_min" min="40" max="60">
+                                <input type="number" id="n0_l4_max" class="n0_l4_max" placeholder="50 Гц" name="n0_l4_max" min="40" max="60" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeERR_Frequency">Время перехода в ошибку при <br>изменении напряжения, мс</label>
+                                        <input type="text" id="n0_timeERR_Frequency" class="n0_timeERR_Frequency" placeholder="100 мс" name="n0_timeERR_Frequency">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_timeOK">Время восстановления из аварии, мс</label>
+                                        <input type="text" id="n0_timeOK" class="n0_timeOK" placeholder="100 мс" name="n0_timeOK">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n0_enPhaseOrder">Включить порядок фаз</label>
+                                        <input type="number" id="n0_enPhaseOrder" class="n0_enPhaseOrder" placeholder="0" name="n0_enPhaseOrder" min="0" max="1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <a class="title_text">Ввод №2</a>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="margin-left: 505px;">Мин.</label>
+                            <label style="margin-left: 130px;">Макс.</label>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l1_min">Напряжение Ф1, В</label>
+                                <input type="number" id="n1_l1_min" class="n1_l1_min" placeholder="220 B" name="n1_l1_min" min="200" max="300">
+                                <input type="number" id="n1_l1_max" class="n1_l1_max" placeholder="220 B" name="n1_l1_max" min="200" max="300" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l2_min">Напряжение Ф2, В</label>
+                                <input type="number" id="n1_l2_min" class="n1_l2_min" placeholder="220 B" name="n1_l2_min" min="200" max="300">
+                                <input type="number" id="n1_l2_max" class="n1_l2_max" placeholder="220 B" name="n1_l2_max" min="200" max="300" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l3_min">Напряжение Ф3, В</label>
+                                <input type="number" id="n1_l3_min" class="n1_l3_min" placeholder="220 B" name="n1_l3_min" min="200" max="300">
+                                <input type="number" id="n1_l3_max" class="n1_l3_max" placeholder="220 B" name="n1_l3_max" min="200" max="300" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeERR_HighVoltage">Время перехода в ошибку при <br>повышении напряжения, мс</label>
+                                        <input type="text" id="n1_timeERR_HighVoltage" class="n1_timeERR_HighVoltage" placeholder="100 мс" name="n1_timeERR_HighVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeERR_LowVoltage">Время перехода в ошибку при <br>понижении напряжения, мс</label>
+                                        <input type="text" id="n1_timeERR_LowVoltage" class="n1_timeERR_LowVoltage" placeholder="100 мс" name="n1_timeERR_LowVoltage">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="margin-left: 505px;">Мин.</label>
+                            <label style="margin-left: 130px;">Макс.</label>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input_mm">
+                                <label class="fat" for="n1_l4_min">Частота, Гц</label>
+                                <input type="number" id="n1_l4_min" class="n1_l4_min" placeholder="50 Гц" name="n1_l4_min" min="40" max="60">
+                                <input type="number" id="n1_l4_max" class="n1_l4_max" placeholder="50 Гц" name="n1_l4_max" min="40" max="60" style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeERR_Frequency">Время перехода в ошибку при <br>изменении напряжения, мс</label>
+                                        <input type="text" id="n1_timeERR_Frequency" class="n1_timeERR_Frequency" placeholder="100 мс" name="n1_timeERR_Frequency">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_timeOK">Время восстановления из аварии, мс</label>
+                                        <input type="text" id="n1_timeOK" class="n1_timeOK" placeholder="100 мс" name="n0_timeOK">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="n1_enPhaseOrder">Включить порядок фаз</label>
+                                        <input type="number" id="n1_enPhaseOrder" class="n1_enPhaseOrder" placeholder="0" name="n1_enPhaseOrder" min="0" max="1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block_settings">
+                            <div class="line_settings">
+                                <a class="main_title_text">Параметры входов</a>
+                            </div>
+                        </div>
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <a class="title_text">Вход №1</a>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="с0_en">Включить обратную связь</label>
+                                        <input type="number" id="с0_en" class="с0_en" placeholder="100 мс" name="с0_en"  min="0" max="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="с0_time">Задержка обратной связи, мс</label>
+                                        <input type="text" id="с0_time" class="с0_time" placeholder="0" name="с0_time">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="block_settings_title_s">
+                            <div class="line_settings">
+                                <a class="title_text">Вход №2</a>
+                            </div>
+                        </div>
+                        <div class="block_settings_input">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="с1_en">Включить обратную связь</label>
+                                        <input type="number" id="с1_en" class="с1_en" placeholder="100 мс" name="с1_en" min="0" max="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block_settings_second">
+                                <div class="block_settings">
+                                    <div class="line_settings_input_mm">
+                                        <label class="fat" for="с1_time">Задержка обратной связи, мс</label>
+                                        <input type="text" id="с1_time" class="с1_time" placeholder="0" name="с1_time">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block_settings_title">
+                        <div class="line_settings_input">
+                            <button id="create-json-btn">Сохранить</button><br>
+                            <p style="display: none;">Название файла<br><input type="text" id="FileNameField" value="ats.json"></p>
+                            <textarea style="display: none;" id="result" name="result"></textarea>
+                            <input style="display: none;" type="file" id="selectJSON" name="json">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

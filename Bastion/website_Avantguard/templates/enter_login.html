@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AvantGuard</title>
+    <link href="../static/static.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="conteiner">
+        <div class="block_enter-wrapper">
+            <div class="block_enter">
+                <a class="title_first">AvantGuard</a>
+                <a class="title_second">Вход</a>
+                <div class="block_input">
+                    <label for="login">Логин</label>
+                    <input type="text" id="login" name="login" placeholder="Введите логин">
+                </div>
+                <div class="block_input">
+                    <label for="password-input">Пароль</label>
+                    <input type="password" id="password" placeholder="Введите пароль" name="password">
+                    <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                </div>
+                <div class="block_restore">
+                    <input type="checkbox" name="save_me" id="save_me">
+                    <a class="restore_text">Запомнить меня</a>
+                    <a class="restore_text" href="" style="color: red;">Забыли пароль?</a>
+                </div>
+                    <a href="get_code.html" class="button_enter">Получить код</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function show_hide_password(target){
+            var input = document.getElementById('password');
+            if (input.getAttribute('type') == 'password') {
+                target.classList.add('view');
+                input.setAttribute('type', 'text');
+            } else {
+                target.classList.remove('view');
+                input.setAttribute('type', 'password');
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

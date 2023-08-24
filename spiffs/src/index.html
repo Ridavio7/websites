@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<link rel="icon" href="../images/favicon.ico" />-->
+    <link href="static/static.css" rel="stylesheet" />
+    <title>Network settings</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_body">
+                <div class="header_logo">
+                    <img class="logo" src="images/logo_w.svg" alt="">
+                    <!--<img class="logo" src="../images/logo.png" alt="">
+                    <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>-->
+                </div>
+                <div class="block_status_main">
+                    <div class="block_icon_status">
+                        <a href="templates/access-point.html"><img class="icon_status" src="images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="templates/wi-fi.html"><img class="icon_status" src="images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="templates/ethernet.html"><img class="icon_status" src="images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <div class="block_status">
+                    <div class="block_icon_status">
+                        <a href="templates/access-point.html"><img class="icon_status" src="images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="templates/wi-fi.html"><img class="icon_status" src="images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="templates/ethernet.html"><img class="icon_status" src="images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+                <li><img class="icon_settings" src="images/home.svg" alt=""><a href="index.html" class="title_menu">Главная</a></li>
+                <li><img class="icon_settings" src="images/settings.svg" alt=""><a href="templates/settings.html" class="title_menu">Настройки</a></li>
+                <div class="block_options_burger">
+                    <div class="block_options">
+                        <a class="title_options" href="">Ввод 1</a>
+                        <div>
+                            <a class="title_options" style="margin-right: 3px;" for="">U1</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U2</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U3</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="" style="margin-right: 23px;">f</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="50" readonly>
+                            <a class="title_options" for="" style="margin-left: 10px;">Гц</a>
+                        </div>
+                    </div>
+                    <div class="block_options">
+                        <a class="title_options" href="">Ввод 2</a>
+                        <div>
+                            <a class="title_options" style="margin-right: 3px;" for="">U1</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U2</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U3</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="" style="margin-right: 23px;">f</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="50" readonly>
+                            <a class="title_options" for="" style="margin-left: 10px;">Гц</a>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="container_menu">
+            <div class="block_menu">
+                <div class="point_menu">
+                    <a href="index.html"><img class="icon_settings" src="images/home.svg" alt=""></a>
+                    <a href="index.html" class="title_menu_main">Главная</a>
+                </div>
+                <div class="point_menu">
+                    <a href="templates/settings.html"><img class="icon_settings" src="images/settings.svg" alt=""></a>
+                    <a href="templates/settings.html" class="title_menu_main">Настройки</a>
+                </div>
+            </div>
+        </div>
+        <div class="container_settings_ms" style="margin-top: 55px; margin-right: 42px;">
+            <div class="main_title">
+                <a class="main_title_text">Схема работы устройства</a>
+            </div>
+            <div class="container">
+                <div class="block_button_sub" style="display: none;">
+                    <label class="btn" for="modal-1">Открыть</label>
+                        <div class="modal">
+                            <input class="modal-open" id="modal-1" type="checkbox" hidden>
+                            <div class="modal-wrap" aria-hidden="true" role="dialog">
+                                <label class="modal-overlay" for="modal-1"></label>
+                                <div class="modal-dialog">
+                                    <div class="modal-header">
+                                        <h2>Заголовок </h2>
+                                        <label class="btn-close" for="modal-1" aria-hidden="true">×</label>
+                                    </div>
+                                        <div class="modal-body">
+                                            <div class="block_options_main">
+                                                <div>
+                                                    <a class="title_options" style="margin-right: 3px;" for="">U1</a>
+                                                    <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                                                    <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                                                </div>
+                                                <div>
+                                                    <a class="title_options" for="">U2</a>
+                                                    <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                                                    <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                                                </div>
+                                                <div>
+                                                    <a class="title_options" for="">U3</a>
+                                                    <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                                                    <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                                                </div>
+                                                <div>
+                                                    <a class="title_options" for="" style="margin-right: 23px;">f</a>
+                                                    <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="50" readonly>
+                                                    <a class="title_options" for="" style="margin-left: 10px;">Гц</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="modal-footer">
+                                        <label class="btn btn-primary" for="modal-1">Отлично!</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="block_main_settings">
+                    <div class="block_options_main">
+                        <div>
+                            <a class="title_options" style="margin-right: 3px;" for="">U1</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U2</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U3</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="" style="margin-right: 23px;">f</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="50" readonly>
+                            <a class="title_options" for="" style="margin-left: 10px;">Гц</a>
+                        </div>
+                    </div>
+                    <div class="block_scheme">
+                        <div>
+                            <div class="form_radio_btn">
+                                <input type='radio' name='block1' id='r1' checked/>
+                                <label for="r1">Ввод 1</label>
+                            </div>
+                            <div class="form_radio_btn">
+                                <input type='radio' name='block1' id='r2'/>
+                                <label for="r2">Ввод 2</label>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <div class="block_scheme_first">
+                                <div class="block_in">
+                                    <img class="icon_in" src="images/in_g.svg" alt="">
+                                    <img class="icon_in" src="images/in_r.svg" alt="">
+                                </div>
+                                <img class="index_img" src="images/ats1.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="text" style="display: none;">
+                            <div class="block_scheme_second">
+                                <div class="block_in">
+                                    <img class="icon_in" src="images/in_r.svg" alt="">
+                                    <img class="icon_in" src="images/in_g.svg" alt="">
+                                </div>
+                                <img class="index_img" src="images/ats2.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block_options_main">
+                        <div>
+                            <a class="title_options" style="margin-right: 3px;" for="">U1</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U2</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="">U3</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="220" readonly>
+                            <a class="title_options" style="margin-left: 10px;" for="">В</a>
+                        </div>
+                        <div>
+                            <a class="title_options" for="" style="margin-right: 23px;">f</a>
+                            <input type="text" id="input_options" class="input_options" style="margin-right: 0px;" value="50" readonly>
+                            <a class="title_options" for="" style="margin-left: 10px;">Гц</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var radio = document.getElementsByClassName('text'); 
+        var click = [];
+        for (i=1; i<= radio.length; i++) {
+        click[i]= document.getElementById('r' + i);
+        }
+        function clicking (click) {
+        click.onclick=function() {Go()}; }
+        function display (click, radio) {
+        if (click.checked) {radio.style.display = 'block';} else {radio.style.display = 'none'; }
+        }
+        for (i=1; i<= radio.length; i++) {
+        clicking (click[i]);
+        }
+        function Go () {
+        for (i=1; i<= radio.length; i++) {
+        display (click[i], radio[i-1]);
+        }
+        }
+    </script>
+</body>
