@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>AvG мониторинг</title>
+        <link href="../static/static.css" rel="stylesheet" />
+        <link href="../fontawesome/all.min.css" rel="stylesheet">
+        <link rel="icon" href="../images/icon.svg" type="image/x-icon">
+        <script defer src="../assets/power.js"></script>
+        <script defer src="../assets/chart.min.js"></script>
+    </head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header_body">
+                <div class="header_logo">
+                    <img class="logo" src="../images/logo_w.svg" alt="">
+                    <div class="seporator_grz"></div>
+                    <ul class="header_list">
+                        <li><a href="../templates/index.html" class="header_link">Список объектов</a></li>
+                        <li><a href="../templates/events.html" class="header_link">События</a></li>
+                        <li><a href="" class="header_link">Ведение карточек</a></li>
+                    </ul>
+                </div>
+                <div class="header_burger">
+                    <span></span>
+                </div>
+                <ul class="header_list">
+                    <li>
+                        <div class="la-ball-scale-pulse" id="user_online_cl">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <img src="../images/red_circle.svg" alt="" id="user_offline_cl" style="display: none;">
+                        <a class="header_link" id="user_online" style="display: block;">Онлайн</a>
+                        <a class="header_link" id="user_offline" style="display: none;">Офлайн</a>
+                    </li>
+                    <div class="seporator_grz" style="margin-left: 50px;"></div>
+                    <li style="margin-right: 40px;">
+                        <a href="../templates/user.html" class="header_link" id="user_id"></a>
+                        <img class="lt_icon" src="../images/user.svg" alt="">
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="seporator_wrt"></div>
+        <div class="wrapper_hist">
+            <div class="block_hist" onclick="window.location='../templates/index.html';">
+                <div class="block_title_hist">
+                    <a class="title_hist">Объекты</a>
+                </div>
+                <canvas id="db_objects" width="70" height="70"></canvas>
+            </div>
+            <div class="block_hist" onclick="window.location='../templates/alarm.html#content_objs';">
+                <div class="block_title_hist">
+                    <a class="title_hist">Тревоги</a>
+                </div>
+                <canvas id="db_alarm" width="70" height="70"></canvas>
+            </div>
+            <div class="block_hist" onclick="window.location='../templates/communication.html';">
+                <div class="block_title_hist">
+                    <a class="title_hist">Связь</a>
+                </div>
+                <canvas id="db_communication" width="70" height="70"></canvas>
+            </div>
+            <div class="block_hist" onclick="window.location='../templates/power.html';">
+                <div class="block_title_hist">
+                    <a class="title_hist">Питание</a>
+                </div>
+                <canvas id="db_power" width="70" height="70"></canvas>
+            </div>
+            <div class="block_hist" onclick="window.location='../templates/faults.html';">
+                <div class="block_title_hist">
+                    <a class="title_hist">Неиспр.</a>
+                </div>
+                <canvas id="db_faults" width="70" height="70"></canvas>
+            </div>
+            <div class="block_hist" onclick="window.location='../templates/system.html';">
+                <div class="block_title_hist">
+                    <a class="title_hist">Система</a>
+                </div>
+                <img src="../images/histogram.svg" class="img_hist">
+            </div>
+            <div class="app-chart__canvas">
+                <canvas class="chart" style="width: 930px; height: 140px;"></canvas>
+            </div>
+        </div>
+        <div class="wrapper_horizontal">
+            <a class="title_list">Список объектов</a>
+            <div class="search_list">
+                <div class="sort_select">
+                    <select id="sort_select_obj" onchange="funcSortList()">
+                        <option>Сортировка</option>
+                        <option>CID</option>
+                        <option>Название</option>
+                        <option>Адрес</option>
+                    </select>
+                </div>
+                <div class="sort_select_filter">
+                    <select id="filt_select_obj" onchange="funcGetFiltObjectList()">
+                        <option>Фильтр</option>
+                        <option>Питание в норме</option>
+                        <option>Неисправность 220 В</option>
+                        <option>Нет 220 В и разряжен АКБ</option>
+                        <option>Разряд АКБ</option>
+                    </select>
+                </div>
+                <input type="text" class="find_list" id="find_list" placeholder="Поиск" onkeyup="tableSearch()">
+                <a href="#" id="icon_select"></a>
+                <a href="#" id="icon_update" onclick="location.reload(); return false;"></a>
+            </div>
+            <table id="tb_list">
+                <tr>
+                    <td class="td_main">CID</td>
+                    <td class="td_main">Название объекта</td>
+                    <td class="td_main">Адрес объекта</td>
+                    <td class="td_main">Статус</td>
+                </tr>
+            </table> 
+        </div>
+    </div>
+</body>
+</html>

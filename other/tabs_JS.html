@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .tab {
+overflow: hidden;
+border: 1px solid #ccc;
+background-color: #f1f1f1;
+}
+
+
+.tab button {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+font-size: 17px;
+}
+
+
+.tab button:hover {
+background-color: #ddd;
+}
+
+
+.tab button.active {
+background-color: #ccc;
+}
+
+.tabcontent {
+display: none;
+padding: 6px 12px;
+border: 1px solid #ccc;
+border-top: none;
+}
+</style>
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'bla')">bla</button>
+        <button class="tablinks" onclick="openTab(event, 'blabla')">blabla</button>
+        <button class="tablinks" onclick="openTab(event, 'pop')">POP</button>
+    </div>
+    
+    <div id="bla" class="tabcontent">
+        <h2>bla</h2>
+        <table>
+            <tr><td>My stuff that works :)</td></tr>
+        </table>
+    </div>
+
+    <div id="blabla" class="tabcontent">
+        <h3>blabla</h3>
+        <table>
+            <tr><td>My stuff that works ;)</td></tr>
+        </table>
+    </div>
+    
+    <div id="pop" class="tabcontent">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'doel1',true)">Doel 1</button>
+            <button class="tablinks" onclick="openTab(event, 'doel2', true)">Doel 2</button>
+            <button class="tablinks" onclick="openTab(event, 'doel3', true)">Doel 3</button>
+        </div>
+
+        <div id="doel1" class="tabcontent">
+            My stuff doel1
+        </div>
+    
+        <div id="doel2" class="tabcontent">
+            My stuff doel2
+        </div>
+    
+        <div id="doel3" class="tabcontent">
+            My stuff doel3
+        </div>
+    </div>
+</body>
+<script>
+    function openTab(evt, openTab, subTab) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    if(subTab) {
+      var parent = evt.currentTarget.closest('.tabcontent');
+      parent.style.display = "block";
+      parent.className += " active";
+    }
+    document.getElementById(openTab).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+</html>

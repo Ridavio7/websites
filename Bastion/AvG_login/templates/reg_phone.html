@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AvantGuard</title>
+    <link href="../static/static.css" rel="stylesheet" />
+    <script src="../assets/enter.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+	integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="block_enter-wrapper">
+            <div class="block_enter">
+                <img class="logo" src="../images/avg.svg" alt="">
+                <a class="title_second">Введите номер телефона</a>
+                <div class="block_input" style="margin-top: 26px;">
+                    <label for="idlogin">Номер телефона</label>
+                    <input type="text" id="idlogin" name="idlogin" placeholder="Введите номер телефона"required
+                    pattern="^((\+7)+([0-9]){10})$" title="Номер телефона должен начинаться с +7!" value="+7">
+                </div>
+                <label for="idlogin">Подтвердите, что Вы не робот</label>
+                <div onload="generate()" class="block_captcha">
+                    <div id="user-input" class="inline">
+                        <input type="text" id="submit"/>
+                    </div>
+                    <div class="inline" onclick="generate()">
+                        <img src="../images/update.svg" class="img_update" alt="">
+                    </div>
+                    <div id="image" class="inline" selectable="False"></div>
+                    <input type="submit" id="btn" onclick="printmsg()" />
+                </div>
+                <p id="key"></p>
+                <a id="button_enter" class="button_enter" style="margin: 44px; pointer-events: none;"
+                onclick="funcSendRegValid()">Подтвердить</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>   

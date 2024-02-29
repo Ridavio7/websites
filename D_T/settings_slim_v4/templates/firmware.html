@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<link rel="icon" href="../images/favicon.ico" />-->
+    <link href="../static/static.css" rel="stylesheet" />
+    <title>Network settings</title>
+    <script defer type="text/javascript" src="../assets/update.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_body">
+                <div class="header_logo">
+                    <img class="logo" src="../images/logo_w.svg" alt="">
+                    <!--<img class="logo" src="../images/logo.png" alt="">
+                    <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>-->
+                </div>
+                <div class="block_status_main">
+                    <div class="block_icon_status">
+                        <a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="block_go_back_button">
+                <div class="body_go_back_button">
+                    <a href="javascript: history.go(-1)">
+                        <img class="icon_settings" src="../images/go_back.svg" alt="">
+                        <a class="go_back_button" href="javascript: history.go(-1)">Назад</a>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <div class="block_status">
+                    <div class="block_icon_status">
+                        <a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+                <li><img class="icon_settings" src="../images/home.svg" alt=""><a href="../index.html" class="title_menu">Главная</a></li>
+                <li><img class="icon_settings" src="../images/settings.svg" alt=""><a href="settings.html" class="title_menu">Настройки</a></li>
+            </ul>
+        </div>
+        <div class="container_menu">
+            <div class="block_menu">
+                <div class="point_menu">
+                    <a href="../index.html"><img class="icon_settings" src="../images/home.svg" alt=""></a>
+                    <a href="../index.html" class="title_menu_main">Главная</a>
+                </div>
+                <div class="point_menu">
+                    <a href="settings.html"><img class="icon_settings" src="../images/settings.svg" alt=""></a>
+                    <a href="settings.html" class="title_menu_main">Настройки</a>
+                </div>
+            </div>
+        </div>
+        <div class="container_settings">
+            <div class="container">
+                <div class="block_settings_title">
+                    <div class="line_settings">
+                        <a class="main_title_text">Информация о прошивке</a>
+                    </div>
+                </div>
+                <div class="block_settings">
+                    <div class="line_settings_input">
+                        <label for="id_firmware">ID прошивки</label>
+                        <input type="text" id="id_firmware" value="123123123" name="id_firmware" readonly>
+                    </div>
+                </div>
+                <div class="block_settings">
+                    <div class="line_settings_input">
+                        <label for="id_web">ID веб интерфейса</label>
+                        <input type="text" id="id_web" value="3123123123" name="id_web" readonly>
+                    </div>
+                </div>
+                        <button class="button_sub">Обновить</button>
+                <div class="seporator_full"></div>
+                <div class="block_settings_title">
+                    <div class="line_settings">
+                        <a class="main_title_text">Кастомная прошивка</a>
+                    </div>
+                </div>
+                <div style="margin: 0px 30px;">
+                    <div class="line_settings_input">
+                        <table class=maintbl>
+                            <tr>
+                                <td>
+                                    <form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>
+                                        <input type='file' name='update' id='file' onchange='sub(this)' style=display:none>
+                                        <label id='file-input' for='file'>	 Выберите файл...</label>
+                                        <input type="radio" id="fw" name="filetype" value="fw" checked>
+                                        <label for="fw">Прошивка</label>
+                                        <input type="radio" id="fs" name="filetype" value="fs">
+                                        <label for="fs">Файловая система</label>
+                                        <div class=btn onclick='mysub()'>Обновить</div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a id="prg_title">Закрузка данных:</a>
+                                    <div id='prg'></div>
+                                    <div id='prgbar'>
+                                        <div id='bar'></div>
+                                    </div> 
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

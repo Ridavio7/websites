@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AvantGuard</title>
+    <link href="../static/static.css" rel="stylesheet" />
+    <script src="../assets/enter.js"></script>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="block_enter-wrapper">
+            <div class="block_enter">
+                <img class="logo" src="../images/avg.svg" alt="">
+                <a class="title_second">Введите ID телеграм</a>
+                <div class="block_input">
+                    <label for="idtg">ID телеграм</label>
+                    <input type="text" id="idlogin" name="idtg" placeholder="Введите ID телеграм" required pattern="(@\w+)"
+                    title="ID должен начинаться с @!" value="@">
+                </div>
+                <div class="block_rules">
+                    <a class="title_fourth" style="margin: 15px 10px;">Прочтите интсрукцияю для регистрации!</a>
+                    <div class="tooltip"><img src="../images/info.svg" alt="">
+                        <span class="tooltiptext">
+                            1. Найти в Телеграмм бот AGInfo, начать сессию нажав на клавишу Start.<br>
+                            2. В ответ получите приветствие системы и экранную клавиатуру с двумя клавишами - «Подключение» и «Инфо».<br>
+                            3. Для регистрации нажмите клавишу «Подключение», в ответ получите приглашение ввести номер мобильного телефона.<br>
+                            4. Наберите номер телефона, в указанном в сообщении формате и нажмите отправить.<br>
+                            5. В случае, если данные введены верно, получите сообщение о успешной регистрации.<br>
+                        </span>
+                    </div>
+                </div>
+                <label for="idlogin">Подтвердите, что Вы не робот</label>
+                <div onload="generate()" class="block_captcha">
+                    <div id="user-input" class="inline">
+                        <input type="text" id="submit"/>
+                    </div>
+                    <div class="inline" onclick="generate()">
+                        <img src="../images/update.svg" class="img_update" alt="">
+                    </div>
+                    <div id="image" class="inline" selectable="False"></div>
+                    <input type="submit" id="btn" onclick="printmsg()" />
+                </div>
+                <p id="key"></p>
+                <a id="button_enter" class="button_enter" style="margin: 30px; pointer-events: none;" onclick="funcSendRegValid()">Подтвердить</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

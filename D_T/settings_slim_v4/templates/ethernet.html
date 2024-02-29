@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<link rel="icon" href="../images/favicon.ico" />-->
+    <link href="../static/static.css" rel="stylesheet" />
+    <script defer type="text/javascript" src="../assets/upload_ethernet.js"></script>
+    <title>Network settings</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_body">
+                <div class="header_logo">
+                    <img class="logo" src="../images/logo_w.svg" alt="">
+                    <!--<img class="logo" src="../images/logo.png" alt="">
+                    <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>-->
+                </div>
+                <div class="block_status_main">
+                    <div class="block_icon_status">
+                        <a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="block_go_back_button">
+                <div class="body_go_back_button">
+                    <a href="javascript: history.go(-1)">
+                        <img class="icon_settings" src="../images/go_back.svg" alt="">
+                        <a class="go_back_button" href="javascript: history.go(-1)">Назад</a>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox"/>
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <div class="block_status">
+                    <div class="block_icon_status">
+                        <a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+                <li><img class="icon_settings" src="../images/home.svg" alt=""><a href="../index.html" class="title_menu">Главная</a></li>
+                <li><img class="icon_settings" src="../images/settings.svg" alt=""><a href="settings.html" class="title_menu">Настройки</a></li>
+            </ul>
+        </div>
+        <div class="container_menu">
+            <div class="block_menu">
+                <div class="point_menu">
+                    <a href="../index.html"><img class="icon_settings" src="../images/home.svg" alt=""></a>
+                    <a href="../index.html" class="title_menu_main">Главная</a>
+                </div>
+                <div class="point_menu">
+                    <a href="settings.html"><img class="icon_settings" src="../images/settings.svg" alt=""></a>
+                    <a href="settings.html" class="title_menu_main">Настройки</a>
+                </div>
+            </div>
+        </div>
+        <div class="container_settings">
+            <div class="container">
+                <div class="block_settings_title">
+                    <div class="line_settings">
+                        <a class="main_title_text">Настройка Ethernet</a>
+                    </div>
+                </div>
+                <div class="block_settings_form">
+                    <form id="settings_form">
+                        <div class="block_settings">
+                            <div class="line_settings">
+                                <input type="checkbox" id="eth_enable" name="eth_enable" class="checkbox_right" onchange="onCheckboxChanged()"/>
+                                <label class="checkbox" for="eth_enable">Включить Ethernet</label>
+                            </div>
+                        </div>
+                        <div class="seporator_full top_sep"></div>
+                        <div class="block_settings top_sep">
+                            <div class="line_settings">
+                                <label class="checkbox">IP - адрес</span></label>
+                            </div>
+                        </div>
+                        <div class="block_static">
+                            <div class="block_settings">
+                                <div class="line_settings_input">
+                                    <label for="network_mode">Настройка IPv4</label>
+                                    <div class="crypto_ui_3-select">
+                                        <select name="network_mode" id="network_mode" onchange="onCheckboxChangedIPv4()" disabled>
+                                            <option id="dinamic">DHCP</option>
+                                            <option id="static">Static</option>
+                                        </select>
+                                        <div class="crypto_ui_3-select_arrow"></div>
+                                    </div>
+                                </div>
+                                <div class="block_span">
+                                    <label class="checkbox"><span id="ip_conn" style="color: rgb(112, 112, 150);">-</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_static">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings_input">
+                                        <label for="ip">IP адрес</label>
+                                        <input type="text" class="ip" id="ip" placeholder="0.0.0.0" name="ip" readonly>
+                                    </div>
+                                </div>
+                                <div class="block_settings">
+                                    <div class="line_settings_input">
+                                        <label for="mask">Маска подсети</label>
+                                        <input type="text" class="mask" id="mask" placeholder="0.0.0.0" name="mask" readonly>
+                                    </div>
+                                </div>
+                                <div class="block_settings">
+                                    <div class="line_settings_input">
+                                        <label for="gateway">Шлюз</label>
+                                        <input type="text" class="gateway" id="gateway" placeholder="0.0.0.0" name="gateway" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_first">
+                            <div class="block_settings">
+                                <div class="line_settings_input">
+                                    <label for="dns_pref">DNS предпочтительный</label>
+                                    <input type="text" class="dns_pref" id="dns_pref" placeholder="0.0.0.0" name="dns_pref" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_settings_second">
+                            <div class="block_settings">
+                                <div class="line_settings_input">
+                                    <label for="dns_alter">DNS альтернативный</label>
+                                    <input type="text" class="dns_alter" id="dns_alter" placeholder="0.0.0.0" name="dns_alter" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seporator_full  top_sep"></div>
+                        <div class="block_static top_sep">
+                            <div class="block_settings_first">
+                                <div class="block_settings">
+                                    <div class="line_settings">
+                                        <input type="checkbox" class="enable_wifi checkbox_right" id="enable_dhcp" name="enable_dhcp" onchange="onCheckboxChangedDHCP()" onchange="onCheckboxChanged()" disabled/>
+                                        <label class="checkbox" for="enable_dhcp">DHCP сервер</label>
+                                    </div>
+                                </div>
+                                <div class="block_settings_second">
+                                    <div class="block_settings">
+                                        <div class="line_settings_input">
+                                            <label for="startip">Начальный IP</label>
+                                            <input type="text" class="startip" id="startip" placeholder="0.0.0.0" name="startip" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block_settings">
+                                    <div class="line_settings_input">
+                                        <label for="endip">Конечный IP</label>
+                                        <input type="text" class="endip" id="endip" placeholder="0.0.0.0" name="endip" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button_sub" id="create-json-btn">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

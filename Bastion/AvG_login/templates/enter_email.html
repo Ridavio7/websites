@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AvantGuard</title>
+    <link href="../static/static.css" rel="stylesheet" />
+    <script src="../assets/enter.js"></script>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="block_enter-wrapper">
+            <div class="block_enter">
+                <img class="logo" src="../images/avg.svg" alt="">
+                <a class="title_second">Вход</a>
+                <div class="block_input">
+                    <label for="idlogin">E-mail</label>
+                    <input type="email" id="idlogin" name="idlogin" placeholder="Введите e-mail" required title="Email должен включать @!">
+                </div>
+                <div class="block_input">
+                    <label for="idpsw">Пароль</label>
+                    <input type="password" id="idpsw" placeholder="Введите пароль" name="idpsw" required>
+                    <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                </div>
+                <div class="block_restore" style="display: none;">
+                    <input type="checkbox" name="save_me" id="save_me">
+                    <a class="restore_text">Запомнить меня</a>
+                    <a class="restore_text" href="" style="color: red;">Забыли пароль?</a>
+                </div>
+                <a class="button_enter" id="button_enter" onclick="funcEnterValid()">Войти</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

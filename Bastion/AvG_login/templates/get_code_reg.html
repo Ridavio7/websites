@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AvantGuard</title>
+    <link href="../static/static.css" rel="stylesheet" />
+    <script src="../assets/enter.js"></script>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="block_enter-wrapper">
+            <div class="block_enter">
+                <img class="logo" src="../images/avg.svg" alt="">
+                <a class="title_second">Введите код</a>
+                <div class="block_input" style="margin-bottom: 30px; margin-top: 26px;">
+                    <label for="idpsw">Код</label>
+                    <input type="password" id="idpsw" placeholder="Введите код" name="idpsw">
+                    <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                </div>
+                <a class="send_text">Не пришел код?</a>
+                <a class="send_text" href="#" style="text-decoration: underline;" onclick="funcSendRegRepeat()">Отправить снова</a>
+                <a href="#" class="button_enter" style="margin-top: 72px;" onclick="funcProverkaPhonePsw()">Отправить</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

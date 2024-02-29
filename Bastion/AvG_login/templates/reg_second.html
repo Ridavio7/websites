@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>AvantGuard</title>
+    <link href="../static/static.css" rel="stylesheet" />
+    <script src="../assets/enter.js"></script>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="block_enter-wrapper">
+            <div class="block_enter">
+                <img class="logo" src="../images/avg.svg" alt="">
+                <div class="block_input">
+                    <label for="name">ФИО</label>
+                    <input type="text" id="name" name="name" placeholder="Введите ФИО">
+                </div>
+                <div class="block_input">
+                    <label for="password-input">Пароль</label>
+                    <input type="password" id="password1" placeholder="Введите пароль" name="password">
+                    <a href="#" class="password-control" onclick="return show_hide_password1(this);"></a>
+                </div>
+                <div class="block_input">
+                    <label for="password-input">Повторить пароль</label>
+                    <input type="password" id="password2" placeholder="Введите пароль" name="password">
+                    <a href="#" class="password-control" onclick="return show_hide_password2(this);"></a>
+                </div>
+                <a href="#" class="button_enter" onclick="funcSendPsw()">Регистрация</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function show_hide_password1(target){
+            var input = document.getElementById('password1');
+            if (input.getAttribute('type') == 'password') {
+                target.classList.add('view');
+                input.setAttribute('type', 'text');
+            } else {
+                target.classList.remove('view');
+                input.setAttribute('type', 'password');
+            }
+            return false;
+        }
+        function show_hide_password2(target){
+            var input = document.getElementById('password2');
+            if (input.getAttribute('type') == 'password') {
+                target.classList.add('view');
+                input.setAttribute('type', 'text');
+            } else {
+                target.classList.remove('view');
+                input.setAttribute('type', 'password');
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
