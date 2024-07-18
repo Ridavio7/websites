@@ -10,6 +10,8 @@
     <link rel="icon" href="../images/icon.svg" type="image/x-icon">
     <script defer src="../assets/index.js"></script>
     <script defer src="../assets/chart.min.js"></script>
+    <script defer src="../assets/jquery_3.3.1.js"></script>
+    <script defer src="../assets/dataTables.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -17,9 +19,8 @@
             <div class="header_body">
                 <div class="header_logo">
                     <img class="logo" src="../images/logo_w.svg" alt="">
-                    <div class="seporator_grz"></div>
                     <ul class="header_list">
-                        <li><a href="../templates/index.html" class="header_link">Список объектов</a></li>
+                        <li><a href="../templates/index_dash.html" class="header_link">Дашборд</a></li>
                         <li><a href="../templates/events.html" class="header_link">События</a></li>
                         <li><a href="" class="header_link">Ведение карточек</a></li>
                     </ul>
@@ -37,45 +38,44 @@
                         <a class="header_link" id="user_online" style="display: block;">Онлайн</a>
                         <a class="header_link" id="user_offline" style="display: none;">Офлайн</a>
                     </li>
-                    <div class="seporator_grz" style="margin-left: 50px;"></div>
-                    <li style="margin-right: 40px;">
+                    <li>
                         <a href="../templates/user.html" class="header_link" id="user_id"></a>
                         <img class="lt_icon" src="../images/user.svg" alt="">
                     </li>
                 </ul>
             </div>
         </header>
-        <div class="seporator_wrt"></div>
+        <div class="seporator"></div>
         <div class="wrapper_hist">
             <div class="block_hist" onclick="window.location='../templates/index.html';">
                 <div class="block_title_hist">
                     <a class="title_hist">Объекты</a>
                 </div>
-                <canvas id="db_objects" width="70" height="70"></canvas>
+                <canvas id="db_status" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/alarm.html#content_objs';">
                 <div class="block_title_hist">
                     <a class="title_hist">Тревоги</a>
                 </div>
-                <canvas id="db_alarm" width="70" height="70"></canvas>
+                <canvas id="db_alarm" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/communication.html';">
                 <div class="block_title_hist">
                     <a class="title_hist">Связь</a>
                 </div>
-                <canvas id="db_communication" width="70" height="70"></canvas>
+                <canvas id="db_communication" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/power.html';">
                 <div class="block_title_hist">
                     <a class="title_hist">Питание</a>
                 </div>
-                <canvas id="db_power" width="70" height="70"></canvas>
+                <canvas id="db_power" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/faults.html';">
                 <div class="block_title_hist">
-                    <a class="title_hist">Неиспр.</a>
+                    <a class="title_hist">Обслуж.</a>
                 </div>
-                <canvas id="db_faults" width="70" height="70"></canvas>
+                <canvas id="db_objects" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/system.html';">
                 <div class="block_title_hist">
@@ -83,42 +83,48 @@
                 </div>
                 <img src="../images/histogram.svg" class="img_hist">
             </div>
-            <div class="app-chart__canvas">
-                <canvas class="chart" style="width: 930px; height: 140px;"></canvas>
+            <div class="form_radio_group">
+                <div class="form_radio_group-item">
+                    <input name="select2" value="chart_minutes" type="radio" onChange="Selected(this)" checked>
+                    <label for="radio-1">30 м.</label>
+                </div>
+                <div class="form_radio_group-item">
+                    <input name="select2" value="chart_hourse" type="radio" onChange="Selected(this)" >
+                    <label for="radio-2">24 ч.</label>
+                </div>
+            </div>
+            <div class="app-chart__canvas " id="chart_minutes">
+                <canvas class="chart_minutes"></canvas>
+            </div>
+            <div class="app-chart__canvas deactive" id="chart_hourse">
+                <canvas class="chart_hourse"></canvas>
             </div>
         </div>
         <div class="wrapper_horizontal">
-            <a class="title_list">Список объектов</a>
-            <div class="search_list">
-                <div class="sort_select">
-                    <select id="sort_select_obj" onchange="funcSortList()">
-                        <option>Сортировка</option>
-                        <option>CID</option>
-                        <option>Название</option>
-                        <option>Адрес</option>
-                    </select>
-                </div>
-                <div class="sort_select_filter">
-                    <select id="filt_select_obj" onchange="funcGetFiltObjectList()">
-                        <option>Фильтр</option>
-                        <option>Поставлен на охрану</option>
-                        <option>Снят с охраны</option>
-                        <option>Не поставлен вовремя на охрану</option>
-                    </select>
-                </div>
-                <input type="text" class="find_list" id="find_list" placeholder="Поиск" onkeyup="tableSearch()">
-                <a href="#" id="icon_select"></a>
+            <div class="wrapper_title_list">
+                <a class="title_list">Список объектов</a>
                 <a href="#" id="icon_update" onclick="location.reload(); return false;"></a>
-                <a href="../templates/index_desh.html">Дашборд</a>
             </div>
+            <div class="ball_rotate" id="ball_rotate">
+                <div></div>
+            </div>
+            <div class="ball_rotate_lt" id="ball_rotate_lt">
+                <div></div>
+            </div>
+            <a class="text_loading" id="text_loading">Загрузка...</a>
             <table id="tb_list">
-                <tr>
-                    <td class="td_main">CID</td>
-                    <td class="td_main">Название объекта</td>
-                    <td class="td_main">Адрес объекта</td>
-                    <td class="td_main">Статус</td>
-                </tr>
-            </table> 
+                <thead id="tb_list_thead">
+                    <tr class="even">
+                        <td class="td_main">CID</td>
+                        <td class="td_main">Название объекта</td>
+                        <td class="td_main">Адрес объекта</td>
+                        <td class="td_main">Статус</td>
+                    </tr>
+                </thead>
+                <tbody id="tb_list_bd">
+
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

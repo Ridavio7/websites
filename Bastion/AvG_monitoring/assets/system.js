@@ -1,5 +1,5 @@
 const url = "https://api.avantguard.pro:9999/json";
-var   tid = 0, userId = 0, sat = 0, ts = 0, data_line = [], count_obj = 0;
+var   tid = 0, userId = 0, sat = 0, ts = 0,  line_chart_h = null, line_chart_m = null, data_line_h = [], labels_h = [], lines_h = [], data_line_m = [], labels_m = [], lines_m = [], count_obj = 0;
 
 function sform_tid(){
     var curr_dt = new Date();
@@ -21,7 +21,28 @@ window.onload = function(){
     funcGetObjectList();
     funcDashboards();
     setUserId();
-    funcGetMessageToday();
+    for (let i = 0; i < 1440; i+=60) {
+        funcGetMessageTodayHours(i);
+    };
+    setInterval(() => {
+        if(line_chart_h != null){
+            data_line_h = [], labels_h = [], lines_h = [];
+        }
+        for (let i = 0; i < 1440; i+=60) {
+            funcGetMessageTodayHours(i);
+        };
+    }, 1800000)
+    for (let i = 0; i < 30; i+=1) {
+        funcGetMessageTodayMinutes(i);
+    };
+    setInterval(() => {
+        if(line_chart_m != null){
+            data_line_m = [], labels_m = [], lines_m = [];
+        }
+        for (let i = 0; i < 30; i+=1) {
+            funcGetMessageTodayMinutes(i);
+        };
+    }, 30000)
 }
 
 function funcCommand( body, callbackfunc ){
@@ -56,337 +77,288 @@ function funcCommand( body, callbackfunc ){
     xhr.send(jsbody);
 }
 
-function doDataForLine(data){
-    let time_00 = new Date(); time_00.setUTCHours(0,0,0,0);
-    let time_00_conv = ((new Date(time_00.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_01 = new Date(); time_01.setUTCHours(1,0,0,0);
-    let time_01_conv = ((new Date(time_01.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_02 = new Date(); time_02.setUTCHours(2,0,0,0);
-    let time_02_conv = ((new Date(time_02.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_03 = new Date(); time_03.setUTCHours(3,0,0,0);
-    let time_03_conv = ((new Date(time_03.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_04 = new Date(); time_04.setUTCHours(4,0,0,0);
-    let time_04_conv = ((new Date(time_04.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_05 = new Date(); time_05.setUTCHours(5,0,0,0);
-    let time_05_conv = ((new Date(time_05.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_06 = new Date(); time_06.setUTCHours(6,0,0,0);
-    let time_06_conv = ((new Date(time_06.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_07 = new Date(); time_07.setUTCHours(7,0,0,0);
-    let time_07_conv = ((new Date(time_07.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_08 = new Date(); time_08.setUTCHours(8,0,0,0);
-    let time_08_conv = ((new Date(time_08.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_09 = new Date(); time_09.setUTCHours(9,0,0,0);
-    let time_09_conv = ((new Date(time_09.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_10 = new Date(); time_10.setUTCHours(10,0,0,0);
-    let time_10_conv = ((new Date(time_10.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_11 = new Date(); time_11.setUTCHours(11,0,0,0);
-    let time_11_conv = ((new Date(time_11.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_12 = new Date(); time_12.setUTCHours(12,0,0,0);
-    let time_12_conv = ((new Date(time_12.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_13 = new Date(); time_13.setUTCHours(13,0,0,0);
-    let time_13_conv = ((new Date(time_13.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_14 = new Date(); time_14.setUTCHours(14,0,0,0);
-    let time_14_conv = ((new Date(time_14.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_15 = new Date(); time_15.setUTCHours(15,0,0,0);
-    let time_15_conv = ((new Date(time_15.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_16 = new Date(); time_16.setUTCHours(16,0,0,0);
-    let time_16_conv = ((new Date(time_16.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_17 = new Date(); time_17.setUTCHours(17,0,0,0);
-    let time_17_conv = ((new Date(time_17.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_18 = new Date(); time_18.setUTCHours(18,0,0,0);
-    let time_18_conv = ((new Date(time_18.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_19 = new Date(); time_19.setUTCHours(19,0,0,0);
-    let time_19_conv = ((new Date(time_19.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_20 = new Date(); time_20.setUTCHours(20,0,0,0);
-    let time_20_conv = ((new Date(time_20.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_21 = new Date(); time_21.setUTCHours(21,0,0,0);
-    let time_21_conv = ((new Date(time_21.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_22 = new Date(); time_22.setUTCHours(22,0,0,0);
-    let time_22_conv = ((new Date(time_22.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_23 = new Date(); time_23.setUTCHours(23,0,0,0);
-    let time_23_conv = ((new Date(time_23.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let time_002 = new Date(); time_002.setUTCHours(23,59,59,999);
-    let time_002_conv = ((new Date(time_002.toUTCString()).valueOf()).toString()).slice(0, -3);
-
-    let count = ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"];
-    for (let i of data){
-        if (time_00_conv <= i && i <= time_01_conv){ count[0]++; }
-        if (time_01_conv <= i && i <= time_02_conv){ count[1]++; }
-        if (time_02_conv <= i && i <= time_03_conv){ count[2]++; }
-        if (time_03_conv <= i && i <= time_04_conv){ count[3]++; }
-        if (time_04_conv <= i && i <= time_05_conv){ count[4]++; }
-        if (time_05_conv <= i && i <= time_06_conv){ count[5]++; }
-        if (time_06_conv <= i && i <= time_07_conv){ count[6]++; }
-        if (time_07_conv <= i && i <= time_08_conv){ count[7]++; }
-        if (time_08_conv <= i && i <= time_09_conv){ count[8]++; }
-        if (time_09_conv <= i && i <= time_10_conv){ count[9]++; }
-        if (time_10_conv <= i && i <= time_11_conv){ count[10]++;}
-        if (time_11_conv <= i && i <= time_12_conv){ count[11]++; }
-        if (time_12_conv <= i && i <= time_13_conv){ count[12]++; }
-        if (time_13_conv <= i && i <= time_14_conv){ count[13]++; }
-        if (time_14_conv <= i && i <= time_15_conv){ count[14]++; }
-        if (time_15_conv <= i && i <= time_16_conv){ count[15]++; }
-        if (time_16_conv <= i && i <= time_17_conv){ count[16]++; }
-        if (time_17_conv <= i && i <= time_18_conv){ count[17]++; }
-        if (time_18_conv <= i && i <= time_19_conv){ count[18]++; }
-        if (time_19_conv <= i && i <= time_20_conv){ count[19]++; }
-        if (time_20_conv <= i && i <= time_21_conv){ count[20]++; }
-        if (time_21_conv <= i && i <= time_22_conv){ count[21]++; }
-        if (time_22_conv <= i && i <= time_23_conv){ count[22]++; }
-        if (time_23_conv <= i && i <= time_002_conv){ count[23]++; }
-    }
-
-    new Chart( document.querySelector('.chart'),{
-            type: 'line',
-            data: {
-            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', 
-                    '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00',
-                    '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-            datasets: [
-                {
-                    label: 'События',
-                    data: count,
-                    borderColor: '#0F59B1',
-                    borderWidth: 2,
-                    backgroundColor: 'white',
-                    cubicInterpolationMode: 'monotone',
-                }
-            ]
-        },
-            options: {
-            scales: {
-                x: {
-                    ticks: {
-                        color: 'white',
-                    },
-                    grid: {
-                        color: '#4C5761',
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: 'white',
-                    },
-                    grid: {
-                        color: '#4C5761',
-                    }
-                }
-            },
-            plugins: {
-                    legend: {
-                        display: false,
-                    }
-                }
-            }
-        });
+function hideAllBlock() {
+    document.getElementById("chart_minutes").style.display = 'none';
+    document.getElementById("chart_hourse").style.display = 'none';
 }
 
-function callbackGetMessageToday(err, respobj){
-    if(err){
-        //Error!
-    } else {
-        let data_str = [];
-        for (i in respobj) {
-            list_obj = respobj.aData;
+function Selected(a) {
+    hideAllBlock();
+    document.getElementById(a.value).style.display = 'block';
+}
+
+function makeChartLineMinutes(lines, labels){
+    if(line_chart_m != null){
+        line_chart_m.destroy();
+    }
+    line_chart_m = new Chart( document.querySelector('.chart_minutes'),{
+        type: 'line',
+        data: {labels: labels,
+                datasets: [{
+                label: 'События',
+                data: lines,
+                borderColor: '#0F59B1',
+                borderWidth: 2,
+                backgroundColor: 'white',
+                cubicInterpolationMode: 'monotone'}]},
+        options: {
+                scales: {x: {ticks: {color: 'white', autoSkip: true, maxRotation: 0}, grid: {color: '#717171'}},
+                y: {beginAtZero: true, ticks: {color: 'white'}, grid: {color: '#717171'}}},
+                plugins: {legend: {display: false}}}
+    });
+}
+
+function callbackGetMessageTodayMinutes(respobj){
+    let line_m = respobj.aValues[0];
+    let label_m = respobj.sBDaTi;
+
+    data_line_m[label_m] = line_m;
+    let data_line_m_sorted = Object.fromEntries(Object.entries(data_line_m).sort());
+    if(Object.keys(data_line_m_sorted).length >= 29 && Object.keys(data_line_m_sorted).length <= 30){
+        for (let key in data_line_m_sorted){
+            lines_m.push(data_line_m_sorted[key]);
+            key = key.substring(11, 16);
+            labels_m.push(key);
         }
-        for (let j in list_obj){
-            let data_obj = list_obj[j];
-            let data = data_obj.Mdt  + 10800;
-            data_str.unshift(data);
+        if(lines_m.length >= 29 && labels_m.length >= 29){
+            lines_m = lines_m.slice(0, 29);
+            labels_m = labels_m.slice(0, 29);
+            makeChartLineMinutes(lines_m, labels_m);
         }
-        doDataForLine(data_str);
     }
 }
 
-function funcProcessGetMessageToday( result, respobj ){
+function funcProcessGetMessageTodayMinutes( result, respobj ){
     if( result === 0 ) return;
     if( respobj.pn == "1" ){
-        console.log( respobj );
+        callbackGetMessageTodayMinutes(respobj);
     } else if( respobj.pn == "3"){
-        callbackGetMessageToday(respobj.sErr, respobj);
+        //console.log( respobj );
     } else {
         console.log( "Не определено: " + respobj.pn );
+        let lines = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        let labels = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        makeChartLineMinutes(lines, labels);
     }
 }
 
-function funcGetMessageToday(){
-    let body = { "mt":112, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web", "nPg":"",  "nPgSz":"", "db":"",  "de":"" };
+function funcGetMessageTodayMinutes(i){
+    let body = { "mt":124, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web", "tDeltaBDaTi":"", "nMinutes":"", "nMaxCnt":""};
     body.tid      = tid;
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.aui      = "web";
-    body.nPg      = 1;
-    body.nPgSz    = 500;
-
-    let start = new Date(); start.setUTCHours(0,0,0,0);
-    let end = new Date(); end.setUTCHours(23,59,59,999);
-    let start_conv = ((new Date(start.toUTCString()).valueOf()).toString()).slice(0, -3);
-    let end_conv = ((new Date(end.toUTCString()).valueOf()).toString()).slice(0, -3);
-
-    body.db       = start_conv;
-    body.de       = end_conv;
-
-    funcCommand( body, funcProcessGetMessageToday );
+    body.tDeltaBDaTi = -i;
+    body.nMinutes = 1;
+    body.nMaxCnt  = 30;
+    funcCommand( body, funcProcessGetMessageTodayMinutes );
 }
 
-function callbackGetDashboardInfo(err, respobj, db_id){
-    if(err){
-        //Error!
+function makeChartLineHourse(lines, labels){
+    if(line_chart_h != null){
+        line_chart_h.destroy();
+    }
+    line_chart_h = new Chart( document.querySelector('.chart_hourse'),{
+        type: 'line',
+        data: {labels: labels,
+                datasets: [{
+                label: 'События',
+                data: lines,
+                borderColor: '#0F59B1',
+                borderWidth: 2,
+                backgroundColor: 'white',
+                cubicInterpolationMode: 'monotone'}]},
+        options: {
+                scales: {x: {ticks: {color: 'white', autoSkip: true, maxRotation: 0}, grid: {color: '#717171'}},
+                y: {beginAtZero: true, ticks: {color: 'white'}, grid: {color: '#717171'}}},
+                plugins: {legend: {display: false}}}
+    });
+}
+
+function callbackGetMessageTodayHours(respobj){
+    let line_h = respobj.aValues[0];
+    let label_h = respobj.sBDaTi;
+
+    data_line_h[label_h] = line_h;
+    let data_line_h_sorted = Object.fromEntries(Object.entries(data_line_h).sort());
+    if(Object.keys(data_line_h_sorted).length >= 23){
+        for (let key in data_line_h_sorted){
+            lines_h.push(data_line_h_sorted[key]);
+            key = key.substring(11, 16);
+            labels_h.push(key);
+            if(lines_h.length >= 23 && labels_h.length >= 23){
+                lines_h = lines_h.slice(0, 23);
+                labels_h = labels_h.slice(0, 23);
+                makeChartLineHourse(lines_h, labels_h);
+            }
+        }
+    }
+}
+
+function funcProcessGetMessageTodayHours( result, respobj ){
+    if( result === 0 ) return;
+    if( respobj.pn == "1" ){
+        callbackGetMessageTodayHours(respobj);
+    } else if( respobj.pn == "3"){
+        //console.log( respobj );
+    } else {
+        console.log( "Не определено: " + respobj.pn );
+        let lines = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        let labels = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        makeChartLineHourse(lines, labels);
+    }
+}
+
+function funcGetMessageTodayHours(i){
+    let body = { "mt":124, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web", "tDeltaBDaTi":"", "nMinutes":"", "nMaxCnt":""};
+    body.tid      = tid;
+    body.userId   = localStorage.getItem("userId");
+    body.lat      = localStorage.getItem("lat");
+    body.aui      = "web";
+    body.tDeltaBDaTi = -i;
+    body.nMinutes = 60;
+    body.nMaxCnt  = 24;
+    funcCommand( body, funcProcessGetMessageTodayHours );
+}
+
+function callbackGetDashboardInfoSmall(respobj, db_id){
+    if(respobj.pn == "1"){
+        let colors = ['red'];
+        let data = [1];
+        let labels = ["Ошибка"];
+
+        new Chart(document.getElementById(db_id),{
+            type: 'pie',
+            data: {labels: labels,
+                datasets: [{data: data,backgroundColor: colors}]},
+            options: {plugins: {legend: {display: false}},
+                    datasets: {pie: {borderWidth: 1}}}
+        });
     } else {
         users_obj = respobj.DBInfo;
         let colors = users_obj.aClr;
         let data = users_obj.aData;
-        //let text = users_obj.aTxt;
 
-        let canvas = document.getElementById(db_id);
-        let ctx = canvas.getContext("2d");
-        let total = data.reduce(function(sum, value) { return sum + value; }, 0);
-        let startAngle = 0;
-        ctx.translate(0,70);
-        ctx.rotate(-90 * Math.PI / 180);
-        for (let i = 0; i < data.length; i++) {
-            let sliceAngle = 2 * Math.PI * data[i] / total;
-            ctx.fillStyle = colors[i];
-            ctx.beginPath();
-            ctx.moveTo(canvas.width/2, canvas.height/2);
-            ctx.arc(canvas.width/2, canvas.height/2, canvas.height/2, startAngle, startAngle+sliceAngle);
-            ctx.closePath();
-            ctx.fill();
-            ctx.strokeStyle = "#39414B";
-            ctx.stroke(); 
-            startAngle += sliceAngle;
-        }
+        new Chart(document.getElementById(db_id),{
+            type: 'pie',
+            data: {datasets: [{data: data,backgroundColor: colors}]},
+            options: {plugins: {legend: {display: false}},
+                    datasets: {pie: {borderWidth: 1}}}
+        });
     }
 }
 
-function funcProcessGetDashboardInfoFifth( result, respobj ){
+function funcProcessGetDashboardInfoCommMain( result, respobj ){
     if( result === 0 ) return;
     if( respobj.pn == "1" ){
-        console.log( respobj );
+        callbackGetDashboardInfoSmall(respobj, "db_communication");
     } else if( respobj.pn == "3"){
-        for (let key in respobj.aData) {
-            users_obj = respobj.aData[key];
-            let Status = users_obj.jState;
-            if (Status === undefined){
-            } else {
-                Status = Status.aState;
-                query = "Присутствует неисправность";
-                filteredItems = Status.filter(item => `${item.t}`.includes(query));
-                if (filteredItems.length === 0){
-                } else {
-                    count_obj++;
-                }
-            }
-        }
-        respobj = {DBInfo:{aClr: ["#f6c23e"], aData: [count_obj]}}
-        callbackGetDashboardInfo(respobj.sErr, respobj, "db_faults")
+        callbackGetDashboardInfoSmall(respobj, "db_communication");
     } else {
         console.log( "Не определено: " + respobj.pn );
     }
 }
 
-function funcGetDashboardInfoFifth(){
-    let body = { "mt":113, "pn":0, "tid":"", "userId":"", "lat":"",  "nPg":"",  "nPgSz":"", "aui":"web" };
-    body.tid      = tid;
-    body.userId   = localStorage.getItem("userId");
-    body.lat      = localStorage.getItem("lat");
-    body.nPg      = 1;
-    body.nPgSz    = 13;
-    body.aui      = "web";
-    funcCommand( body, funcProcessGetDashboardInfoFifth );
-}
-
-function funcProcessGetDashboardInfoFourth( result, respobj ){
-    if( result === 0 ) return;
-    if( respobj.pn == "1" ){
-        console.log( respobj );
-    } else if( respobj.pn == "3"){
-        callbackGetDashboardInfo(respobj.sErr, respobj, "db_power");
-    } else {
-        console.log( "Не определено: " + respobj.pn );
-    }
-}
-
-function funcGetDashboardInfoFourth(){
-    let body = { "mt":121, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web",  "iDB":"" };
-    body.tid      = tid;
-    body.userId   = localStorage.getItem("userId");
-    body.lat      = localStorage.getItem("lat");
-    body.iDB      = 6;
-    body.aui      = "web";
-    funcCommand( body, funcProcessGetDashboardInfoFourth );
-}
-
-function funcProcessGetDashboardInfoThird( result, respobj ){
-    if( result === 0 ) return;
-    if( respobj.pn == "1" ){
-        console.log( respobj );
-    } else if( respobj.pn == "3"){
-        callbackGetDashboardInfo(respobj.sErr, respobj, "db_communication");
-    } else {
-        console.log( "Не определено: " + respobj.pn );
-    }
-}
-
-function funcGetDashboardInfoThird(){
+function funcGetDashboardInfoCommMain(){
     let body = { "mt":121, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web",  "iDB":"" };
     body.tid      = tid;
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.iDB      = 4;
     body.aui      = "web";
-    funcCommand( body, funcProcessGetDashboardInfoThird );
+    funcCommand( body, funcProcessGetDashboardInfoCommMain );
 }
 
-function funcProcessGetDashboardInfoSecond( result, respobj ){
+function funcProcessGetDashboardInfoPower( result, respobj ){
     if( result === 0 ) return;
     if( respobj.pn == "1" ){
-        console.log( respobj );
+        callbackGetDashboardInfoSmall(respobj, "db_power");
     } else if( respobj.pn == "3"){
-        callbackGetDashboardInfo(respobj.sErr, respobj, "db_alarm");
+        callbackGetDashboardInfoSmall(respobj, "db_power");
     } else {
         console.log( "Не определено: " + respobj.pn );
     }
 }
 
-function funcGetDashboardInfoSecond(){
+function funcGetDashboardInfoPower(){
+    let body = { "mt":121, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web",  "iDB":"" };
+    body.tid      = tid;
+    body.userId   = localStorage.getItem("userId");
+    body.lat      = localStorage.getItem("lat");
+    body.iDB      = 6;
+    body.aui      = "web";
+    funcCommand( body, funcProcessGetDashboardInfoPower );
+}
+
+function funcProcessGetDashboardInfoObj( result, respobj ){
+    if( result === 0 ) return;
+    if( respobj.pn == "1" ){
+        callbackGetDashboardInfoSmall(respobj, "db_objects");
+    } else if( respobj.pn == "3"){
+        callbackGetDashboardInfoSmall(respobj, "db_objects");
+    } else {
+        console.log( "Не определено: " + respobj.pn );
+    }
+}
+
+function funcGetDashboardInfoObj(){
+    let body = { "mt":121, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web",  "iDB":"" };
+    body.tid      = tid;
+    body.userId   = localStorage.getItem("userId");
+    body.lat      = localStorage.getItem("lat");
+    body.iDB      = 2;
+    body.aui      = "web";
+    funcCommand( body, funcProcessGetDashboardInfoObj );
+}
+
+function funcProcessGetDashboardInfoAlarm( result, respobj ){
+    if( result === 0 ) return;
+    if( respobj.pn == "1" ){
+        callbackGetDashboardInfoSmall(respobj, "db_alarm");
+    } else if( respobj.pn == "3"){
+        callbackGetDashboardInfoSmall(respobj, "db_alarm");
+    } else {
+        console.log( "Не определено: " + respobj.pn );
+    }
+}
+
+function funcGetDashboardInfoAlarm(){
     let body = { "mt":121, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web",  "iDB":"" };
     body.tid      = tid;
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.iDB      = 3;
     body.aui      = "web";
-    funcCommand( body, funcProcessGetDashboardInfoSecond );
+    funcCommand( body, funcProcessGetDashboardInfoAlarm );
 }
 
-function funcProcessGetDashboardInfoFirst( result, respobj ){
+function funcProcessGetDashboardInfoStatus( result, respobj ){
     if( result === 0 ) return;
     if( respobj.pn == "1" ){
-        console.log( respobj );
+        callbackGetDashboardInfoSmall(respobj, "db_status");
     } else if( respobj.pn == "3"){
-        callbackGetDashboardInfo(respobj.sErr, respobj, "db_objects");
+        callbackGetDashboardInfoSmall(respobj, "db_status");
     } else {
         console.log( "Не определено: " + respobj.pn );
     }
 }
 
-function funcGetDashboardInfoFirst(){
+function funcGetDashboardInfoStatus(){
     let body = { "mt":121, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web",  "iDB":"" };
     body.tid      = tid;
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.iDB      = 1;
     body.aui      = "web";
-    funcCommand( body, funcProcessGetDashboardInfoFirst );
+    funcCommand( body, funcProcessGetDashboardInfoStatus );
 }
 
 function funcDashboards(){
-    funcGetDashboardInfoFirst();
-    funcGetDashboardInfoSecond();
-    funcGetDashboardInfoThird();
-    funcGetDashboardInfoFourth();
-    funcGetDashboardInfoFifth();
+    funcGetDashboardInfoStatus();
+    funcGetDashboardInfoAlarm();
+    funcGetDashboardInfoObj();
+    funcGetDashboardInfoPower();
+    funcGetDashboardInfoCommMain();
 }
 /*
 function tableSearch() {
@@ -501,7 +473,7 @@ function funcGetFiltObjectList(){
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.nPg      = 1;
-    body.nPgSz    = 13;
+    body.nPgSz    = 5000;
     body.aui      = "web";
     funcCommand( body, funcProcessGetFiltObjectList );
 }
@@ -619,7 +591,7 @@ function funcGetObjectList(){
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.nPg      = 1;
-    body.nPgSz    = 13;
+    body.nPgSz    = 5000;
     body.aui      = "web";
     funcCommand( body, funcProcessGetObjectList );
 }

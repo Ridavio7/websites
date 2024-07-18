@@ -17,9 +17,8 @@
             <div class="header_body">
                 <div class="header_logo">
                     <img class="logo" src="../images/logo_w.svg" alt="">
-                    <div class="seporator_grz"></div>
                     <ul class="header_list">
-                        <li><a href="../templates/index.html" class="header_link">Список объектов</a></li>
+                        <li><a href="../templates/index_dash.html" class="header_link">Дашборд</a></li>
                         <li><a href="../templates/events.html" class="header_link">События</a></li>
                         <li><a href="" class="header_link">Ведение карточек</a></li>
                     </ul>
@@ -37,45 +36,44 @@
                         <a class="header_link" id="user_online" style="display: block;">Онлайн</a>
                         <a class="header_link" id="user_offline" style="display: none;">Офлайн</a>
                     </li>
-                    <div class="seporator_grz" style="margin-left: 50px;"></div>
-                    <li style="margin-right: 40px;">
+                    <li>
                         <a href="../templates/user.html" class="header_link" id="user_id"></a>
                         <img class="lt_icon" src="../images/user.svg" alt="">
                     </li>
                 </ul>
             </div>
         </header>
-        <div class="seporator_wrt"></div>
+        <div class="seporator"></div>
         <div class="wrapper_hist">
             <div class="block_hist" onclick="window.location='../templates/index.html';">
                 <div class="block_title_hist">
                     <a class="title_hist">Объекты</a>
                 </div>
-                <canvas id="db_objects" width="70" height="70"></canvas>
+                <canvas id="db_status" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/alarm.html#content_objs';">
                 <div class="block_title_hist">
                     <a class="title_hist">Тревоги</a>
                 </div>
-                <canvas id="db_alarm" width="70" height="70"></canvas>
+                <canvas id="db_alarm" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/communication.html';">
                 <div class="block_title_hist">
                     <a class="title_hist">Связь</a>
                 </div>
-                <canvas id="db_communication" width="70" height="70"></canvas>
+                <canvas id="db_communication" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/power.html';">
                 <div class="block_title_hist">
                     <a class="title_hist">Питание</a>
                 </div>
-                <canvas id="db_power" width="70" height="70"></canvas>
+                <canvas id="db_power" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/faults.html';">
                 <div class="block_title_hist">
-                    <a class="title_hist">Неиспр.</a>
+                    <a class="title_hist">Обслуж.</a>
                 </div>
-                <canvas id="db_faults" width="70" height="70"></canvas>
+                <canvas id="db_objects" style="max-width: 70px; max-height: 70px;"></canvas>
             </div>
             <div class="block_hist" onclick="window.location='../templates/system.html';">
                 <div class="block_title_hist">
@@ -83,14 +81,27 @@
                 </div>
                 <img src="../images/histogram.svg" class="img_hist">
             </div>
-            <div class="app-chart__canvas">
-                <canvas class="chart" style="width: 930px; height: 140px;"></canvas>
+            <div class="form_radio_group">
+                <div class="form_radio_group-item">
+                    <input name="select2" value="chart_minutes" type="radio" onChange="Selected(this)" checked>
+                    <label for="radio-1">30 м.</label>
+                </div>
+                <div class="form_radio_group-item">
+                    <input name="select2" value="chart_hourse" type="radio" onChange="Selected(this)" >
+                    <label for="radio-2">24 ч.</label>
+                </div>
+            </div>
+            <div class="app-chart__canvas " id="chart_minutes">
+                <canvas class="chart_minutes"></canvas>
+            </div>
+            <div class="app-chart__canvas deactive" id="chart_hourse">
+                <canvas class="chart_hourse"></canvas>
             </div>
         </div>
         <div class="wrapper_horizontal">
             <a class="title_list">Список объектов (Система)</a>
             <div class="search_list">
-                <div class="sort_select">
+                <!--<div class="sort_select">
                     <select name="serv" id="serv">
                         <option>Сортировка</option>
                         <option>CID</option>
@@ -102,7 +113,7 @@
                     <select name="serv" id="serv">
                         <option>Фильтр</option>
                     </select>
-                </div>
+                </div>-->
                 <input type="text" class="find_list" placeholder="Поиск">
                 <a href="#" id="icon_select"></a>
                 <a href="#" id="icon_update" onclick="location.reload(); return false;"></a>

@@ -219,7 +219,7 @@ function funcGetMessageToday(){
     body.lat      = localStorage.getItem("lat");
     body.aui      = "web";
     body.nPg      = 1;
-    body.nPgSz    = 500;
+    body.nPgSz    = 5000;
 
     let start = new Date(); start.setUTCHours(0,0,0,0);
     let end = new Date(); end.setUTCHours(23,59,59,999);
@@ -294,7 +294,7 @@ function funcGetDashboardInfoFifth(){
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.nPg      = 1;
-    body.nPgSz    = 13;
+    body.nPgSz    = 5000;
     body.aui      = "web";
     funcCommand( body, funcProcessGetDashboardInfoFifth );
 }
@@ -391,108 +391,6 @@ function funcDashboards(){
     funcGetDashboardInfoFifth();
 }
 
-function tableSearch() {
-    var phrase = document.getElementById('find_list');
-    var table = document.getElementById('tb_obj_list');
-    var regPhrase = new RegExp(phrase.value, 'i');
-    var flag = false;
-    for (var i = 1; i < table.rows.length; i++) {
-        flag = false;
-        for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
-            flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
-            if (flag) break;
-        }
-        if (flag) {
-            table.rows[i].style.display = "";
-        } else {
-            table.rows[i].style.display = "none";
-        }
-    }
-}
-
-function funcSortTable(number){
-    let sortedRows = Array.from(tb_obj_list.rows)
-    .slice(1)
-    .sort((rowA, rowB) => rowA.cells[number].innerHTML > rowB.cells[number].innerHTML ? 1 : -1);
-    tb_obj_list.tBodies[0].append(...sortedRows);
-}
-
-function funcSortList(){
-    let filt_obj = document.getElementById("sort_select_obj");
-    let chose_box = filt_obj.options[filt_obj.selectedIndex].value;
-    if (chose_box == "Сортировка"){
-        location.reload();
-    } else if (chose_box == "CID"){
-        funcSortTable(0);
-    } else if(chose_box == "Ранние события"){
-        funcSortTable(1);
-    }
-}
-/*
-function funcFiltList(respobj, stat){
-    for (i in respobj) {
-        list_obj = respobj.aData;
-    }
-    for (let j in list_obj){
-        let data_obj = list_obj[j];
-        date = data_obj.sMdt;
-        CID = data_obj.sAcnt;
-        mes = data_obj.Mes;
-        date = date[8] + date[9] + date[4] + date[5] + date[6] + date[7] + date[0] + date[1] + date[2] + date[3] +
-        " " + date[11] + date[12] + date[13] + date[14] + date[15] + date[16] + date[17] + date[18];
-        
-        if (mes.indexOf(stat) >= 0){
-            addRowMes(CID, Name, Address, Status);
-        } else {
-            //
-        }
-    }
-}
-
-function callbackGetFiltObjectList(err, respobj){
-    if(err){
-        //Error!
-    } else {
-        console.log(respobj);
-        let filt_obj = document.getElementById("filt_select_obj");
-        let chose_box = filt_obj.options[filt_obj.selectedIndex].value;
-        let tableHeaderRowCount = 1;
-        let table = document.getElementById('tb_obj_list');
-        let rowCount = table.rows.length;
-        for (let i = tableHeaderRowCount; i < rowCount; i++) {
-            table.deleteRow(tableHeaderRowCount);
-        }
-        if (chose_box == "Фильтр"){
-            location.reload();
-        } else if(chose_box == "Закрыт"){
-            funcFiltList(respobj, "Закры");
-        } else if(chose_box == "Открыт") {
-            funcFiltList(respobj, "Откры");
-        }
-    }
-
-    let css = '#cell_status:hover { transform: none; text-align: left} #cell_CID:hover { transform: none; text-align: left}';
-    let style = document.createElement('style');
-    if (style.styleSheet) {
-        style.styleSheet.cssText = css;
-    } else {
-        style.appendChild(document.createTextNode(css));
-    }
-    document.getElementsByTagName('head')[0].appendChild(style);
-}
-
-function funcGetFiltObjectList(){
-    var body = { "mt":112, "pn":0, "tid":"", "userId":"", "lat":"", "aui":"web", "nPg":"",  "nPgSz":"" };
-    body.tid      = tid;
-    body.userId   = localStorage.getItem("userId");
-    body.lat      = localStorage.getItem("lat");
-    body.aui      = "web";
-    body.nPg      = 1;
-    body.nPgSz    = 500;
-
-    funcCommand( body, callbackGetFiltObjectList );
-}
-*/
 function addRowMes(date, CID, mes) {
     let tableRef = document.getElementById("tb_obj_list");
     let newRow = tableRef.insertRow(-1);
@@ -568,7 +466,7 @@ function funcGetMessage(){
     body.lat      = localStorage.getItem("lat");
     body.aui      = "web";
     body.nPg      = 1;
-    body.nPgSz    = 500;
+    body.nPgSz    = 5000;
 
     funcCommand( body, funcProcessGetMessage );
 }
@@ -596,7 +494,7 @@ function funcGetObjectList(){
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.nPg      = 1;
-    body.nPgSz    = 13;
+    body.nPgSz    = 5000;
     body.aui      = "web";
     funcCommand( body, funcProcessGetObjectList );
 }

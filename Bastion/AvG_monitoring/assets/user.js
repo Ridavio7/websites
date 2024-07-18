@@ -226,7 +226,7 @@ function funcGetMessageToday(){
     body.lat      = localStorage.getItem("lat");
     body.aui      = "web";
     body.nPg      = 1;
-    body.nPgSz    = 500;
+    body.nPgSz    = 5000;
 
     let start = new Date(); start.setUTCHours(0,0,0,0);
     let end = new Date(); end.setUTCHours(23,59,59,999);
@@ -301,7 +301,7 @@ function funcGetDashboardInfoFifth(){
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.nPg      = 1;
-    body.nPgSz    = 13;
+    body.nPgSz    = 5000;
     body.aui      = "web";
     funcCommand( body, funcProcessGetDashboardInfoFifth );
 }
@@ -421,7 +421,7 @@ function funcGetObjectList(){
     body.userId   = localStorage.getItem("userId");
     body.lat      = localStorage.getItem("lat");
     body.nPg      = 1;
-    body.nPgSz    = 13;
+    body.nPgSz    = 5000;
     body.aui      = "web";
     funcCommand( body, funcProcessGetObjectList );
 }

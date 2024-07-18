@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бизнес управление</title>
+    <link href="../static/static.css" rel="stylesheet"/>
+    <link rel="icon" href="../images/icon.svg" type="image/x-icon">
+    <script defer src="../assets/rusult_table.js"></script>
+</head>
+<body>
+    <header>
+        <div class="hamburger-menu">
+          <input id="menu__toggle" type="checkbox" style="display: none;"/>
+          <label class="menu__btn" for="menu__toggle">
+              <span></span>
+          </label>
+          <ul class="menu__box">
+            <ul class="header_list_menu_first">
+              <li><a href="../templates/index.html" class="header_link" style="text-decoration: underline;">Мои задачи</a></li>
+              <li><a href="../templates/buisness.html" class="header_link">Бизнес управление</a></li>
+              <li><a href="../templates/control.html" class="header_link">Контроль</a></li>
+            </ul>
+            <div class="sidebar-links">
+              <ul>
+                <li>
+                  <a href="#dashboard" class="tooltip">
+                    <img src="../images/shipment.svg" class="icon" alt="">
+                    <span class="link hide">Отгрузка</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#market-overview" class="tooltip">
+                    <img src="../images/production.svg" class="icon" alt="">
+                    <span class="link hide">Производство</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#analytics" class="tooltip">
+                    <img src="../images/provider.svg" class="icon" alt="">
+                    <span class="link hide">Поставщики</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#reports" class="tooltip">
+                    <img src="../images/development.svg" class="icon" alt="">
+                    <span class="link hide">Разработка</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#industries" class="tooltip">
+                    <img src="../images/accounting.svg" class="icon" alt="">
+                    <span class="link hide">Бухгалтерия</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <ul class="header_list_menu_second">
+              <li>
+                <a href="../templates/chat.html"><img class="icon_serv" src="../images/chat.svg" alt=""></a>
+              </li>
+              <li>
+                <a href="../templates/settings.html"><img class="icon_serv" src="../images/settings.svg" alt=""></a>
+              </li>
+            </ul>
+            <ul class="header_list_menu_third">
+              <li>
+                <img class="icon_serv" src="../images/user.svg" style="margin-right: 5px;" alt="">
+                <a href="../templates/user.html" class="header_link" id="user_id">Main user</a>
+              </li>
+              <li>
+                <a href="https://dev.proektit.ru" style="display: flex;"><img class="icon" src="../images/logout.svg" style="height: 25px;" alt=""></a>
+              </li>
+            </ul>
+          </ul>
+        </div>
+        <div class="header_body">
+          <div class="header_logo">
+            <img class="logo" src="../images/logo.svg" alt="">
+            <img class="logo_lt" src="../images/logo_lt.svg" alt="">
+            <ul class="header_list">
+              <li><a href="../templates/index.html" class="header_link" style="text-decoration: underline;">Мои задачи</a></li>
+              <li><a href="../templates/buisness.html" class="header_link">Бизнес управление</a></li>
+              <li><a href="../templates/control.html" class="header_link">Контроль</a></li>
+            </ul>
+          </div>
+          <ul class="header_list">
+            <li>
+              <a href="../templates/chat.html"><img class="icon" src="../images/chat.svg" alt=""></a>
+            </li>
+            <li>
+              <a href="../templates/settings.html"><img class="icon" src="../images/settings.svg" alt=""></a>
+            </li>
+            <li>
+              <img class="icon" src="../images/user.svg" style="margin-right: 5px;" alt="">
+              <a href="../templates/user.html" class="header_link" id="user_id">Main user</a>
+            </li>
+          </ul>
+        </div>
+    </header>
+    <div class="block_res_tb">
+        <div class="header_res_tb">
+            <div class="header_res_tb_chb">
+                <input type="checkbox" class="custom-checkbox" name="invoice" id="invoice">
+                <label for="invoice">Накладная</label>
+                <input type="checkbox" class="custom-checkbox" name="check" id="check">
+                <label for="check" style="margin-left: 40px;">Счет</label>
+                <input type="checkbox" class="custom-checkbox" name="passport" id="passport">
+                <label for="passport" style="margin-left: 40px;">Паспорт</label>
+            </div>
+            <div class="header_res_tb_btn">
+                <button class="button_sub" id="">Печать</button>
+                <button class="button_sub" id="">Excel</button>
+            </div>
+        </div>
+        <div class="res_tb" id="main_tb_shipment">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="td_res">№ п/п</th>
+                        <th class="td_res">Номер внутри партии</th>
+                        <th class="td_res">Название</th>
+                        <th class="td_res">Статус</th>
+                        <th class="td_res">Получатель</th>
+                        <th class="td_res">Дата изменения статуса</th>
+                        <th class="td_res">Примечание</th>
+                        <th class="td_res">Вариант КИВ</th>
+                    </tr>
+                </thead>
+                <tbody id="tb_shipment">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

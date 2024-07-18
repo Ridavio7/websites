@@ -1,0 +1,1363 @@
+<link href="../static/static.css" rel="stylesheet" />
+<div class="block_button_sub">
+    <label class="btn" for="modal-1">Параметры</label>
+        <div class="modal">
+            <input class="modal-open" id="modal-1" type="checkbox" hidden>
+            <div class="modal-wrap" aria-hidden="true" role="dialog">
+                <label class="modal-overlay" for="modal-1"></label>
+                <div class="modal-dialog">
+                        <div class="modal-body">
+<div class="tab_nav">
+    <a class="tablinks" onclick="openTab(event, 'fast_info')">Опер. инфо</a>
+    <a class="tablinks" onclick="openTab(event, 'zones')">Зоны</a>
+    <a class="tablinks" onclick="openTab(event, 'users')">Пользователи</a>
+    <a class="tablinks" onclick="openTab(event, 'sensors')">Датчики</a>
+    <a class="tablinks" onclick="openTab(event, 'device')">Устройства</a>
+    <a class="tablinks" onclick="openTab(event, 'schedule')">Расписание</a>
+    <a class="tablinks" onclick="openTab(event, 'scheme')">Схема</a>
+    <a class="tablinks" onclick="openTab(event, 'connect')">Связь</a>
+    <a class="tablinks" onclick="openTab(event, 'services')">Услуги</a>
+    <a class="tablinks" onclick="openTab(event, 'info')">Инфо</a>
+</div>
+<div class="fast_info tabcontent">
+    <div class="block_inputs_fast_info">
+        <div  class="input_line_double">
+            <input type="text" class="input_obj_text input_width_100" id="CID_obj" placeholder="CID объекта" readonly>
+            <input type="text" class="input_obj_text input_margin_l input_width_100" id="name_security" placeholder="Название ЧОП" readonly>
+            <input type="text" class="input_obj_text input_margin_l input_width_100 " id="start_service" placeholder="Начало обслуживания" readonly>
+        </div>
+        <div class="input_line_text">
+            <label class="lable_obj_text" for="name_obj">Название объекта</label>
+            <textarea type="text" class="textarea_obj_text" id="address_obj" cols="10" rows="1" readonly></textarea>
+        </div>
+        <div class="input_line_text">
+            <label class="lable_obj_text" for="address_obj">Адрес объекта</label>
+            <textarea type="text" class="textarea_obj_text" id="address_obj" cols="10" rows="1" readonly></textarea>
+        </div>
+        <div class="input_line_double">
+            <div class="input_line_text">
+                <label class="lable_obj_text" for="phone">Номер телефона</label>
+                <input type="text" class="input_obj_text" id="phone" placeholder="Номер телефона" readonly>
+            </div>
+            <div class="input_line_text">
+                <label class="lable_obj_text label_margin_l" for="responsible_person">Ответственное лицо</label>
+                <input type="text" class="input_obj_text input_margin_l" id="responsible_person" placeholder="Ответственное лицо" readonly>
+            </div>
+        </div><!--
+        <div class="search_list_info">
+            <input type="datetime-local" class="input_obj_text">
+            <a>-</a>
+            <input type="datetime-local" class="input_obj_text">
+        </div>-->
+    </div>
+    <div class="tb_obj_mes">
+        <table class="table_obj_mes">
+            <tr>
+                <td class="td_main">Время</td>
+                <td class="td_main">Сообщение</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="zones tabcontent">
+    <div class="tabcontent_block_child">
+        <div class="block_tb_list">
+            <table class="table_zones">
+                <tr style="padding: 0px 22px; border-top: none;">
+                    <td></td>
+                    <td>№</td>
+                    <td>Зона</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <div class="tab_nav_child">
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'zone_descript')">Описание</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'zone_message')">Сообщение</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'zone_video')">Рассылка</a>
+            </div>
+            <div class="zone_descript tabcontent_child tabcontent_options">
+                <div class="input_line_double">
+                    <div class="input_line_text">
+                        <label class="lable_obj_text" for="zone_descript_CID">CID</label>
+                        <input type="text" class="input_obj_text input_width_short" id="zone_descript_CID" placeholder="CID" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="zone_descript_number">Номер</label>
+                        <input type="text" class="input_obj_text input_width_short input_margin_l" id="zone_descript_number" placeholder="Номер" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="zone_descript_address">Адрес</label>
+                        <input type="text" class="input_obj_text input_width_short input_margin_l" id="zone_descript_address" placeholder="Адрес" readonly>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zone_descript_name">Название</label>
+                    <input type="text" class="input_obj_text" id="zone_descript_name" placeholder="Название" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="select_type_zone">Тип зоны</label>
+                    <div class="select_type">
+                        <select name="select_type_zone" id="select_type_zone">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <div class="select_type_arrow"></div>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zones_in_section">Зона входит в разделы</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="zones_in_section" name="zones_in_section" class=""/>
+                            <label class="lable_checkbox_text" for="zones_in_section">1 Раздел 1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="zone_message tabcontent_child tabcontent_options">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="select_type_zone">Тип зоны</label>
+                    <div class="select_type">
+                        <select name="select_type_zone" id="select_type_zone">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <div class="select_type_arrow"></div>
+                    </div>
+                </div>
+                <div class="input_line_double">
+                    <div class="input_line_text"  style="width: 196%;">
+                        <label class="lable_obj_text" for="zone_message_violation">Сообщение при нарушении</label>
+                        <input type="text" class="input_obj_text" id="zone_message_violation" placeholder="Сообщение при нарушении" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="zone_message_violation_CID">CID</label>
+                        <input type="text" class="input_obj_text input_margin_l input_width_short" id="zone_message_violation_CID" placeholder="CID" readonly>
+                    </div>
+                </div>
+                <div class="input_line_double">
+                    <div class="input_line_text" style="width: 196%;">
+                        <label class="lable_obj_text" for="zone_message_restore">Сообщение при восстановлении</label>
+                        <input type="text" class="input_obj_text" id="zone_message_restore" placeholder="Сообщение при восстановлении" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="zone_message_restore_CID">CID</label>
+                        <input type="text" class="input_obj_text input_margin_l input_width_short" id="zone_message_restore_CID" placeholder="CID" readonly>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="select_type_transformation">Преобразование</label>
+                    <div class="select_type">
+                        <select name="select_type_transformation" id="select_type_transformation">
+                            <option>Включено</option>
+                            <option>Выключено</option>
+                        </select>
+                        <div class="select_type_arrow"></div>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zone_message_change_obj">Заменить на объект</label>
+                    <input type="text" class="input_obj_text" id="zone_message_change_obj" placeholder="Заменить на объект" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zone_message_change_zone_num">Заменить на номер зоны</label>
+                    <input type="text" class="input_obj_text" id="zone_message_change_zone_num" placeholder="Заменить на номер зоны" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zones_in_section">Зона входит в разделы</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="zones_in_section" name="zones_in_section" class=""/>
+                            <label class="lable_checkbox_text" for="zones_in_section">1 Раздел 1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="zone_video tabcontent_child tabcontent_options">
+                <div class="block_checkbox">
+                    <input type="checkbox" id="user_mailing_active" name="user_mailing_active" class=""/>
+                    <label class="lable_checkbox_text" for="user_mailing_active">Активен</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="user_mailing_address">Адрес</label>
+                    <input type="text" class="input_obj_text" id="user_mailing_address" placeholder="Адрес" readonly>
+                </div>
+                <div class="block_checkbox">
+                    <input type="checkbox" id="user_mailing_filter_section" name="user_mailing_filter_section" class=""/>
+                    <label class="lable_checkbox_text" for="user_mailing_filter_section">Фильтр по разделам</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="users_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Открытие/Закрытие</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Тревога/Восстановление</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Общие неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Прохождение теста</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Системные неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Информационное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Отключение 220В</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Контроль связи</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="users tabcontent">
+    <div class="tabcontent_block_child">
+    <div class="block_tb_list">
+        <table class="table_users">
+            <tr style="padding: 0px 22px; border-top: none;">
+                <td></td>
+                <td>№</td>
+                <td>Пользователь</td>
+            </tr>
+        </table>
+    </div>
+        <div>
+            <div class="tab_nav_child">
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'user_descript')">Описание</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'user_message')">Сообщение</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'user_mailing')">Рассылка</a>
+            </div>
+            <div class="user_descript tabcontent_child tabcontent_options">
+                <div class="input_line_double">
+                    <div class="input_line_text">
+                        <label class="lable_obj_text" for="user_descript_CID">CID</label>
+                        <input type="text" class="input_obj_text" id="user_descript_CID" placeholder="CID" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="user_descript_number">Номер</label>
+                        <input type="text" class="input_obj_text input_margin_l" id="user_descript_number" placeholder="Номер" readonly>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="user_descript_name">ФОИ ответственного лица</label>
+                    <input type="text" class="input_obj_text" id="user_descript_name" placeholder="ФОИ ответственного лица" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="user_descript_address">Место жительства (работы)</label>
+                    <input type="text" class="input_obj_text" id="user_descript_address" placeholder="Место жительства (работы)" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="user_descript_phone">Номер телефона</label>
+                    <input type="text" class="input_obj_text" id="user_descript_phone" placeholder="Номер телефона" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zones_in_section">Доступные разделы</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="zones_in_section" name="zones_in_section" class=""/>
+                            <label class="lable_checkbox_text" for="zones_in_section">1 Раздел 1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_message tabcontent_child tabcontent_options">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="select_type_transformation">Преобразование</label>
+                    <div class="select_type">
+                        <select name="select_type_transformation" id="select_type_transformation">
+                            <option>Включено</option>
+                            <option>Выключено</option>
+                        </select>
+                        <div class="select_type_arrow"></div>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="user_message_change_obj">Заменить на объект</label>
+                    <input type="text" class="input_obj_text" id="user_message_change_obj" placeholder="Заменить на объект" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="user_message_change_zone_num">Заменить на номер зоны</label>
+                    <input type="text" class="input_obj_text" id="user_message_change_zone_num" placeholder="Заменить на номер зоны" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="users_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="users_in_section">Тревога при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="users_in_section">Оповещение при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="users_in_section">Оповещение при закрытии</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user_mailing tabcontent_child tabcontent_options">
+                <div class="block_checkbox">
+                    <input type="checkbox" id="user_mailing_active" name="user_mailing_active" class=""/>
+                    <label class="lable_checkbox_text" for="user_mailing_active">Активен</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="user_mailing_address">Адрес</label>
+                    <input type="text" class="input_obj_text" id="user_mailing_address" placeholder="Адрес" readonly>
+                </div>
+                <div class="block_checkbox">
+                    <input type="checkbox" id="user_mailing_filter_section" name="user_mailing_filter_section" class=""/>
+                    <label class="lable_checkbox_text" for="user_mailing_filter_section">Фильтр по разделам</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="users_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Открытие/Закрытие</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Тревога/Восстановление</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Общие неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Прохождение теста</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Системные неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Информационное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Отключение 220В</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Контроль связи</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sensors tabcontent">
+    <div class="tabcontent_block_child">
+    <div class="block_tb_list">
+        <table class="table_sensors">
+            <tr style="padding: 0px 22px; border-top: none;">
+                <td></td>
+                <td>№</td>
+                <td>Датчик</td>
+                <td>Показания</td>
+            </tr>
+        </table>
+    </div>
+        <div>
+            <div class="tab_nav_child">
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'sensors_descript')">Описание</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'sensors_message')">Сообщение</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'sensors_mailing')">Рассылка</a>
+            </div>
+            <div class="sensors_descript tabcontent_child tabcontent_options">
+                <div class="input_line_double">
+                    <div class="input_line_text">
+                        <label class="lable_obj_text" for="sensors_descript_CID">CID</label>
+                        <input type="text" class="input_obj_text" id="sensors_descript_CID" placeholder="CID" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="sensors_descript_number">Номер</label>
+                        <input type="text" class="input_obj_text input_margin_l" id="sensors_descript_number" placeholder="Номер" readonly>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_descript_name">ФОИ ответственного лица</label>
+                    <input type="text" class="input_obj_text" id="sensors_descript_name" placeholder="ФОИ ответственного лица" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_descript_address">Место жительства (работы)</label>
+                    <input type="text" class="input_obj_text" id="sensors_descript_address" placeholder="Место жительства (работы)" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_descript_phone">Номер телефона</label>
+                    <input type="text" class="input_obj_text" id="sensors_descript_phone" placeholder="Номер телефона" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zones_in_section">Доступные разделы</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="zones_in_section" name="zones_in_section" class=""/>
+                            <label class="lable_checkbox_text" for="zones_in_section">1 Раздел 1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sensors_message tabcontent_child tabcontent_options">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="select_type_transformation">Преобразование</label>
+                    <div class="select_type">
+                        <select name="select_type_transformation" id="select_type_transformation">
+                            <option>Включено</option>
+                            <option>Выключено</option>
+                        </select>
+                        <div class="select_type_arrow"></div>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_message_change_obj">Заменить на объект</label>
+                    <input type="text" class="input_obj_text" id="sensors_message_change_obj" placeholder="Заменить на объект" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_message_change_zone_num">Заменить на номер зоны</label>
+                    <input type="text" class="input_obj_text" id="sensors_message_change_zone_num" placeholder="Заменить на номер зоны" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="sensors_in_section">Тревога при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="sensors_in_section">Оповещение при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="sensors_in_section">Оповещение при закрытии</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sensors_mailing tabcontent_child tabcontent_options">
+                <div class="block_checkbox">
+                    <input type="checkbox" id="sensors_mailing_active" name="sensors_mailing_active" class=""/>
+                    <label class="lable_checkbox_text" for="sensors_mailing_active">Активен</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_mailing_address">Адрес</label>
+                    <input type="text" class="input_obj_text" id="sensors_mailing_address" placeholder="Адрес" readonly>
+                </div>
+                <div class="block_checkbox">
+                    <input type="checkbox" id="sensors_mailing_filter_section" name="sensors_mailing_filter_section" class=""/>
+                    <label class="lable_checkbox_text" for="sensors_mailing_filter_section">Фильтр по разделам</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="sensors_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Открытие/Закрытие</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Тревога/Восстановление</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Общие неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Прохождение теста</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Системные неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Информационное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Отключение 220В</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Контроль связи</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="device tabcontent">
+    <div class="tabcontent_block_child">
+    <div class="block_tb_list">
+        <table class="table_device">
+            <tr style="padding: 0px 22px; border-top: none;">
+                <td></td>
+                <td>№</td>
+                <td>Устройство</td>
+                <td>Описание</td>
+            </tr>
+        </table>
+    </div>
+        <div>
+            <div class="tab_nav_child">
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'device_descript')">Описание</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'device_message')">Сообщение</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'device_mailing')">Рассылка</a>
+            </div>
+            <div class="device_descript tabcontent_child tabcontent_options">
+                <div class="input_line_double">
+                    <div class="input_line_text">
+                        <label class="lable_obj_text" for="device_descript_CID">CID</label>
+                        <input type="text" class="input_obj_text" id="device_descript_CID" placeholder="CID" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="device_descript_number">Номер</label>
+                        <input type="text" class="input_obj_text input_margin_l" id="device_descript_number" placeholder="Номер" readonly>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_descript_name">ФОИ ответственного лица</label>
+                    <input type="text" class="input_obj_text" id="device_descript_name" placeholder="ФОИ ответственного лица" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_descript_address">Место жительства (работы)</label>
+                    <input type="text" class="input_obj_text" id="device_descript_address" placeholder="Место жительства (работы)" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_descript_phone">Номер телефона</label>
+                    <input type="text" class="input_obj_text" id="device_descript_phone" placeholder="Номер телефона" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zones_in_section">Доступные разделы</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="zones_in_section" name="zones_in_section" class=""/>
+                            <label class="lable_checkbox_text" for="zones_in_section">1 Раздел 1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="device_message tabcontent_child tabcontent_options">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="select_type_transformation">Преобразование</label>
+                    <div class="select_type">
+                        <select name="select_type_transformation" id="select_type_transformation">
+                            <option>Включено</option>
+                            <option>Выключено</option>
+                        </select>
+                        <div class="select_type_arrow"></div>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_message_change_obj">Заменить на объект</label>
+                    <input type="text" class="input_obj_text" id="device_message_change_obj" placeholder="Заменить на объект" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_message_change_zone_num">Заменить на номер зоны</label>
+                    <input type="text" class="input_obj_text" id="device_message_change_zone_num" placeholder="Заменить на номер зоны" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="device_in_section">Тревога при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="device_in_section">Оповещение при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="device_in_section">Оповещение при закрытии</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="device_mailing tabcontent_child tabcontent_options">
+                <div class="block_checkbox">
+                    <input type="checkbox" id="device_mailing_active" name="device_mailing_active" class=""/>
+                    <label class="lable_checkbox_text" for="device_mailing_active">Активен</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_mailing_address">Адрес</label>
+                    <input type="text" class="input_obj_text" id="device_mailing_address" placeholder="Адрес" readonly>
+                </div>
+                <div class="block_checkbox">
+                    <input type="checkbox" id="device_mailing_filter_section" name="device_mailing_filter_section" class=""/>
+                    <label class="lable_checkbox_text" for="device_mailing_filter_section">Фильтр по разделам</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="device_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Открытие/Закрытие</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Тревога/Восстановление</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Общие неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Прохождение теста</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Системные неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Информационное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Отключение 220В</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Контроль связи</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="schedule tabcontent">
+    <table class="tb_schedule">
+        <tr class="tr_schedule">
+            <td class="td_main">Понедельник</td>
+            <td class="input_width_100"><input type="text" class="input_obj_text input_schedule" id="user_descript_CID" readonly></td>
+        </tr>
+        <tr class="tr_schedule">
+            <td class="td_main">Вторник</td>
+            <td class="input_width_100"><input type="text" class="input_obj_text input_schedule" id="user_descript_CID" readonly></td>
+        </tr>
+        <tr class="tr_schedule">
+            <td class="td_main">Среда</td>
+            <td class="input_width_100"><input type="text" class="input_obj_text input_schedule" id="user_descript_CID" readonly></td>
+        </tr>
+        <tr class="tr_schedule">
+            <td class="td_main">Четверг</td>
+            <td class="input_width_100"><input type="text" class="input_obj_text input_schedule" id="user_descript_CID" readonly></td>
+        </tr>
+        <tr class="tr_schedule">
+            <td class="td_main">Пятница</td>
+            <td class="input_width_100"><input type="text" class="input_obj_text input_schedule" id="user_descript_CID" readonly></td>
+        </tr>
+        <tr class="tr_schedule">
+            <td class="td_main">Суббота</td>
+            <td class="input_width_100"><input type="text" class="input_obj_text input_schedule" id="user_descript_CID" readonly></td>
+        </tr>
+        <tr class="tr_schedule">
+            <td class="td_main">Воскресенье</td>
+            <td class="input_width_100"><input type="text" class="input_obj_text input_schedule" id="user_descript_CID" readonly></td>
+        </tr>
+    </table>
+</div>
+<div class="scheme tabcontent">
+    <div class="block_tab_scheme">
+        <div class="tab_scheme">
+            <button class="tablinks_scheme" onclick="openTabScheme(event, 'scheme_1')">Схема 1 2D</button>
+            <button class="tablinks_scheme" onclick="openTabScheme(event, 'scheme_2')">Схема 2 3D</button>
+        </div>
+        <div id="scheme_1" class="tabcontent_scheme">
+            <div class="tab_scheme_child">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="scheme_descript">Описание</label>
+                    <input type="text" class="input_obj_text" id="scheme_descript" placeholder="Описание" readonly>
+                </div>
+                <img src="../images/scheme_2D.svg" class="img_scheme">
+            </div>
+        </div>
+        <div id="scheme_2" class="tabcontent_scheme">
+            <div class="tab_scheme_child">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="scheme_descript">Описание</label>
+                    <input type="text" class="input_obj_text" id="scheme_descript" placeholder="Описание" readonly>
+                </div>
+            </div>
+            <img src="../images/scheme_3D.jpg" class="img_scheme">
+        </div>
+    </div>
+</div>
+<div class="connect tabcontent">
+    <div class="block_tab_connect">
+        <div class="tab_connect">
+            <button class="tablinks_connect" onclick="openTabConnect(event, 'connect_1')">Контроль</button>
+            <div class="block_connect_button">
+                <input type="checkbox" id="connect_controll_message" name="connect_controll_message" class=""/>
+                <img class="lt_icon" src="../images/online.svg" alt="">
+                <button class="tablinks_connect" onclick="openTabConnect(event, 'connect_2')">GSM Data</button>
+            </div>
+            <div class="block_connect_button">
+                <input type="checkbox" id="connect_controll_message" name="connect_controll_message" class=""/>
+                <img class="lt_icon" src="../images/online.svg" alt="">
+                <button class="tablinks_connect" onclick="openTabConnect(event, 'connect_3')">GSM GPRS</button>
+            </div>
+        </div>
+        <div id="connect_1" class="tabcontent_connect">
+            <div class="input_line_text">
+                <label class="lable_obj_text" for="select_type_zone">Тип контроля связи</label>
+                <div class="select_type">
+                    <select name="select_type_zone" id="select_type_zone">
+                        <option>Периодический</option>
+                        <option>Не периодический</option>
+                    </select>
+                    <div class="select_type_arrow"></div>
+                </div>
+            </div>
+            <div class="input_line_text">
+                <label class="lable_obj_text" for="connect_test">Тестовый интервал</label>
+                <input type="text" class="input_obj_text" id="connect_test" placeholder="Тестовый интервал" readonly>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text"  style="width: 300%;">
+                    <label class="lable_obj_text" for="connect_type">Тип контроля связи</label>
+                    <input type="text" class="input_obj_text" id="connect_type" placeholder="Тип контроля связи" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_type_through">Через</label>
+                    <input type="text" class="input_obj_text input_margin_l input_width_short" id="connect_type_through" placeholder="Через" readonly>
+                </div>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text" style="width: 300%;">
+                    <label class="lable_obj_text" for="connect_mode">Режим формирования</label>
+                    <input type="text" class="input_obj_text" id="connect_mode" placeholder="Режим формирования" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_mode_through">Через</label>
+                    <input type="text" class="input_obj_text input_margin_l input_width_short" id="connect_mode_through" placeholder="Через" readonly>
+                </div>
+            </div>
+            <div class="block_checkbox">
+                <input type="checkbox" id="connect_controll_message" name="connect_controll_message" class=""/>
+                <label class="lable_checkbox_text" for="connect_controll_message">Контроль максимального количества сообщений</label>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="connect_period_month">В месяц:</label>
+                    <input type="text" class="input_obj_text input_connect_short" id="connect_period_month" placeholder="В месяц" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_period_day">В день:</label>
+                    <input type="text" class="input_obj_text input_connect_short input_margin_l" id="connect_period_day" placeholder="В день" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_period_hours">За 4 часа:</label>
+                    <input type="text" class="input_obj_text input_connect_short input_margin_l" id="connect_period_hours" placeholder="За 4 часа" readonly>
+                </div>
+            </div>
+        </div>
+        <div id="connect_2" class="tabcontent_connect">
+            <div class="input_line_text">
+                <label class="lable_obj_text" for="select_type_zone">Тип контроля связи</label>
+                <div class="select_type">
+                    <select name="select_type_zone" id="select_type_zone">
+                        <option>Периодический</option>
+                        <option>Не периодический</option>
+                    </select>
+                    <div class="select_type_arrow"></div>
+                </div>
+            </div>
+            <div class="input_line_text">
+                <label class="lable_obj_text" for="connect_test">Тестовый интервал</label>
+                <input type="text" class="input_obj_text" id="connect_test" placeholder="Тестовый интервал" readonly>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text"  style="width: 300%;">
+                    <label class="lable_obj_text" for="connect_type">Тип контроля связи</label>
+                    <input type="text" class="input_obj_text" id="connect_type" placeholder="Тип контроля связи" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_type_through">Через</label>
+                    <input type="text" class="input_obj_text input_margin_l input_width_short" id="connect_type_through" placeholder="Через" readonly>
+                </div>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text" style="width: 300%;">
+                    <label class="lable_obj_text" for="connect_mode">Режим формирования</label>
+                    <input type="text" class="input_obj_text" id="connect_mode" placeholder="Режим формирования" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_mode_through">Через</label>
+                    <input type="text" class="input_obj_text input_margin_l input_width_short" id="connect_mode_through" placeholder="Через" readonly>
+                </div>
+            </div>
+            <div class="block_checkbox">
+                <input type="checkbox" id="connect_controll_message" name="connect_controll_message" class=""/>
+                <label class="lable_checkbox_text" for="connect_controll_message">Контроль максимального количества сообщений</label>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="connect_period_month">В месяц:</label>
+                    <input type="text" class="input_obj_text input_connect_short" id="connect_period_month" placeholder="В месяц" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_period_day">В день:</label>
+                    <input type="text" class="input_obj_text input_connect_short input_margin_l" id="connect_period_day" placeholder="В день" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_period_hours">За 4 часа:</label>
+                    <input type="text" class="input_obj_text input_connect_short input_margin_l" id="connect_period_hours" placeholder="За 4 часа" readonly>
+                </div>
+            </div>
+        </div>
+        <div id="connect_3" class="tabcontent_connect">
+            <div class="input_line_text">
+                <label class="lable_obj_text" for="select_type_zone">Тип контроля связи</label>
+                <div class="select_type">
+                    <select name="select_type_zone" id="select_type_zone">
+                        <option>Периодический</option>
+                        <option>Не периодический</option>
+                    </select>
+                    <div class="select_type_arrow"></div>
+                </div>
+            </div>
+            <div class="input_line_text">
+                <label class="lable_obj_text" for="connect_test">Тестовый интервал</label>
+                <input type="text" class="input_obj_text" id="connect_test" placeholder="Тестовый интервал" readonly>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text"  style="width: 300%;">
+                    <label class="lable_obj_text" for="connect_type">Тип контроля связи</label>
+                    <input type="text" class="input_obj_text" id="connect_type" placeholder="Тип контроля связи" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_type_through">Через</label>
+                    <input type="text" class="input_obj_text input_margin_l input_width_short" id="connect_type_through" placeholder="Через" readonly>
+                </div>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text" style="width: 300%;">
+                    <label class="lable_obj_text" for="connect_mode">Режим формирования</label>
+                    <input type="text" class="input_obj_text" id="connect_mode" placeholder="Режим формирования" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_mode_through">Через</label>
+                    <input type="text" class="input_obj_text input_margin_l input_width_short" id="connect_mode_through" placeholder="Через" readonly>
+                </div>
+            </div>
+            <div class="block_checkbox">
+                <input type="checkbox" id="connect_controll_message" name="connect_controll_message" class=""/>
+                <label class="lable_checkbox_text" for="connect_controll_message">Контроль максимального количества сообщений</label>
+            </div>
+            <div class="input_line_double">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="connect_period_month">В месяц:</label>
+                    <input type="text" class="input_obj_text input_connect_short" id="connect_period_month" placeholder="В месяц" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_period_day">В день:</label>
+                    <input type="text" class="input_obj_text input_connect_short input_margin_l" id="connect_period_day" placeholder="В день" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text label_margin_l" for="connect_period_hours">За 4 часа:</label>
+                    <input type="text" class="input_obj_text input_connect_short input_margin_l" id="connect_period_hours" placeholder="За 4 часа" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table id="tb_alarm_list">
+        <tbody>
+            <tr>
+                <td class="td_main" style="padding-left: 0px;"></td>
+                <td class="td_main">Время</td>
+                <td class="td_main">Дата</td>
+                <td class="td_main">Сообщение</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="services tabcontent">
+    <div class="tabcontent_block_child">
+    <div class="block_tb_list">
+        <table class="table_services">
+            <tr style="padding: 0px 22px; border-top: none;">
+                <td>ФИО</td>
+                <td>Адрес</td>
+                <td>Тип</td>
+            </tr>
+        </table>
+    </div>
+        <div>
+            <div class="tab_nav_child">
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'services_descript')">Описание</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'services_message')">Сообщение</a>
+                <a class="tablinks tablinks_child" onclick="openTabChild(event, 'services_mailing')">Рассылка</a>
+            </div>
+            <div class="services_descript tabcontent_child tabcontent_options">
+                <div class="input_line_double">
+                    <div class="input_line_text">
+                        <label class="lable_obj_text" for="services_descript_CID">CID</label>
+                        <input type="text" class="input_obj_text" id="services_descript_CID" placeholder="CID" readonly>
+                    </div>
+                    <div class="input_line_text">
+                        <label class="lable_obj_text label_margin_l" for="services_descript_number">Номер</label>
+                        <input type="text" class="input_obj_text input_margin_l" id="services_descript_number" placeholder="Номер" readonly>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="services_descript_name">ФОИ ответственного лица</label>
+                    <input type="text" class="input_obj_text" id="services_descript_name" placeholder="ФОИ ответственного лица" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="services_descript_address">Место жительства (работы)</label>
+                    <input type="text" class="input_obj_text" id="services_descript_address" placeholder="Место жительства (работы)" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="services_descript_phone">Номер телефона</label>
+                    <input type="text" class="input_obj_text" id="services_descript_phone" placeholder="Номер телефона" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="zones_in_section">Доступные разделы</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="zones_in_section" name="zones_in_section" class=""/>
+                            <label class="lable_checkbox_text" for="zones_in_section">1 Раздел 1</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="services_message tabcontent_child tabcontent_options">
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="select_type_transformation">Преобразование</label>
+                    <div class="select_type">
+                        <select name="select_type_transformation" id="select_type_transformation">
+                            <option>Включено</option>
+                            <option>Выключено</option>
+                        </select>
+                        <div class="select_type_arrow"></div>
+                    </div>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="services_message_change_obj">Заменить на объект</label>
+                    <input type="text" class="input_obj_text" id="services_message_change_obj" placeholder="Заменить на объект" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="services_message_change_zone_num">Заменить на номер зоны</label>
+                    <input type="text" class="input_obj_text" id="services_message_change_zone_num" placeholder="Заменить на номер зоны" readonly>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="м_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="services_in_section">Тревога при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="services_in_section">Оповещение при открытии</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <label class="lable_obj_text" for="services_in_section">Оповещение при закрытии</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="services_mailing tabcontent_child tabcontent_options">
+                <div class="block_checkbox">
+                    <input type="checkbox" id="services_mailing_active" name="services_mailing_active" class=""/>
+                    <label class="lable_checkbox_text" for="services_mailing_active">Активен</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="services_mailing_address">Адрес</label>
+                    <input type="text" class="input_obj_text" id="services_mailing_address" placeholder="Адрес" readonly>
+                </div>
+                <div class="block_checkbox">
+                    <input type="checkbox" id="services_mailing_filter_section" name="services_mailing_filter_section" class=""/>
+                    <label class="lable_checkbox_text" for="services_mailing_filter_section">Фильтр по разделам</label>
+                </div>
+                <div class="input_line_text">
+                    <label class="lable_obj_text" for="services_in_section">Обработка сообщений</label>
+                    <div class="container_child">
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Открытие/Закрытие</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Тревога/Восстановление</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Общие неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Прохождение теста</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Системные неисправности</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Информационное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Инженерное</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Отключение 220В</label>
+                        </div>
+                        <div class="block_checkbox">
+                            <input type="checkbox" id="" name="" class=""/>
+                            <label class="lable_checkbox_text" for="">Контроль связи</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="info tabcontent">
+    <div  class="input_line_double">
+        <input type="text" class="input_obj_text input_width_100" id="CID_obj" placeholder="CID объекта" readonly>
+        <input type="text" class="input_obj_text input_margin_l input_width_100" id="name_security" placeholder="Название ЧОП" readonly>
+        <input type="text" class="input_obj_text input_margin_l input_width_100 " id="start_service" placeholder="Начало обслуживания" readonly>
+    </div>
+    <div class="input_line_double">
+        <div class="input_line_text">
+            <label class="lable_obj_text" for="display_section">Отображаемый раздел</label>
+            <input type="text" class="input_obj_text" id="display_section" placeholder="Отображаемый раздел" readonly>
+        </div>
+        <div class="input_line_text">
+            <label class="lable_obj_text label_margin_l" for="all_sections">Разделов</label>
+            <input type="text" class="input_obj_text input_margin_l" id="all_sections" placeholder="Разделов" readonly>
+        </div>
+    </div>
+    <div class="input_line_text">
+        <label class="lable_obj_text" for="name_obj">Название объекта</label>
+        <textarea type="text" class="textarea_obj_text" id="address_obj" cols="10" rows="1" readonly></textarea>
+    </div>
+    <div class="input_line_text">
+        <label class="lable_obj_text" for="address_obj">Адрес объекта</label>
+        <textarea type="text" class="textarea_obj_text" id="address_obj" cols="10" rows="1" readonly></textarea>
+    </div>
+    <div class="input_line_double">
+        <div class="input_line_text">
+            <label class="lable_obj_text" for="phone">Номер телефона</label>
+            <input type="text" class="input_obj_text" id="phone" placeholder="Номер телефона" readonly>
+        </div>
+        <div class="input_line_text">
+            <label class="lable_obj_text label_margin_l" for="responsible_person">Ответственное лицо</label>
+            <input type="text" class="input_obj_text input_margin_l" id="responsible_person" placeholder="Ответственное лицо" readonly>
+        </div>
+    </div>
+    <div class="input_line_text">
+        <label class="lable_obj_text" for="device">Выносное устройство</label>
+        <input type="text" class="input_obj_text" id="device" placeholder="Выносное устройство" readonly>
+    </div>
+    <div class="input_line_text">
+        <label class="lable_obj_text" for="security_obj">Охраняемая область</label>
+        <textarea type="text" class="textarea_obj_text" id="address_obj" cols="10" rows="1" readonly></textarea>
+    </div>
+    <div class="input_line_text">
+        <label class="lable_obj_text" for="description">Описание</label>
+        <textarea type="text" class="textarea_obj_text" id="address_obj" cols="10" rows="1" readonly></textarea>
+    </div>
+    <div class="input_line_double">
+        <div class="input_line_text">
+            <label class="lable_obj_text" for="control_device">Приемно - контрольный прибор</label>
+            <input type="text" class="input_obj_text" id="control_device" placeholder="Приемно - контрольный прибор" readonly>
+        </div>
+        <div class="input_line_text">
+            <label class="lable_obj_text label_margin_l" for="installer">Установщик системы</label>
+            <input type="text" class="input_obj_text input_margin_l" id="installer" placeholder="Установщик системы" readonly>
+        </div>
+    </div>
+    <div class="input_line_text">
+        <label class="lable_obj_text" for="fixed_obj">Объект закреплен</label>
+        <input type="text" class="input_obj_text" id="fixed_obj" placeholder="Объект закреплен" readonly>
+    </div>
+</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script>
+    function openTabChild(evt, openTab){
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent_child");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks_child");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    openTab = document.getElementsByClassName(openTab);
+    for(let i of openTab){
+        i.style.display = "block";
+    }
+    evt.currentTarget.className += " active";
+}
+
+function openTab(evt, openTab){
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    openTab = document.getElementsByClassName(openTab);
+    for(let i of openTab){
+        i.style.display = "block";
+    }
+    evt.currentTarget.className += " active";
+}
+
+function openTabScheme(evt, openTab){
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent_scheme");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks_scheme");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(openTab).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function openTabConnect(evt, openTab){
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent_connect");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks_connect");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(openTab).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+<style>
+
+
+/* Стили модального окна */
+.modal-header h2 {
+    color: #555;  
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1;    
+    margin: 0;
+}
+
+/* кнопка закрытия окна */
+.modal .btn-close {
+    color: #fff;
+    cursor: pointer;
+    font-size: 40px;
+    text-decoration: none;
+    position: absolute;
+    right: -190px;
+    top: 13px;
+}
+
+.modal .btn-close:hover {
+    color: red;
+}
+
+/* слой затемнения */
+.modal-wrap:before {
+    content: "";
+    display: none;
+    background: rgb(0 0 0 / 90%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+}
+
+.modal-overlay {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 102;
+}
+
+/* активация слоя затемнения и модального блока */
+.modal-open:checked ~ .modal-wrap:before,
+.modal-open:checked ~ .modal-wrap .modal-overlay {
+    display: block;
+}
+
+.modal-open:checked ~ .modal-wrap .modal-dialog {
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    top: 15%;
+}
+
+/* элементы модального окна */
+.modal-dialog {
+    background: #17181F;
+    border: none;
+    border-radius: 5px;
+    position: fixed;
+    width: 80%;
+    max-width: 500px;
+    left: 50%;
+    top: -100%;
+    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    -webkit-transform: translate(-50%, -500%);
+    -ms-transform: translate(-50%, -500%);
+    -o-transform: translate(-50%, -500%);
+    transform: translate(-50%, -500%);
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    -moz-transition: -moz-transform 0.4s ease-out;
+    -o-transition: -o-transform 0.4s ease-out;
+    transition: transform 0.4s ease-out;
+    z-index: 103;
+}
+
+.modal-body {
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-body p {
+    margin: 0;
+}
+
+.modal-header {
+    border-bottom: #fff solid 1px;
+    padding: 25px 20px;
+}
+
+.modal-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.modal-footer {
+    border-top: #fff solid 1px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* адаптивные картинки в модальном блоке */
+.modal-body img { 
+    max-width: 100%;
+    height: auto;
+}
+
+.btn{
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 12.5px 30px;
+    background-color: #0f35bf;
+    border: none;
+    border-radius: 2px;
+    transition: 0.2s;
+    text-decoration: none;
+    position: static;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background:#0f35bf;
+    color: #ffffff;
+    box-shadow: 0 0 1px #0f35bf,
+                0 0 2px #0f35bf,
+                0 0 4px #0f35bf,
+                0 0 6px #0f35bf;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 15px 10px 20px 5px rgba(0, 0, 0, 0.24);
+}
+</style>

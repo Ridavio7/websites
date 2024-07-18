@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бизнес управление</title>
+    <link href="../static/static.css" rel="stylesheet"/>
+    <link rel="icon" href="../images/icon.svg" type="image/x-icon">
+    <script defer src="../assets/buisness.js"></script>
+</head>
+<body>
+  <header>
+    <div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" style="display: none;"/>
+      <label class="menu__btn" for="menu__toggle">
+          <span></span>
+      </label>
+      <ul class="menu__box">
+        <ul class="header_list_menu_first">
+          <li><a href="../templates/index.html" class="header_link">Мои задачи</a></li>
+          <li><a href="../templates/buisness.html" class="header_link" style="text-decoration: underline;">Бизнес управление</a></li>
+          <li><a href="../templates/control.html" class="header_link">Контроль</a></li>
+        </ul>
+        <div class="sidebar-links">
+          <ul>
+            <li>
+              <a href="#dashboard" class="tooltip">
+                <img src="../images/shipment.svg" class="icon" alt="">
+                <span class="link hide">Отгрузка</span>
+              </a>
+            </li>
+            <li>
+              <a href="#market-overview" class="tooltip">
+                <img src="../images/production.svg" class="icon" alt="">
+                <span class="link hide">Производство</span>
+              </a>
+            </li>
+            <li>
+              <a href="#analytics" class="tooltip">
+                <img src="../images/provider.svg" class="icon" alt="">
+                <span class="link hide">Поставщики</span>
+              </a>
+            </li>
+            <li>
+              <a href="#reports" class="tooltip">
+                <img src="../images/development.svg" class="icon" alt="">
+                <span class="link hide">Разработка</span>
+              </a>
+            </li>
+            <li>
+              <a href="#industries" class="tooltip">
+                <img src="../images/accounting.svg" class="icon" alt="">
+                <span class="link hide">Бухгалтерия</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <ul class="header_list_menu_second">
+          <li>
+            <a href="../templates/chat.html"><img class="icon_serv" src="../images/chat.svg" alt=""></a>
+          </li>
+          <li>
+            <a href="../templates/settings.html"><img class="icon_serv" src="../images/settings.svg" alt=""></a>
+          </li>
+        </ul>
+        <ul class="header_list_menu_third">
+          <li>
+            <img class="icon_serv" src="../images/user.svg" style="margin-right: 5px;" alt="">
+            <a href="../templates/user.html" class="header_link" id="user_id">Main user</a>
+          </li>
+          <li>
+            <a href="https://dev.proektit.ru" style="display: flex;"><img class="icon" src="../images/logout.svg" style="height: 25px;" alt=""></a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div class="header_body">
+      <div class="header_logo">
+        <img class="logo" src="../images/logo.svg" alt="">
+        <img class="logo_lt" src="../images/logo_lt.svg" alt="">
+        <ul class="header_list">
+          <li><a href="../templates/index.html" class="header_link">Мои задачи</a></li>
+          <li><a href="../templates/buisness.html" class="header_link" style="text-decoration: underline;">Бизнес управление</a></li>
+          <li><a href="../templates/control.html" class="header_link">Контроль</a></li>
+        </ul>
+      </div>
+      <ul class="header_list">
+        <li>
+          <a href="../templates/chat.html"><img class="icon" src="../images/chat.svg" alt=""></a>
+        </li>
+        <li>
+          <a href="../templates/settings.html"><img class="icon" src="../images/settings.svg" alt=""></a>
+        </li>
+        <li>
+          <img class="icon" src="../images/user.svg" style="margin-right: 5px;" alt="">
+          <a href="../templates/user.html" class="header_link" id="user_id">Main user</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="sidebar-top-wrapper">
+        <button class="expand-btn" type="button">
+          <img src="../images/arrow.svg" alt="">
+        </button>
+      </div>
+      <div class="search__wrapper">
+        <img src="../images/search.svg" class="icon" alt="">
+        <input type="text" aria-labelledby="search-icon">
+      </div>
+      <div class="sidebar-links">
+        <ul>
+          <li>
+            <a href="#dashboard" class="tooltip">
+              <img src="../images/shipment.svg" class="icon" alt="">
+              <span class="link hide">Отгрузка</span>
+            </a>
+          </li>
+          <li>
+            <a href="#market-overview" class="tooltip">
+              <img src="../images/production.svg" class="icon" alt="">
+              <span class="link hide">Производство</span>
+            </a>
+          </li>
+          <li>
+            <a href="#analytics" class="tooltip">
+              <img src="../images/provider.svg" class="icon" alt="">
+              <span class="link hide">Поставщики</span>
+            </a>
+          </li>
+          <li>
+            <a href="#reports" class="tooltip">
+              <img src="../images/development.svg" class="icon" alt="">
+              <span class="link hide">Разработка</span>
+            </a>
+          </li>
+          <li>
+            <a href="#industries" class="tooltip">
+              <img src="../images/accounting.svg" class="icon" alt="">
+              <span class="link hide">Бухгалтерия</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="block_main_tabs">
+      <div class="tab">
+        <button class="tablinks" onclick="openTabMain(event, 'schedule')" id="defaultOpen"><img src="../images/schedule.svg" class="icon icon_tab_main" alt="">График</button>
+        <button class="tablinks" onclick="openTabMain(event, 'directory')"><img src="../images/directory.svg" class="icon icon_tab_main" alt="">Справочники</button>
+        <button class="tablinks" onclick="openTabMain(event, 'analysis')"><img src="../images/analysis.svg" class="icon icon_tab_main" alt="">Анализ</button>
+      </div>
+      <div id="schedule" class="tabcontent">
+        <p>График поставки на 2024 год</p>
+      </div>
+      <div id="directory" class="tabcontent">
+        <div class="tab_child">
+            <button class="tablinks_child" onclick="openTabChild(event, 'sets')" id="defaultOpenChild"><img src="../images/sets.svg" class="icon icon_tab_child" alt="">Комплекты</button>
+            <button class="tablinks_child" onclick="openTabChild(event, 'products')"><img src="../images/products.svg" class="icon icon_tab_child" alt="">Изделия</button>
+            <button class="tablinks_child" onclick="openTabChild(event, 'components')"><img src="../images/components.svg" class="icon icon_tab_child" alt="">Комплектующие</button>
+            <button class="tablinks_child" onclick="openTabChild(event, 'counterparty')"><img src="../images/counterparty.svg" class="icon icon_tab_child" alt="">Контрагенты</button>
+        </div>
+        <div id="sets" class="tabcontent_child">
+          <div class="tab_products">
+            <button class="tablinks_sets" onclick="openTabSets(event, 'sets_main')" id="defaultOpentabSets"><img src="../images/products.svg" class="icon icon_tab" alt="">Главная</button>
+            <button class="tablinks_sets" onclick="openTabSets(event, 'sets_formula')"><img src="../images/formula.svg" class="icon icon_tab" alt="">Состав</button>
+          </div>
+          <div id="sets_main" class="tabcontent_sets">
+            <table>
+              <thead>
+                  <tr>
+                      <td class="td_main">Название</td>
+                      <td class="td_main">Модель вагона</td>
+                  </tr>
+              </thead>
+              <tbody id="tb_sets">
+  
+              </tbody>
+            </table>
+          </div>
+          <div id="sets_formula" class="tabcontent_sets">
+            <table>
+              <thead>
+                  <tr>
+                      <td class="td_main">Название комплекта</td>
+                      <td class="td_main">Название изделия</td>
+                      <td class="td_main">Кол-во</td>
+                  </tr>
+              </thead>
+              <tbody id="tb_sets_formula">
+  
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="products" class="tabcontent_child">
+          <div class="tab_products">
+            <button class="tablinks_products" onclick="openTabProducts(event, 'products_main')" id="defaultOpentabProducts"><img src="../images/products.svg" class="icon icon_tab" alt="">Главная</button>
+            <button class="tablinks_products" onclick="openTabProducts(event, 'products_formula')"><img src="../images/formula.svg" class="icon icon_tab" alt="">Состав</button>
+            <button class="tablinks_products" onclick="openTabProducts(event, 'products_colors')"><img src="../images/colors.svg" class="icon icon_tab" alt="">Цвета</button>
+            <button class="tablinks_products" onclick="openTabProducts(event, 'products_Vscheme')"><img src="../images/el_board.svg" class="icon icon_tab" alt="">Версии плат</button>
+            <button class="tablinks_products" onclick="openTabProducts(event, 'products_Vsoft')"><img src="../images/soft.svg" class="icon icon_tab" alt="">Версии ПО</button>
+            <button class="tablinks_products" onclick="openTabProducts(event, 'products_SNProd')"><img src="../images/products.svg" class="icon icon_tab" alt="">SN изделия</button>
+          </div>
+          <div id="products_main" class="tabcontent_products">
+            <table>
+              <thead>
+                  <tr>
+                      <td class="td_main">Название</td>
+                      <td class="td_main">Цвет</td>
+                  </tr>
+              </thead>
+              <tbody id="tb_products_main">
+  
+              </tbody>
+            </table>
+          </div>
+          <div id="products_formula" class="tabcontent_products">
+            <p>Справочник состава изделий</p>
+          </div>
+          <div id="products_colors" class="tabcontent_products">
+            <table>
+              <thead>
+                  <tr>
+                      <td class="td_main">Цвет</td>
+                  </tr>
+              </thead>
+              <tbody id="tb_products_colors">
+  
+              </tbody>
+            </table>
+          </div>
+          <div id="products_Vscheme" class="tabcontent_products">
+            <p>Справочник версии плат</p>
+          </div>
+          <div id="products_Vsoft" class="tabcontent_products">
+            <p>Справочник версии ПО</p>
+          </div>
+          <div id="products_SNProd" class="tabcontent_products">
+            <table>
+              <thead>
+                  <tr>
+                      <td class="td_main">Название</td>
+                      <td class="td_main">SN</td>
+                      <td class="td_main">Кол-во</td>
+                      <td class="td_main">Испл.</td>
+                      <td class="td_main">Дата</td>
+                      <td class="td_main">Статус</td>
+                  </tr>
+              </thead>
+              <tbody id="tb_products_SNProd">
+  
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="components" class="tabcontent_child">
+          <div class="tab_products">
+            <button class="tablinks_components" onclick="openTabComponents(event, 'components_main')" id="defaultOpentabcomponents"><img src="../images/components.svg" class="icon icon_tab" alt="">Главная</button>
+          </div>
+          <div id="components_main" class="tabcontent_components">
+            <p>Справочник комплектующих</p>
+          </div>
+        </div>
+        <div id="counterparty" class="tabcontent_child">
+          <p>Справочник контрагентов</p>
+        </div>
+      </div>
+      <div id="analysis" class="tabcontent">
+        <p>Сводная таблица</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
