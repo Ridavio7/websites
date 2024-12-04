@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="../images/icon.svg" />
+    <link href="../static/static.css" rel="stylesheet" />
+    <title>Прошивка</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul class="menu__box">
+                <div class="block_status">
+                    <div class="block_icon_status">
+                        <a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" title="Точка доступа" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                    </div>
+                    <div class="block_icon_status">
+                        <a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                    </div>
+                </div>
+                <li><img class="icon_settings" src="../images/home.svg" alt=""><a href="../index.html" class="title_menu">Главная</a></li>
+                <li><img class="icon_settings" src="../images/settings.svg" alt=""><a href="settings.html" class="title_menu">Настройки</a></li>
+            </ul>
+        </div>
+        <div class="container_menu">
+            <div class="block_menu">
+                <div class="point_menu">
+                    <a href="../index.html"><img class="icon_settings" src="../images/home.svg" alt=""></a>
+                    <a href="../index.html" class="title_menu_main">Главная</a>
+                </div>
+                <div class="point_menu">
+                    <a href="settings.html"><img class="icon_settings" src="../images/settings.svg" alt=""></a>
+                    <a href="settings.html" class="title_menu_main">Настройки</a>
+                </div>
+            </div>
+        </div>
+        <div class="container_settings">
+            <div class="header_body">
+                <div class="header_logo">
+                    <img class="logo" src="../images/logo_w.svg" alt="">
+                </div>
+            </div>
+            <div class="block_fixed">
+                <div class="block_status_main">
+                    <div class="block_icon_status">
+                        <div class="tooltip_status"><a href="access-point.html"><img class="icon_status" src="../images/access-point.svg" alt=""></a>
+                            <span class="tooltiptext_status"><span id="ip_conn_ap" style="color: rgb(112, 112, 150);">-</span></span>
+                        </div>
+                    </div>
+                    <div class="block_icon_status">
+                        <div class="tooltip_status"><a href="wi-fi.html"><img class="icon_status" src="../images/wi-fi.svg" title="Wi-FI" alt=""></a>
+                            <span class="tooltiptext_status"><span id="ip_conn_wifi" style="color: rgb(112, 112, 150);">-</span></span>
+                        </div>
+                    </div>
+                    <div class="block_icon_status">
+                        <div class="tooltip_status"><a href="ethernet.html"><img class="icon_status" src="../images/ethernet.svg" title="Ethernet" alt=""></a>
+                            <span class="tooltiptext_status"><span id="ip_conn_eth" style="color: rgb(112, 112, 150);">-</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body_go_back_button">
+                <a href="javascript: history.go(-1)">
+                    <img class="icon_settings" src="../images/go_back.svg" alt="">
+                    <a class="go_back_button" href="javascript: history.go(-1)">Назад</a>
+                </a>
+            </div>
+            <div class="container">
+                <div class="block_settings_title">
+                    <div class="line_settings">
+                        <a class="main_title_text">Информация о прошивке</a>
+                    </div>
+                </div>
+                <div class="seporator_full"></div>
+                <div class="form">
+                    <form id="fform">
+                        <div class="block_settings">
+                            <div class="line_settings_input">
+                                <label for="n_web">Название версии ПО</label>
+                                <input type="text" id="n_web" class="n_web" name="n_web" value="---" readonly>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input">
+                                <label for="v_web">Версия ПО</label>
+                                <input type="text" id="v_web" class="v_web" name="v_web" value="---" readonly>
+                            </div>
+                        </div>
+                        <div class="block_settings">
+                            <div class="line_settings_input">
+                                <label for="v_firmware">Версия прошивки</label>
+                                <input type="text" id="v_firmware" class="v_firmware" name="v_firmware" value="---" readonly>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="seporator_full top_block"></div>
+                <div class="block_settings_title">
+                    <div class="line">
+                        <a class="main_title_text">Кастомная прошивка</a>
+                        <div class="tooltip"><img class="icon_settings" src="../images/info.svg" alt="">
+                            <span class="tooltiptext">Для установки прошивки выберите файл, указанный разработчиком с именем DT_ETH_TEST_XX_COM.bin<br>
+                                                        Для установки файловой системы выберите архив файловой системы spiffs.bin</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="block_maintbl">
+                    <div class="line_settings_input">
+                        <table class=maintbl>
+                            <tr>
+                                <td>
+                                    <form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>
+                                        <input type='file' name='update' id='file' onchange='sub(this)' style=display:none>
+                                        <label id='file-input' for='file'>	 Выберите файл...</label>
+                                        <input type="radio" id="fw" name="filetype" value="fw" checked>
+                                        <label for="fw">Прошивка</label>
+                                        <input type="radio" id="fs" name="filetype" value="fs">
+                                        <label for="fs">Файловая система</label>
+                                        <div class=btn onclick='mysub()'>Обновить</div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a id="prg_title">Закрузка данных:</a>
+                                    <div id='prg'></div>
+                                    <div id='prgbar'>
+                                        <div id='bar'></div>
+                                    </div> 
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let API_UPDATE = '/api/update.api';
+        let PATH_FOR_UPLOAD = "/api/getVersion.api"
+
+        function docReady(fn) {
+            if (document.readyState === "complete" || document.readyState === "interactive") {
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener("DOMContentLoaded", fn);
+            }
+        };
+
+        const findOne = (element, selector) => element.querySelector(selector)
+        const C = findOne(document.body, ".form");
+        const Q = findOne(C, "#fform");
+
+        function sub(obj)
+        {
+            var path = obj.value;
+            fileName = path.match(/[^\/\\]+$/);
+            document.getElementById('file-input').innerHTML = fileName;
+        };
+
+        function getJSONfromDevice(PATH_FOR_UPLOAD, callback){
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', PATH_FOR_UPLOAD, true);
+            xhr.responseType = 'json';
+            xhr.onload = function() {
+                var status = xhr.status;
+                if (status === 200) {
+                    callback(null, xhr.response);
+                } else {
+                    callback(status, xhr.response);
+                }
+            };
+            xhr.send();
+        };
+
+        function CallBackFunction(err, PATH_FOR_UPLOAD){
+            if(err){
+                //Error!
+            }else{
+                form_obj = PATH_FOR_UPLOAD;
+                console.log(form_obj);
+
+                findOne(Q, ".n_web").value = form_obj.name;
+                findOne(Q, ".v_web").value = form_obj.versions.software;
+                findOne(Q, ".v_firmware").value = form_obj.versions.hardware;
+
+            }
+        };
+
+        docReady(function(){
+            window.onload = getJSONfromDevice(PATH_FOR_UPLOAD, CallBackFunction);
+        });
+
+
+function mysub()
+{
+	var form = document.getElementById('upload_form');
+	var data = new FormData(form);
+	var type = 0;
+
+
+	if(data.get('filetype') == 'fw')
+	{
+		type = 0xAA;	
+		//data.set('update', file.files[0], data.get('update').name + '_fs');
+	}
+
+	if(data.get('filetype') == 'fs')
+	{
+		type = 0xBB;
+		//data.set('update', file.files[0], data.get('update').name + '_fw');
+	}
+	
+	//READ FILE DATA
+	var reader = new FileReader();
+	
+	reader.onloadend = function (event) {
+		let filedata = new Uint8Array(event.target.result);
+		
+		console.log('file name  : ' + file.files[0].name);
+		console.log('file size  : ' + file.files[0].size);
+		console.log('filedata:');
+		console.log(filedata);
+
+		
+		console.log('Start http request');
+		var xhttp = new window.XMLHttpRequest();
+
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4) {
+				if (xhttp.status == 200) {
+					console.log(xhttp.responseText)
+					alert('Данные успешно загружены. Страница будет обновлена!')
+					location.reload();
+					//document.open();
+					//document.write(xhttp.responseText);
+					//document.close();
+				} else if (xhttp.status == 0) {
+					console.log('server disonection')					
+				} else {
+					console.log("<p>xhttp.status: "+xhttp.status+" + ERROR: " + xhttp.responseText + "\nСтраница будет перезагружена!");
+				}
+			}
+		};
+		xhttp.upload.addEventListener('progress', function (evt) {
+			if (evt.lengthComputable)
+			{
+				var per = evt.loaded / evt.total;
+				document.getElementById('prg').innerHTML = 'progress: ' + Math.round(per * 100) + '%';
+				document.getElementById('bar').style.width = Math.round(per * 100) + '%';
+			}
+		}, false);
+
+		//SEND DATA PREPARE:
+		var header = [];
+		
+		//NAME
+		for (var i = 0; i < file.files[0].name.length; i++)
+		{
+			header.push(file.files[0].name.charCodeAt(i));
+		}
+
+		for (var i = file.files[0].name.length; i < 20; i++)
+		{
+			header.push(0x00);
+		}
+	
+		//SIZE
+		header.push((file.files[0].size >> 0) & 0xFF);
+		header.push((file.files[0].size >> 8) & 0xFF);
+		header.push((file.files[0].size >> 16) & 0xFF);
+		header.push((file.files[0].size >> 24) & 0xFF);
+
+		//TYPE
+		header.push(type);
+
+		//SEND DATA
+		var senddata = new Uint8Array(25 + file.files[0].size)
+		senddata.set(header, 0);
+		senddata.set(filedata, 25);
+
+		console.log('senddata: ' + senddata.length);
+		console.log(senddata);
+		
+		//SEND
+		xhttp.open("POST", API_UPDATE, true);
+		xhttp.setRequestHeader('Content-Type', 'application/json');
+		//multipart/form-data
+		//xhttp.send(data);
+
+		xhttp.send(senddata); // perform all required operations with x here.
+
+
+	};
+
+	reader.readAsArrayBuffer(file.files[0]);
+};
+    </script>
+</body>
