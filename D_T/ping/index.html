@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="js/script.js"></script>
+    <script defer type="text/javascript" src="js/upload.js"></script>
+    <script defer type="text/javascript" src="js/constants.js"></script>
+    <script defer type="text/javascript" src="js/update.js"></script>
+    <link href="static.css" rel="stylesheet" />
+    <title>Ping</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header_body">
+      <div class="header_logo">
+      <img class="logo" src="logo.png" alt="">
+      <a class="header_title">ДИСКРЕТНЫЕ <br>ТЕХНОЛОГИИ</a>
+      </div>
+  </div>
+  </header>
+    <div class="container">
+        <form id="pings-box">
+          <h3>Настройка устройства</h3>
+          <div class="ping-box">        
+            <h4>Host name:</h4>
+            <div class="host-box">
+              <input type="text" placeholder="192.168.0.1" value="192.168.0.1" class="host-text">
+            </div>
+            <hr>            
+            <h4>Timeout:</h4>
+            <div class="timeout-box">
+              <input type="text" placeholder="100" value="100" class="timeout-text">
+            </div>
+            <hr>            
+            <h4>Period:</h4>
+            <div class="period-box">
+              <input type="text" placeholder="1000" value="1000" class="period-text">
+            </div>
+          </div>
+        </form>
+        <div class="btn-success">
+          <button class="btn btn_settings" id="add-ping-btn">Добавить</button>
+          <button class="btn btn_settings" id="create-json-btn">На устройство</button><br>
+        </div>
+    </div>
+    <!--<div class="upload"">
+      <table class="maintbl">
+        <tr>
+          <td>
+            <p>
+              <label class="input-file">
+                <input type="file" id="selectJSON" name="json">
+                <span class="input-file-btn">Выберите файл</span>           
+                <span class="input-file-text" id="JSONLabel">Макс. 200KB</span>
+              </label>
+            </p>
+            <span style="text-align:left;">
+              <button class="btn" id="UploadToDevice" onclick="showModal(confirmUploadMsg)">На устройство</button>
+            </span>
+            <span style="text-align:left;">
+              <button class="btn" id="LoadFromDevice">С устройства</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+      <br>	
+      <p>Название файла<br><input type="text" id="FileNameField" value="network.json"></p>
+        <textarea id="result" name="result"></textarea>
+      <div id="msgBox" style="display:none">
+        <div id="msgBoxBody">
+        </div>
+      </div>
+    </div>-->
+    <div class="update">
+      <h3>Обновление устройства</h3>
+      <table class=maintbl>
+          <tr>
+              <td>
+                  <form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>
+                      <input type='file' name='update' id='file' onchange='sub(this)' style=display:none>
+                      <label id='file-input' for='file'>	 Выберите файл...</label>
+                      <input type="radio" id="fw" name="filetype" value="fw" checked>
+                      <label for="fw">Firmware</label><br>
+                      <input type="radio" id="fs" name="filetype" value="fs">
+                      <label for="fs">File system</label><br>
+                      <button type="button" class="btn btn_settings" onclick='mysub()'>Обновить</button>
+                  </form>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <div class="prg" id='prg'></div>
+                  <div id='prgbar'>
+                      <div id='bar'></div>
+                  </div> 
+              </td>
+          </tr> 
+      </table>
+  </div>
+</body>
+</html>
