@@ -86,7 +86,7 @@
       <div class="sidebar-links">
         <ul>
           <li id="sidebar_tablink_1">
-            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'shipment')">
+            <div class="icon-link tablinks_main" id="link_shipment" onclick="openTabSidebar(event, 'shipment', this)">
               <div>
                 <img src="../images/shipment.svg" class="icon" alt="">
                 <span class="link_name">Отгрузка</span>
@@ -94,13 +94,13 @@
               <img src="../images/arrow_down_sidebar.svg" class="arrow" alt="">
             </div>
             <ul class="sub-menu">
-              <li><a class="tablinks_first" id="link_shipment_schedule"  name="non_child" href="#schedule" onclick="openTabFirst(event)">График</a></li>
+              <li><a class="tablinks_first" id="link_shipment_schedule" name="non_child" href="#schedule" onclick="openTabFirst(event)">График</a></li>
               <li><a class="tablinks_first" id="link_shipment_directory" href="#directory" onclick="openTabFirst(event)">Справочники</a></li>
               <li><a class="tablinks_first" id="link_shipment_analysis" href="#analysis" onclick="openTabFirst(event)">Анализ</a></li>
             </ul>
           </li>
           <li id="sidebar_tablink_2">
-            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'production')">
+            <div class="icon-link tablinks_main" id="link_production" onclick="openTabSidebar(event, 'production', this)">
               <div>
                 <img src="../images/production.svg" class="icon" alt="">
                 <span class="link_name">Производство</span>
@@ -114,15 +114,17 @@
             </ul>
           </li>
           <li id="sidebar_tablink_3">
-            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'provider')">
-              <div>
-                  <img src="../images/provider.svg" class="icon" alt="">
-                  <span class="link_name">Поставка</span>
+            <a href="#provider">
+              <div class="icon-link tablinks_main" id="link_provider" onclick="openTabSidebar(event, 'provider', this)">
+                <div>
+                    <img src="../images/provider.svg" class="icon" alt="">
+                    <span class="link_name">Поставка</span>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
           <li id="sidebar_tablink_4">
-            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'development')">
+            <div class="icon-link tablinks_main" id="link_development" onclick="openTabSidebar(event, 'development', this)">
               <div>
                 <img src="../images/development.svg" class="icon" alt="">
                 <span class="link_name">Разработка</span>
@@ -136,7 +138,7 @@
             </ul>
           </li>
           <li id="sidebar_tablink_5">
-            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'storage')">
+            <div class="icon-link tablinks_main" id="link_storage" onclick="openTabSidebar(event, 'storage', this)">
               <div>
                   <img src="../images/storage.svg" class="icon" alt="">
                   <span class="link_name">Склад</span>
@@ -144,7 +146,7 @@
             </div>
           </li>
           <li id="sidebar_tablink_6">
-            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'dir_main_tabcontent')">
+            <div class="icon-link tablinks_main" id="link_directory_all" onclick="openTabSidebar(event, 'directory_all', this)">
               <div>
                 <img src="../images/directory.svg" class="icon" alt="">
                 <span class="link_name">Справочники</span>
@@ -847,7 +849,6 @@
             <td class="td_main">Контрагент</td>
             <td class="td_main">Склад</td>
             <td class="td_main">Пользователь</td>
-            <td class="td_main">Сумма</td>
             <td class="td_main">Примечание</td>
             <td class="td_main"></td>
           </tr>
@@ -863,7 +864,7 @@
     <div class="block_main_tabs sidebar_tabcontent" id="storage">
       <p>Склад</p>
     </div>
-    <div class="block_main_tabs sidebar_tabcontent" id="dir_main_tabcontent">
+    <div class="block_main_tabs sidebar_tabcontent" id="directory_all">
       <!-- Справочники изделий -->
       <div id="dir_product" class="tabcontent">
         <div class="tab_child">
@@ -1280,51 +1281,63 @@
   </div>
   <div id="modal_info_component" class="modal">
     <div class="modal-content">
-    <div class="modal-header">
-      <div class="block_task_inputs">
-        <label for="component_name">Название:</label>
-        <input type="text" id="component_name" value="">
+      <div class="modal-header">
+        <div>
+          <div class="block_task_inputs">
+            <label for="component_name">Название:</label>
+            <input type="text" id="component_name" value="">
+          </div>
+          <div class="block_task_inputs">
+            <label for="component_type">Тип:</label>
+            <select id="component_type"></select>
+          </div>
+        </div>
+        <div class="block_task_inputs">
+          <input type="checkbox" id="component_unic" class="custom-checkbox">
+          <label for="component_unic">Универсальный</label>
+        </div>
+        <div>
+          <div class="block_task_inputs">
+            <label for="component_remainder">Остаток:</label>
+            <input type="text" id="component_remainder" value="" disabled>
+          </div>
+          <div class="block_task_inputs">
+            <label for="component_storage">Склад:</label>
+            <input type="text" id="component_storage" value="" disabled>
+          </div>
+        </div>
+        <span class="close" id="close_info">&times;</span>
       </div>
-      <div class="block_task_inputs">
-        <label for="component_type">Тип:</label>
-        <select id="component_type"></select>
+      <div class="modal-body">
+        <table id="main_tb_modal_info_component">
+          <thead>
+            <tr>
+              <td class="td_main">Название св-ва</td>
+              <td class="td_main">Ед. изм.</td>
+              <td class="td_main">Значение</td>
+              <td class="td_main">Погрешность, %</td>
+              <td class="td_main">Значение нач.</td>
+              <td class="td_main">Значение конеч.</td>
+              <td class="td_main"></td>
+            </tr>
+          </thead>
+          <tbody id="tb_modal_info_component">
+            <tr>
+              <td><select id="component_info_add_props_select"></select></td>
+              <td>---</td>
+              <td><input type="text" id="component_info_add_value" value="0"></td>
+              <td><input type="text" id="component_info_add_perc" value="0"></td>
+              <td><input type="text" id="component_info_add_d1" class="component_info_input" value="0"></td>
+              <td><input type="text" id="component_info_add_d2" class="component_info_input" value="0"></td>
+              <td class="cell_button"><button class="button_add" id="component_info_add_button" value="" onclick="funcAddComponentInfoProps(this)"><img src="../images/plus.svg" alt=""></button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="block_task_inputs">
-        <input type="checkbox" id="component_unic" class="custom-checkbox">
-        <label for="component_unic">Универсальный</label>
+      <div class="modal-footer">
+        <button class="button_sub" id="component_save" style="display: none;" onclick="funcUpdateRowComponents(this)" value=""><img src="../images/button/chb/checkbox.svg" alt=""></button>
+        <button class="button_sub" id="component_add" style="display: none;" onclick="funcAddComponents(this)" value=""><img src="../images/plus.svg" alt=""></button>
       </div>
-      <span class="close" id="close_info">&times;</span>
-    </div>
-    <div class="modal-body">
-      <table id="main_tb_modal_info_component">
-        <thead>
-          <tr>
-            <td class="td_main">Название св-ва</td>
-            <td class="td_main">Ед. изм.</td>
-            <td class="td_main">Значение</td>
-            <td class="td_main">Погрешность, %</td>
-            <td class="td_main">Значение нач.</td>
-            <td class="td_main">Значение конеч.</td>
-            <td class="td_main"></td>
-          </tr>
-        </thead>
-        <tbody id="tb_modal_info_component">
-          <tr>
-            <td><select id="component_info_add_props_select"></select></td>
-            <td>---</td>
-            <td><input type="text" id="component_info_add_value" value="0"></td>
-            <td><input type="text" id="component_info_add_perc" value="0"></td>
-            <td><input type="text" id="component_info_add_d1" class="component_info_input" value="0"></td>
-            <td><input type="text" id="component_info_add_d2" class="component_info_input" value="0"></td>
-            <td class="cell_button"><button class="button_add" id="component_info_add_button" value="" onclick="funcAddComponentInfoProps(this)"><img src="../images/plus.svg" alt=""></button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="modal-footer">
-      <button class="button_sub" id="component_save" style="display: none;" onclick="funcUpdateRowComponents(this)" value=""><img src="../images/button/chb/checkbox.svg" alt=""></button>
-      <button class="button_sub" id="component_add" style="display: none;" onclick="funcAddComponents(this)" value=""><img src="../images/plus.svg" alt=""></button>
-    </div>
     </div>
   </div>
   <div id="modal_select_component" class="modal">
@@ -1402,7 +1415,7 @@
           <div>
             <div class="block_task_inputs">
               <label for="docpost_contr">Контрагент:</label>
-              <select name="" id="docpost_contr"></select>
+              <input type="text" id="docpost_contr" value="" disabled>
             </div>
             <div class="block_task_inputs">
               <label for="docpost_storage">Склад:</label>
@@ -1419,6 +1432,7 @@
               <td class="td_main">Комплектующее 1С</td>
               <td class="td_main">Комплектующее TW</td>
               <td class="td_main">Ед. изм.</td>
+              <td class="td_main">Склад</td>
               <td class="td_main">Кол-во</td>
               <td class="td_main"></td>
             </tr>
@@ -1427,6 +1441,9 @@
 
           </tbody>
         </table>
+      </div>
+      <div class="modal-footer">
+        <button class="button_sub" id="docpost_save" onclick="funcUpdateRowDocpost(this)" value=""><img src="../images/button/chb/checkbox.svg" alt=""></button>
       </div>
     </div>
   </div>

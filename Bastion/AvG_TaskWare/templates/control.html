@@ -75,91 +75,222 @@
       </div>
     </div>
   </header>
-    <div class="container">
-      <nav class="sidebar">
-        <div class="sidebar-top-wrapper">
-          <button class="expand-btn" type="button">
-            <img src="../images/arrow_sidebar_r.svg" alt="">
-          </button>
+  <div class="container">
+    <nav class="sidebar">
+      <div class="sidebar-top-wrapper">
+        <button class="expand-btn" type="button">
+          <img src="../images/arrow_sidebar_r.svg" alt="">
+        </button>
+      </div>
+      <div class="sidebar-links">
+        <ul>
+          <li id="sidebar_tablink_1">
+            <div class="icon-link sidebar_tablinks" id="defaultOpenSidebar" onclick="openTabSidebar(event, 'settings')">
+              <div>
+                  <img src="../images/settings.svg" class="icon" alt="">
+                  <span class="link_name">Настройки</span>
+              </div>
+            </div>
+          </li>
+          <li id="sidebar_tablink_2">
+            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'template_task')">
+              <div>
+                  <img src="../images/template_task.svg" class="icon" alt="">
+                  <span class="link_name">Шаблоны</span>
+              </div>
+            </div>
+          </li>
+          <li id="sidebar_tablink_3">
+            <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'control_task')">
+              <div>
+                  <img src="../images/control_task.svg" class="icon" alt="">
+                  <span class="link_name">Контроль</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="block_main_tabs sidebar_tabcontent" id="settings">
+      <!-- пользователи -->
+      <div id="settings/users" class="tabcontent">
+        <div class="tab_child">
+          <a href="#settings/users"><button class="tablinks_settings tablinks_users" name="non_child" onclick="openTabSecond(event, 'tablinks_settings', 'tablinks_users')"><img src="../images/users.svg" class="icon icon_tab">Пользователи</button></a>
         </div>
-        <div class="sidebar-links">
-          <ul>
-            <li id="sidebar_tablink_1">
-              <div class="icon-link sidebar_tablinks" id="defaultOpenSidebar" onclick="openTabSidebar(event, 'settings')">
-                <div>
-                    <img src="../images/settings.svg" class="icon" alt="">
-                    <span class="link_name">Настройки</span>
-                </div>
-              </div>
-            </li>
-            <li id="sidebar_tablink_2">
-              <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'template_task')">
-                <div>
-                    <img src="../images/template_task.svg" class="icon" alt="">
-                    <span class="link_name">Шаблоны</span>
-                </div>
-              </div>
-            </li>
-            <li id="sidebar_tablink_3">
-              <div class="icon-link sidebar_tablinks" onclick="openTabSidebar(event, 'control_task')">
-                <div>
-                    <img src="../images/control_task.svg" class="icon" alt="">
-                    <span class="link_name">Контроль</span>
-                </div>
-              </div>
-            </li>
-          </ul>
+        <div class="small_tabs">
+          <a href="#settings/users/main"><button class="tablinks_users_third tablinks_users_main" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_main', funcGetUsers())"><img src="../images/users.svg" class="icon icon_tab">Главная</button></a>
+          <a href="#settings/users/jobs"><button class="tablinks_users_third tablinks_users_jobs" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_jobs', funcGetJobs())"><img src="../images/user_jobs.svg" class="icon icon_tab">Должности</button></a>
+          <a href="#settings/users/rights"><button class="tablinks_users_third tablinks_users_rights" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_rights', funcGetRights())"><img src="../images/user_rights.svg" class="icon icon_tab">Права</button></a>
         </div>
-      </nav>
-      <div class="block_main_tabs sidebar_tabcontent" id="settings">
-        <!-- пользователи -->
-        <div id="settings/users" class="tabcontent">
-          <div class="tab_child">
-            <a href="#settings/users"><button class="tablinks_settings tablinks_users" name="non_child" onclick="openTabSecond(event, 'tablinks_settings', 'tablinks_users', funcGetUsers())"><img src="../images/users.svg" class="icon icon_tab">Пользователи</button></a>
+      </div>
+      <!-- пользователи главная -->
+      <div id="settings/users/main" class="tabcontent">
+        <div class="tab_child">
+          <a href="#settings/users"><button class="tablinks_settings tablinks_users" name="non_child" onclick="openTabSecond(event, 'tablinks_settings', 'tablinks_users')"><img src="../images/users.svg" class="icon icon_tab">Пользователи</button></a>
+        </div>
+        <div class="small_tabs">
+          <a href="#settings/users/main"><button class="tablinks_users_third tablinks_users_main" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_main', funcGetUsers())"><img src="../images/users.svg" class="icon icon_tab">Главная</button></a>
+          <a href="#settings/users/jobs"><button class="tablinks_users_third tablinks_users_jobs" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_jobs', funcGetJobs())"><img src="../images/user_jobs.svg" class="icon icon_tab">Должности</button></a>
+          <a href="#settings/users/rights"><button class="tablinks_users_third tablinks_users_rights" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_rights', funcGetRights())"><img src="../images/user_rights.svg" class="icon icon_tab">Права</button></a>
+        </div>
+        <div class="block_serv">
+          <div class="block-sort__filter">
+            <select id="sort_users">
+              <option value="">Сортировка &#8661;</option>
+              <option value="">По названию &#8659;</option>
+              <option value="">По названию &#8657;</option>
+              <option value="">По новизне &#8659;</option>
+              <option value="">По новизне &#8657;</option>
+            </select>
           </div>
-          <div class="block_serv">
-            <div class="block-sort__filter">
-              <select id="sort_users">
-                <option value="">Сортировка &#8661;</option>
-                <option value="">По названию &#8659;</option>
-                <option value="">По названию &#8657;</option>
-                <option value="">По новизне &#8659;</option>
-                <option value="">По новизне &#8657;</option>
-              </select>
+        </div>
+        <table>
+          <thead>
+              <tr>
+                <td class="td_main"></td>
+                <td class="td_main">№</td>
+                <td class="td_main">ФИО</td>
+                <td class="td_main">Должность</td>
+                <td class="td_main">Почта</td>
+                <td class="td_main">Телефон</td>
+                <td class="td_main"></td>
+              </tr>
+          </thead>
+          <tbody id="tb_users">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="cell_button"><button class="button_add" onclick="funcInfoUserOpenModalAdd()"><img src="../images/plus.svg" alt=""></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- должности -->
+      <div id="settings/users/jobs" class="tabcontent">
+        <div class="tab_child">
+          <a href="#settings/users"><button class="tablinks_settings tablinks_users" name="non_child" onclick="openTabSecond(event, 'tablinks_settings', 'tablinks_users')"><img src="../images/users.svg" class="icon icon_tab">Пользователи</button></a>
+        </div>
+        <div class="small_tabs">
+          <a href="#settings/users/main"><button class="tablinks_users_third tablinks_users_main" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_main', funcGetUsers())"><img src="../images/users.svg" class="icon icon_tab">Главная</button></a>
+          <a href="#settings/users/jobs"><button class="tablinks_users_third tablinks_users_jobs" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_jobs', funcGetJobs())"><img src="../images/user_jobs.svg" class="icon icon_tab">Должности</button></a>
+          <a href="#settings/users/rights"><button class="tablinks_users_third tablinks_users_rights" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_rights', funcGetRights())"><img src="../images/user_rights.svg" class="icon icon_tab">Права</button></a>
+        </div>
+        <div class="block_serv">
+          <div class="block-sort__filter">
+            <select id="sort_jobs">
+              <option value="">Сортировка &#8661;</option>
+              <option value="">По названию &#8659;</option>
+              <option value="">По названию &#8657;</option>
+              <option value="">По новизне &#8659;</option>
+              <option value="">По новизне &#8657;</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <td class="td_main">Должность</td>
+              <td class="td_main"></td>
+            </tr>
+          </thead>
+          <tbody id="tb_jobs">
+            <tr>
+              <td><input type="text" id="input_add_jobs" style="border: 1px solid var(--border);"></td>
+              <td class="cell_button"><button class="button_add" onclick="funcAddRowJobs()"><img src="../images/plus.svg" alt=""></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- права -->
+      <div id="settings/users/rights" class="tabcontent">
+        <div class="tab_child">
+          <a href="#settings/users"><button class="tablinks_settings tablinks_users" name="non_child" onclick="openTabSecond(event, 'tablinks_settings', 'tablinks_users')"><img src="../images/users.svg" class="icon icon_tab">Пользователи</button></a>
+        </div>
+        <div class="small_tabs">
+          <a href="#settings/users/main"><button class="tablinks_users_third tablinks_users_main" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_main', funcGetUsers())"><img src="../images/users.svg" class="icon icon_tab">Главная</button></a>
+          <a href="#settings/users/jobs"><button class="tablinks_users_third tablinks_users_jobs" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_jobs', funcGetJobs())"><img src="../images/user_jobs.svg" class="icon icon_tab">Должности</button></a>
+          <a href="#settings/users/rights"><button class="tablinks_users_third tablinks_users_rights" onclick="openTabThird(event, 'tablinks_users_third', 'tablinks_users_rights', funcGetRights())"><img src="../images/user_rights.svg" class="icon icon_tab">Права</button></a>
+        </div>
+        <div class="block_serv">
+          <div class="block-sort__filter">
+            <select id="sort_rights">
+              <option value="">Сортировка &#8661;</option>
+              <option value="">По названию &#8659;</option>
+              <option value="">По названию &#8657;</option>
+              <option value="">По новизне &#8659;</option>
+              <option value="">По новизне &#8657;</option>
+            </select>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <td class="td_main">Право</td>
+              <td class="td_main"></td>
+            </tr>
+          </thead>
+          <tbody id="tb_rights">
+            <tr>
+              <td><input type="text" id="input_add_rights" style="border: 1px solid var(--border);"></td>
+              <td class="cell_button"><button class="button_add" onclick="funcAddRowRights()"><img src="../images/plus.svg" alt=""></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="block_main_tabs sidebar_tabcontent" id="template_task">
+      <p>Шаблоны задач</p>
+    </div>
+    <div class="block_main_tabs sidebar_tabcontent" id="control_task">
+      <p>Контроль задач</p>
+    </div>
+    <div id="modal_info_user" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p>Информация о пользователе</p>
+          <span class="close" id="close_info_user">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="block_task_inputs">
+              <label for="user_name">ФИО:</label>
+              <input type="text" id="user_name" value="">
+            </div>
+            <div class="block_task_inputs">
+              <label for="user_job">Должность:</label>
+              <select id="user_job"></select>
+            </div>
+          </div>
+          <div>
+            <div class="block_task_inputs">
+              <label for="user_email">Почта:</label>
+              <input type="text" id="user_email" value="">
+            </div>
+            <div class="block_task_inputs">
+              <label for="user_phone">Телефон:</label>
+              <input type="text" id="user_phone" value="">
             </div>
           </div>
           <table>
             <thead>
-                <tr>
-                  <td class="td_main">№</td>
-                  <td class="td_main">ФИО</td>
-                  <td class="td_main">Должность</td>
-                  <td class="td_main">Полные права</td>
-                  <td class="td_main">Права на отгрузку</td>
-                  <td class="td_main">Права на редактирование</td>
-                  <td class="td_main"></td>
-                </tr>
+              <td class="td_main"></td>
+              <td class="td_main">Права</td>
             </thead>
-            <tbody id="tb_users">
-              <tr>
-                <td>---</td>
-                <td><input type="text" id="input_add_user_name" style="border: 1px solid var(--border);"></td>
-                <td><input type="text" id="input_add_user_post" style="border: 1px solid var(--border);" disabled></td>
-                <td><input type="checkbox" class="custom-checkbox" id="input_add_user_all_rights" value="" name="" disabled><label for="input_add_user_all_rights"></label></td>
-                <td><input type="checkbox" class="custom-checkbox" id="input_add_user_ship_rights" value="" name="" disabled><label for="input_add_user_ship_rights"></label></td>
-                <td><input type="checkbox" class="custom-checkbox" id="input_add_user_edit_rights" value="" name="" disabled><label for="input_add_user_edit_rights"></label></td>
-                <td class="cell_button"><button class="button_add" onclick="funcAddRowUsers()"><img src="../images/plus.svg" alt=""></button></td>
-              </tr>
+            <tbody id="tb_user_rights">
+
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="block_main_tabs sidebar_tabcontent" id="template_task">
-        <p>Шаблоны задач</p>
-      </div>
-      <div class="block_main_tabs sidebar_tabcontent" id="control_task">
-        <p>Контроль задач</p>
+        <div class="modal-footer">
+          <button class="button_sub" id="user_save" style="display: none;" onclick="funcUpdateRowUsers(this)" value=""><img src="../images/button/chb/checkbox.svg" alt=""></button>
+          <button class="button_sub" id="user_add" style="display: none;" onclick="funcAddRowUsers()" value=""><img src="../images/plus.svg" alt=""></button>
+        </div>
       </div>
     </div>
+  </div>
 </body>
 </html>

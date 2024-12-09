@@ -180,43 +180,42 @@
               </tbody>
             </table>
         </nav>
-        <div class="block_task">
-            <div class="block_task_info">
-                <div class="block_task_info_first">
-                    <div class="block_task_inputs">
-                        <label for="task_admin">Админ:</label>
+        <div class="block-task">
+            <div class="block-task__inputs">
+                <div class="block-task__inputs__first">
+                    <div class="block-task__inputs__first__info">
+                        <label for="task_admin">Админ</label>
                         <input type="text" name="task_admin" id="task_admin" value="Иванов Иван Иванович">
                     </div>
-                    <div class="block_task_inputs">
-                        <label for="task_name">Название:</label>
+                    <div class="block-task__inputs__first__info">
+                        <label for="task_name">Название</label>
                         <input type="text" name="task_name" id="task_name" value="Задача №1">
                     </div>
-                    <div class="block_task_inputs">
-                        <label for="task_status">Статус:</label>
+                    <div class="block-task__inputs__first__info">
+                        <label for="task_status">Статус</label>
                         <input type="text" name="task_status" id="task_status" value="В работе">
                     </div>
-                    <div class="block_task_inputs">
+                    <div class="block-task__inputs__first__info">
+                      <label for="task_contragents">Контрагент</label>
                       <select id="task_contragents"><option value=" ">-- Выберите контрагента --</option></select>
-                  </div>
-                </div>
-                <div class="block_task_info_second">
-                    <div class="block_task_inputs" style="flex-wrap: wrap;">
-                        <label for="task_date_first">Срок:</label>
-                        <div class="block_date_first">
-                            <input type="date" name="task_date_first" id="task_date_first" value="2024-07-05">
-                            <input type="time" name="task_time_first" id="task_time_first" value="15:00">
-                        </div>
-                        <div class="block_date_second">
-                            &ensp;-&ensp;
-                        </div>
-                        <div class="block_date_third">
-                            <input type="date" name="task_date_second" id="task_date_second" value="2024-07-10">
-                            <input type="time" name="task_time_second" id="task_time_second" value="15:00">
-                        </div>
                     </div>
-                    <div class="block_task_inputs">
-                        <label for="task_comment">Комментарий:</label>
-                        <textarea type="text" name="task_comment" id="task_comment">Отгрузка</textarea>
+                    <div class="block-task__inputs__first__info">
+                        <label for="task_comment">Комментарий</label>
+                        <input type="text" name="task_comment" id="task_comment" value="">
+                    </div>
+                </div>
+                <div class="block-task__inputs__second">
+                    <label for="task_date_first">Срок</label>
+                    <div class="block-task__inputs__second__info">
+                      <input type="date" name="task_date_first" id="task_date_first" value="2024-07-05">
+                      <input type="time" name="task_time_first" id="task_time_first" value="15:00">
+                    </div>
+                    <div class="block-task__inputs__second__info">
+                        &ensp;-&ensp;
+                    </div>
+                    <div class="block-task__inputs__second__info">
+                        <input type="date" name="task_date_second" id="task_date_second" value="2024-07-10">
+                        <input type="time" name="task_time_second" id="task_time_second" value="15:00">
                     </div>
                 </div>
             </div>

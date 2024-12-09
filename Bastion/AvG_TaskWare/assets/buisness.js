@@ -21,9 +21,9 @@ function setTheme(themeName) {
 
 function toggleTheme() {
   if (localStorage.getItem('theme') === 'theme-dark') {
-      setTheme('theme-light');
+    setTheme('theme-light');
   } else {
-      setTheme('theme-dark');
+    setTheme('theme-dark');
   }
 }
 
@@ -53,15 +53,19 @@ arrow_user[0].addEventListener("click", (e)=>{
   arrowParent.classList.toggle("showMenu");
 });
 
-/* установка значений вкладок */
-function returnTabs(){
-  let showMenu_val = localStorage.getItem("sidebar_tablink_active");
-  document.getElementById(showMenu_val).className += " showMenu";
-  
+/* установка значений вкладок */ 
+function returnTabs(){  
+  let tab_main = document.getElementById(localStorage.getItem("buisness_tab_main_active"));
+  tab_main.click();
   let tab_first = document.getElementById(localStorage.getItem("buisness_tab_first_active"));
-  tab_first.parentElement.parentElement.previousElementSibling.click();
-  tab_first.click();
-  if(tab_first.name === "non_child"){localStorage.removeItem("buisness_tab_second_active"); localStorage.removeItem("buisness_tab_third_active")};
+  if(tab_first != null){
+    tab_first.parentElement.parentElement.previousElementSibling.click();
+    tab_first.click();
+    if(tab_first.name === "non_child"){localStorage.removeItem("buisness_tab_second_active"); localStorage.removeItem("buisness_tab_third_active")};
+
+    let showMenu_val = localStorage.getItem("sidebar_tablink_active");
+    document.getElementById(showMenu_val).className += " showMenu";
+  }
 
   let tab_second = document.getElementsByClassName(localStorage.getItem("buisness_tab_second_active"));
   tab_second[0].click();
@@ -352,7 +356,7 @@ function funcUpdateRowGrfShipSets(uin, uinSet, elem){
   body.m12  = document.getElementById(`grf_input_m12_${uin}`).value;
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetGrfShipSets()}, 100); 
 }
 
@@ -496,7 +500,7 @@ function funcUpdateRowSets(uin, name, elem){
   body.model_train = findForUpdateInput(`model_train_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetSets()}, 100); 
 }
 
@@ -625,14 +629,6 @@ function addFormulaSetsRow(set, product, compont, count, del, uin, uinset, uinpr
   cellBtn.innerHTML = `<button class="button_control" onclick="funcUpdateRowFormulaSets(${uin},${uinset},${uinproduct},${uincompont},'count_${uin}',this)"><img src="../images/button/chb/checkbox.svg"></button>&nbsp;&nbsp;&nbsp;<button class="button_control" style="background:${bx_color}" onclick="funcMdelRowFormulaSets('${uin}',this)"><img src="../images/button/cross_w.svg"></button>`;
 }
 
-/* модальное окно */
-let modal_select_component = document.getElementById("modal_select_component");
-let span_component = document.getElementById("close_component_select");
-
-span_component.onclick = function() {
-  modal_select_component.style.display = "none";
-}
-
 /* функция удаления состава комплекта */
 function funcMdelRowFormulaSets(uin, elem){
   let body  =  {"user":"demo", "meth":"mdel", "obj":"formula_sets", "uin":`${uin}`};
@@ -666,7 +662,7 @@ function funcUpdateRowFormulaSets(uin, uinset, uinproduct, uincompont, count, el
   body.count = findForUpdateInput(count, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetFormulaSets()}, 100);
 }
 
@@ -795,7 +791,7 @@ function funcUpdateRowProducts(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetProducts()}, 100);
 }
 
@@ -950,7 +946,7 @@ function funcUpdateRowFormulaProducts(uin, uinproduct, uininnprod, uincompont, c
   body.count = findForUpdateInput(count, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetFormulaProducts()}, 100);
 }
 
@@ -1132,7 +1128,7 @@ function funcUpdateRowSNProd(uin, uinproduct, uinstatus, elem){
   body.uinstatus = findForUpdateSelect(uinstatus, target_table, "snprod_status_select_");
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetSNProd()}, 100);
 }
 
@@ -1296,7 +1292,7 @@ function funcUpdateRowShipSets(uin, elem){
   body.prim = findForUpdateInput(`shipsets_prim_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   //setInterval(function(){location.reload();}, 500);
 }
 
@@ -1429,7 +1425,7 @@ function funcUpdateRowShipProducts(uin, elem){
   body.prim = findForUpdateInput(`shipproducts_prim_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   //setInterval(function(){location.reload();}, 500);
 }
 
@@ -1569,7 +1565,7 @@ function funcUpdateRowShipProductsAll(uin, elem){
   body.prim = findForUpdateInput(`shipproducts_all_prim_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   //setInterval(function(){location.reload();}, 500);
 }
 */
@@ -1690,7 +1686,7 @@ function funcUpdateRowShipComponentsAll(uin, elem){
   body.prim = findForUpdateInput(`shipcomponents_all_prim_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   //setInterval(function(){location.reload();}, 500);
 }
 */
@@ -1742,9 +1738,9 @@ function addDocpostRow(statdocName, numb, date, numb1c, date1c, contrName, stora
   let cellContrName   = newRow.insertCell(6);
   let cellStorageName = newRow.insertCell(7);
   let cellUserName    = newRow.insertCell(8);
-  let cellSum         = newRow.insertCell(9);
-  let cellPrim        = newRow.insertCell(10);
-  let cellBtn         = newRow.insertCell(11);
+  //let cellSum         = newRow.insertCell(9);
+  let cellPrim        = newRow.insertCell(9);
+  let cellBtn         = newRow.insertCell(10);
 
   cellInfo.innerHTML        = `<button class="button_control" value="${uin}" onclick="funcInfoDocpostOpenModal(this)"><img src="../images/info.svg"></button>`;
   cellStatdocName.innerHTML = statdocName;
@@ -1755,12 +1751,24 @@ function addDocpostRow(statdocName, numb, date, numb1c, date1c, contrName, stora
   cellContrName.innerHTML   = contrName;
   cellStorageName.innerHTML = storageName;
   cellUserName.innerHTML    = userName;
-  cellSum.innerHTML         = sum;
   cellPrim.innerHTML        = prim;
 
   let bx_color;
   del === 0 ? bx_color = "inherit" : bx_color = "red"; cellBtn.classList = "cell_button";
-  cellBtn.innerHTML = `<button class="button_control" style="background:${bx_color}" onclick="" disabled><img src="../images/button/cross_w.svg"></button>`;
+  cellBtn.innerHTML = `<button class="button_control" style="background:${bx_color}" onclick="funcMdelRowDocpost(${uin},this)"><img src="../images/button/cross_w.svg"></button>`;
+}
+
+/* функция удаления поставки */
+function funcMdelRowDocpost(uin, elem){
+  let body  =  {"user":"demo", "meth":"mdel", "obj":"docpost", "uin":`${uin}`};
+
+  if(elem.style.background === "red"){
+    elem.style.background = "inherit";
+  } else {
+    elem.style.background = "red"
+  }
+
+  funcCommand(body, funcProcessOnlyInfo);
 }
 
 /* модальное окно поставки */
@@ -1769,13 +1777,14 @@ let close_info_docpost = document.getElementById("close_info_docpost");
 
 let select_docpost_statdoc = document.getElementById("docpost_statdoc");
 let select_docpost_user    = document.getElementById("docpost_user");
-let select_docpost_contr   = document.getElementById("docpost_contr");
 let select_docpost_storage = document.getElementById("docpost_storage");
+let input_docpost_contr   = document.getElementById("docpost_contr");
 let input_docpost_numb     = document.getElementById("docpost_numb");
 let input_docpost_date     = document.getElementById("docpost_date");
 let input_docpost_numb1c   = document.getElementById("docpost_numb1c");
 let input_docpost_date1c   = document.getElementById("docpost_date1c");
 let input_docpost_prim     = document.getElementById("docpost_prim");
+let button_docpost_save    = document.getElementById("docpost_save");
 
 close_info_docpost.onclick = function() {
   modal_info_docpost.style.display = "none";
@@ -1793,6 +1802,7 @@ function funcGetInfoTableDocpost(uin){
 
 function funcInfoDocpostOpenModal(elem){
   modal_info_docpost.style.display = "block";
+  localStorage.setItem("docpost_uin", elem.value);
 
   setTimeout(function(){funcGetInfoInputsDocpost(elem.value)}, 100);
   setTimeout(function(){funcGetInfoTableDocpost(elem.value)}, 150);
@@ -1804,8 +1814,8 @@ function funcProcessGetInfoInputsDocpost(result, respobj){
 
   removeOptions(select_docpost_statdoc);
   removeOptions(select_docpost_user);
-  removeOptions(select_docpost_contr);
   removeOptions(select_docpost_storage);
+  input_docpost_contr.value  = "";
   input_docpost_numb.value   = "";
   input_docpost_date.value   = "";
   input_docpost_numb1c.value = "";
@@ -1834,17 +1844,33 @@ function funcProcessGetInfoInputsDocpost(result, respobj){
 function addDocpostInfoInputs(statdocName, statdocUin, numb, date, numb1c, date1c, contrName, contrUin, storageName, storageUin, userName, userUin, prim){
   addToDropdownOneOption(select_docpost_statdoc, statdocName, statdocUin);
   addToDropdown(select_docpost_statdoc, "statusdoc_list");
-  addToDropdownOneOption(select_docpost_contr, contrName, contrUin);
-  addToDropdown(select_docpost_contr, "contragents_list");
   addToDropdownOneOption(select_docpost_storage, storageName, storageUin);
   addToDropdown(select_docpost_storage, "storages_list");
   addToDropdownOneOption(select_docpost_user, userName, userUin);
   addToDropdown(select_docpost_user, "users_list");
-  input_docpost_numb.value = numb;
-  input_docpost_date.value = date;
+  input_docpost_contr.value  = contrName;
+  input_docpost_numb.value   = numb;
+  input_docpost_date.value   = date;
   input_docpost_numb1c.value = numb1c;
   input_docpost_date1c.value = date1c;
-  input_docpost_prim.value = prim;
+  input_docpost_prim.value   = prim;
+}
+
+/* функция обновления поставки */
+function funcUpdateRowDocpost(elem){
+  let body  =  {"user":"demo", "meth":"update", "obj":"docpost","uin":"", "numb":"", "date":"", "prim":"", "uinstatus":"", "uinuser":"", "uinstorage":""};
+
+  body.uin        = localStorage.getItem("docpost_uin");
+  body.numb       = input_docpost_numb.value;
+  body.date       = input_docpost_date.value;
+  body.prim       = input_docpost_prim.value;
+  body.uinstatus  = select_docpost_statdoc.value;
+  body.uinuser    = select_docpost_user.value;
+  body.uinstorage = select_docpost_storage.value;
+
+  funcCommand(body, funcProcessOnlyInfo);
+  highlightButtonSaveModal(elem);
+  //setTimeout(function(){funcGetColors()}, 100);
 }
 
 function funcProcessGetInfoTableDocpost(result, respobj){
@@ -1861,31 +1887,49 @@ function funcProcessGetInfoTableDocpost(result, respobj){
     let compontUin  = obj.compont.uin;
     let measName    = obj.meas.name;
     let measUin     = obj.meas.uin;
+    let storageName = obj.storage.name;
+    let storageUin  = obj.storage.uin;
     let count       = obj.count;
     let del         = obj.del;
     let uin         = obj.uin;
-    addDocpostInfoTable(name, compontName, compontUin, measName, measUin, count, del, uin, tb_id);
+    addDocpostInfoTable(name, compontName, compontUin, measName, measUin, storageName, storageUin, count, del, uin, tb_id);
   }
 }
 
-function addDocpostInfoTable(name, compontName, compontUin, measName, measUin, count, del, uin, tb_id){
+function addDocpostInfoTable(name, compontName, compontUin, measName, measUin, storageName, storageUin, count, del, uin, tb_id){
   let tableRef = document.getElementById(tb_id);
   let newRow = tableRef.insertRow(-1);
 
   let cellName    = newRow.insertCell(0);
   let cellCompont = newRow.insertCell(1);
   let cellMeas    = newRow.insertCell(2);
-  let cellCount   = newRow.insertCell(3);
-  let cellBtn     = newRow.insertCell(4);
+  let cellStorage = newRow.insertCell(3);
+  let cellCount   = newRow.insertCell(4);
+  let cellBtn     = newRow.insertCell(5);
 
-  cellName.innerHTML = `<input type="text" value="${name}" class="input_component_1c" disabled style="width:80%">`;
+  cellName.innerHTML = `<input type="text" value="${name}" class="input_component_1c" disabled style="width:90%">`;
   cellCompont.innerHTML = `<button class="button_select" id="docpost_component_${uin}" value="${compontUin}" onclick="funcComponentsSelect(this)">${compontName}</button>`;
-  cellMeas.innerHTML = `<input type="text" value="${measName}" name="${measUin}" id="docpost_meas_${uin}" disabled>`;
-  cellCount.innerHTML = `<input type="text" value="${count}" id="docpost_count_${uin}">`;
+  makeSelectForСompositeTables(uin, measName, measUin, "meas_list", "docpost_meas_select_", "docpost_meas_select", "docpost_meas_select", cellMeas);
+  makeSelectForСompositeTables(uin, storageName, storageUin, "storages_list", "docpost_storage_select_", "docpost_storage_select", "docpost_storage_select", cellStorage);
+  cellCount.innerHTML = `<input type="text" value="${count}" name="docpost_count_${uin}">`;
 
   let bx_color;
   del === 0 ? bx_color = "inherit" : bx_color = "red"; cellBtn.classList = "cell_button";
-  cellBtn.innerHTML = `<button class="button_control" onclick="funcUpdateRowColors(${uin},'${name}',this)" disabled><img src="../images/button/chb/checkbox.svg"></button>&nbsp;&nbsp;&nbsp;<button class="button_control" style="background:${bx_color}" onclick="funcMdelRowColors(${uin},this)" disabled><img src="../images/button/cross_w.svg"></button>`;
+  cellBtn.innerHTML = `<button class="button_control" onclick="funcUpdateRowDocpostInfoTable(${uin},${measUin},${storageUin},this)"><img src="../images/button/chb/checkbox.svg"></button>&nbsp;&nbsp;&nbsp;<button class="button_control" style="background:${bx_color}" onclick="funcMdelRowColors(${uin},this)" disabled><img src="../images/button/cross_w.svg"></button>`;
+}
+
+function funcUpdateRowDocpostInfoTable(uin, measUin, storageUin, elem){
+  let body  =  {"user":"demo", "meth":"update", "obj":"compontpost", "uin":`${uin}`, "uincompont":"", "uinstorage":"", "uinmeas":"", "count":""};
+
+  let target_table = tb_modal_docpost;
+  body.uincompont  = document.getElementById(`docpost_component_${uin}`).value;
+  body.uinmeas     = findForUpdateSelectFormula(uin, measUin, target_table, "docpost_meas_select_");
+  body.uinstorage  = findForUpdateSelectFormula(uin, storageUin, target_table, "docpost_storage_select_");
+  body.count       = findForUpdateInput(`docpost_count_${uin}`, target_table);
+
+  funcCommand(body, funcProcessOnlyInfo);
+  highlightButtonSave(elem);
+  setTimeout(function(){funcGetInfoTableDocpost(localStorage.getItem("docpost_uin"))}, 150);
 }
 
 ////////// СПРАВОЧНИКИ //////////
@@ -1949,7 +1993,7 @@ function funcUpdateRowColors(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetColors()}, 100);
 }
 
@@ -2032,7 +2076,7 @@ function funcUpdateRowVerapp(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetVerapp()}, 100);
 }
 
@@ -2115,7 +2159,7 @@ function funcUpdateRowVerpp(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetVerpp()}, 100);
 }
 
@@ -2241,19 +2285,22 @@ function addComponents(name, fUnic, typelm, del, uin, tb_id){
 
 /* модальное окно */
 let modal_info_component = document.getElementById("modal_info_component");
-let span_info = document.getElementById("close_info");
+let span_info_component = document.getElementById("close_info");
 let component_input_name = document.getElementById("component_name");
 let component_select_type = document.getElementById("component_type");
 let component_checkbox_funic = document.getElementById("component_unic");
 let component_select_typesprops_add_name = document.getElementById("component_info_add_props_select");
 let component_select_typesprops_name = document.getElementsByClassName("component_info_props_select");
 
-span_info.onclick = function() {
-  if(location.hash === "#directory/components" || location.hash === "#dir_components/components"){
-    modal_info_component.style.display = "none";
-  } else {
-    modal_info_component.style.display = "none";
-    modal_select_component.style.display = "block";
+span_info_component.onclick = function(){
+  let result = confirm("Вы покидаете окно редактирования комплектующего! Вы сохранили все изменения?");
+  if(result === true){
+    if(location.hash === "#dir_components/components"){
+      modal_info_component.style.display = "none";
+    } else {
+      modal_info_component.style.display = "none";
+      modal_select_component.style.display = "block";
+    }
   }
 }
 
@@ -2353,6 +2400,7 @@ function funcUpdateRowComponents(elem){
   body.fUnic    = fUnic_value;
 
   funcCommand(body, funcProcessOnlyInfo);
+  highlightButtonSaveModal(elem);
   setTimeout(function(){clearTable("tb_components_tree")}, 100);
   setTimeout(function(){funcGetComponents(localStorage.getItem("uincatC"))}, 150);
 }
@@ -2376,6 +2424,7 @@ function funcAddComponents(elem){
     body.fUnic      = fUnic_value;
 
     funcCommand(body, funcProcessOnlyInfo);
+    highlightButtonSaveModal(elem);
     setTimeout(function(){clearTable("tb_modal_info_component")}, 100);
     setTimeout(function(){clearTable("tb_components_tree")}, 150);
     setTimeout(function(){funcGetComponents(localStorage.getItem("uincatC"))}, 200);
@@ -2575,7 +2624,7 @@ function funcUpdateComponentInfoProps(uin, uincompont, propsUin, elem){
   body.perc     = findForUpdateInput(`component_info_perc_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   funcGetComponentInfo(uincompont);
   setTimeout(function(){funcGetComponentInfoProps(uincompont)}, 100);
 }
@@ -2612,8 +2661,20 @@ function funcAddComponentInfoProps(elem){
 }
 
 /* каталог комплектующие дерево выбор */
+/* модальное окно */
+let modal_select_component = document.getElementById("modal_select_component");
+let span_select_component = document.getElementById("close_component_select");
+
+span_select_component.onclick = function() {
+  if(window.location.hash.includes("_formula")){
+    modal_select_component.style.display = "none";
+  } else {
+    modal_select_component.style.display = "none";
+    modal_info_docpost.style.display = "block";
+  }
+}
 function funcComponentsSelect(elem){
-  if(window.location.hash === "#directory/sets/sets_formula" || window.location.hash === "#directory/products/products_formula"){
+  if(window.location.hash.includes("_formula")){
     modal_select_component.style.display = "block";
   } else {
     modal_info_docpost.style.display = "none";
@@ -2643,8 +2704,6 @@ function funcProcessGetComponentsTreeSelect(result, respobj){
     let objNode = data.instance.get_node(data.selected);
 
     let uin = objNode.id;
-    let tb_id = "tb_component_select";
-    clearTableAll(tb_id);
 
     let body  =  {"user":"demo", "meth":"view","obj":"dirC", "uin":`${uin}`, "count":"5000" };
     funcCommand(body, funcProcessGetComponentsSelect);
@@ -2659,6 +2718,8 @@ function funcProcessGetComponentsSelect(result, respobj){
   if( result === 0 ) return;
 
   let tb_id = "tb_component_select"
+  clearTableAll(tb_id);
+
   for (let key in respobj.answ){
     let set = respobj.answ[key];
     let name = set.name;
@@ -2694,7 +2755,7 @@ function addComponentsSelect(name, del, uin, tb_id){
 function funcComponentsSelectTakeUin(elem){
   result = confirm("Подтверждаете выбор комплектующего?");
   if(result === true){
-    if(window.location.hash === "#directory/sets/sets_formula" || window.location.hash === "#directory/products/products_formula"){    
+    if(window.location.hash.includes("_formula")){    
       modal_select_component.style.display = "none";
     } else {
       modal_select_component.style.display = "none";
@@ -2767,7 +2828,7 @@ function funcUpdateRowMeas(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetMeas()}, 100);
 }
 
@@ -2853,7 +2914,7 @@ function funcUpdateRowTypeselem(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetTypeselem()}, 100);
 }
 
@@ -3068,7 +3129,7 @@ function funcUpdateRowProps(uin, name, uinmeas, elem){
   body.uinmeas = findForUpdateSelect(uinmeas, target_table, "props_select_");
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetProps()}, 100);
 }
 
@@ -3165,7 +3226,7 @@ function funcUpdateRowContragents(uin, elem){
   body.address = findForUpdateInput(`address_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetContragents()}, 100);
 }
 
@@ -3258,7 +3319,7 @@ function funcUpdateRowStorages(uin, elem){
   body.name = findForUpdateInput(`name_${uin}`, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetStorages()}, 100);
 }
 
@@ -3341,7 +3402,7 @@ function funcUpdateRowStatuses(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setInterval(function(){location.reload();}, 500);
 }
 
@@ -3426,7 +3487,7 @@ function funcUpdateRowStatussn(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetStatussn()}, 100);
 }
 
@@ -3511,7 +3572,7 @@ function funcUpdateRowStatusDoc(uin, name, elem){
   body.name = findForUpdateInput(name, target_table);
 
   funcCommand(body, funcProcessOnlyInfo);
-  highlight(elem);
+  highlightButtonSave(elem);
   setTimeout(function(){funcGetStatusDoc()}, 100);
 }
 
@@ -3558,11 +3619,18 @@ function funcProcessOnlyInfo(result, respobj){
 }
 
 /* изменение цвета кнопки обновления */
-function highlight(obj){
+function highlightButtonSave(obj){
   obj.style.background = "green";
   setTimeout(function(){
     obj.style.background = "inherit";
-  }, 3000);
+  }, 1000);
+}
+
+function highlightButtonSaveModal(obj){
+  obj.style.background = "green";
+  setTimeout(function(){
+    obj.style.background = "var(--expand-button-active)";
+  }, 2000);
 }
 
 /* поиск input для обновления */
@@ -3951,19 +4019,32 @@ expand_btn.addEventListener("click", () => {
 });
 
 /* sidebar tabs */
-function openTabSidebar(evt, tabName) {
+function openTabSidebar(evt, tabName, elem) {
   let i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("sidebar_tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("sidebar_tablinks");
+  tablinks = document.getElementsByClassName("tablinks_main");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   document.getElementById(tabName).style.display = "flex";
   document.getElementById(tabName).style.flexDirection = "column";
   evt.currentTarget.className += " active";
+
+  for(let key in tablinks){
+    if(tablinks[key].className === "icon-link tablinks_main active"){
+      localStorage.setItem("buisness_tab_main_active", elem.id);
+    }
+  }
+
+  if(elem.id === "link_provider" || elem.id === "link_storage"){
+    //document.getElementById(localStorage.getItem("buisness_tab_first_active")).classList.remove("active");
+    localStorage.removeItem("buisness_tab_first_active");
+    localStorage.removeItem("buisness_tab_second_active");
+    localStorage.removeItem("buisness_tab_third_active");
+  }
 }
 
 /* 1 вкладка */
@@ -3975,8 +4056,6 @@ function openTabFirst(evt) {
 
   evt.currentTarget.className += " active";
   evt.currentTarget.parentElement.parentElement.previousElementSibling.click();
-  //console.log(evt.currentTarget.parentElement.parentElement.previousElementSibling.childNodes)
-  //evt.currentTarget.parentElement.parentElement.previousElementSibling.childNodes[3].click();
 
   for(let key in tablinks){
     if(tablinks[key].className === "tablinks_first active"){
@@ -4016,7 +4095,6 @@ function openTabThird(evt, first_class, second_class, func) {
   }
 
   localStorage.setItem("buisness_tab_third_active", second_class);
-  localStorage.getItem("buisness_tab_third_active");
 }
 
 /* переклуючение таблиц */
